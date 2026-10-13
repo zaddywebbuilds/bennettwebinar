@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Webinar Deck &mdash; Oil &amp; Gas Tax Structures</title>
+<meta name="description" content="Presentation framework for the OilTaxPro educational webinar. Concept deck built for Bennett Walsh.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ink:#070B14; --ink-2:#0C1220; --ink-3:#121A2B; --panel:#0E1626;
+  --line:rgba(184,146,63,.22); --line-soft:rgba(214,220,235,.09);
+  --paper:#F2EFE6; --paper-2:#BDC4D4; --paper-3:#76819B;
+  --gold:#B8923F; --gold-lt:#D9B463; --flag:#8FA67E; --warn:#C98A6A;
+  --f-disp:'Instrument Serif',Georgia,serif;
+  --f-body:'IBM Plex Sans',system-ui,sans-serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{height:100%;margin:0;max-width:100%;overflow:hidden}
+body{
+  background:var(--ink);color:var(--paper);font-family:var(--f-body);
+  font-weight:300;-webkit-font-smoothing:antialiased;
+  display:flex;flex-direction:column;
+}
+h1,h2,h3{margin:0;font-weight:400}
+p{margin:0}
+
+/* ── stage ── */
+.stage{flex:1 1 auto;display:grid;place-items:center;padding:28px 28px 8px;min-height:0}
+.deck{
+  width:100%;max-width:1180px;aspect-ratio:16/9;max-height:100%;
+  position:relative;border:1px solid var(--line-soft);border-radius:4px;
+  background:linear-gradient(170deg,var(--ink-2),var(--ink) 60%);overflow:hidden;
+}
+.slide{
+  position:absolute;inset:0;padding:clamp(26px,4.4vw,58px);
+  display:none;flex-direction:column;justify-content:center;gap:16px;
+  container-type:inline-size;
+}
+.slide.on{display:flex;animation:fade .32s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+.kicker{
+  font-family:var(--f-mono);font-size:clamp(9px,1.05cqw,12px);letter-spacing:.2em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:4px;
+}
+.slide h2{font-family:var(--f-disp);font-size:clamp(26px,4.6cqw,52px);line-height:1.08;letter-spacing:-.012em;text-wrap:balance}
+.slide h2 i{font-style:italic;color:var(--gold-lt)}
+.slide h3{font-family:var(--f-disp);font-size:clamp(19px,2.5cqw,30px);line-height:1.2}
+.slide .body{font-size:clamp(12px,1.5cqw,18px);color:var(--paper-2);line-height:1.68;max-width:72ch}
+.slide .small{font-size:clamp(10px,1.15cqw,14px);color:var(--paper-3);line-height:1.6}
+
+/* title slide */
+.slide.title{justify-content:center;text-align:left}
+.slide.title::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(760px 380px at 78% 18%,rgba(184,146,63,.13),transparent 68%);
+}
+.slide.title > *{position:relative;z-index:1}
+.brandmark{font-family:var(--f-disp);font-size:clamp(17px,2cqw,25px);letter-spacing:.01em}
+.brandmark i{font-style:italic;color:var(--gold)}
+.byline{display:flex;flex-wrap:wrap;gap:clamp(18px,3cqw,44px);margin-top:clamp(14px,2.4cqw,30px);border-top:1px solid var(--line-soft);padding-top:clamp(12px,1.8cqw,20px)}
+.byline div{min-width:0}
+.byline dt{font-family:var(--f-mono);font-size:clamp(8px,.92cqw,11px);letter-spacing:.16em;text-transform:uppercase;color:var(--paper-3);margin-bottom:5px}
+.byline dd{margin:0;font-size:clamp(11px,1.3cqw,16px)}
+
+/* section divider */
+.slide.divider{justify-content:center}
+.div-n{font-family:var(--f-disp);font-size:clamp(54px,11cqw,128px);line-height:.9;color:rgba(184,146,63,.26)}
+.slide.divider h2{margin-top:clamp(4px,.8cqw,10px)}
+
+/* lists */
+.pts{display:grid;gap:clamp(9px,1.5cqw,18px);margin-top:clamp(6px,1cqw,12px)}
+.pt{display:grid;grid-template-columns:auto 1fr;gap:clamp(11px,1.6cqw,20px);align-items:start}
+.pt-m{
+  font-family:var(--f-mono);font-size:clamp(9px,1.05cqw,13px);color:var(--gold);
+  padding-top:.35em;letter-spacing:.06em;
+}
+.pt-b{font-size:clamp(11.5px,1.42cqw,17px);color:var(--paper-2);line-height:1.6;max-width:68ch}
+.pt-b b{color:var(--paper);font-weight:500}
+
+/* columns */
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:3px;overflow:hidden;margin-top:clamp(8px,1.4cqw,16px)}
+.col{background:var(--ink-2);padding:clamp(13px,1.9cqw,24px);display:flex;flex-direction:column;gap:7px;min-width:0}
+.col.hi{background:rgba(184,146,63,.07)}
+.col-k{font-family:var(--f-mono);font-size:clamp(8px,.92cqw,11px);letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.col.mute .col-k{color:var(--paper-3)}
+.col h4{margin:0;font-size:clamp(11.5px,1.32cqw,16px);font-weight:500;line-height:1.3}
+.col p{font-size:clamp(10px,1.12cqw,13.5px);color:var(--paper-3);line-height:1.55}
+
+/* callout */
+.callout{
+  border-left:2px solid var(--gold);background:rgba(184,146,63,.07);
+  padding:clamp(12px,1.8cqw,22px) clamp(14px,2cqw,26px);border-radius:0 3px 3px 0;
+  margin-top:clamp(8px,1.4cqw,16px);
+}
+.callout.warn{border-left-color:var(--warn);background:rgba(201,138,106,.07)}
+.callout p{font-size:clamp(11px,1.32cqw,16px);color:var(--paper);line-height:1.6;max-width:70ch}
+.callout .lbl{font-family:var(--f-mono);font-size:clamp(8px,.92cqw,11px);letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:7px}
+.callout.warn .lbl{color:var(--warn)}
+
+/* ── chrome ── */
+.bar{
+  flex:0 0 auto;display:flex;align-items:center;gap:16px;
+  padding:10px 22px calc(10px + env(safe-area-inset-bottom,0px));
+  border-top:1px solid var(--line-soft);background:var(--ink-2);
+  font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--paper-3);
+}
+.bar .tag{color:var(--gold-lt);white-space:nowrap}
+.bar .spacer{flex:1 1 auto;min-width:0}
+.track{flex:1 1 180px;max-width:320px;height:2px;background:var(--line-soft);border-radius:2px;overflow:hidden;min-width:60px}
+.track span{display:block;height:100%;background:var(--gold);width:0;transition:width .3s}
+.cnt{font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar button{
+  font:inherit;letter-spacing:.1em;text-transform:uppercase;color:var(--paper-3);
+  background:transparent;border:1px solid var(--line-soft);border-radius:2px;
+  padding:5px 11px;cursor:pointer;transition:color .15s,border-color .15s;white-space:nowrap;
+}
+.bar button:hover{color:var(--gold-lt);border-color:var(--line)}
+.bar button:focus-visible{outline:2px solid var(--gold-lt);outline-offset:2px}
+.hint{white-space:nowrap}
+@media(max-width:760px){.hint,.bar .tag{display:none}}
+
+/* notes */
+.notes{
+  flex:0 0 auto;max-height:28vh;overflow-y:auto;border-top:1px solid var(--line);
+  background:var(--ink-3);padding:16px 22px calc(16px + env(safe-area-inset-bottom,0px));
+}
+.notes[hidden]{display:none}
+.notes .lbl{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.notes p{font-size:13.5px;color:var(--paper-2);line-height:1.65;max-width:94ch}
+
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<main class="stage">
+  <div class="deck" id="deck" tabindex="0" aria-label="Webinar slide deck">
+
+  <!-- 1 -->
+  <section class="slide title on" data-note="Open on time. Thirty-second welcome, then straight into what this is and is not. Do not start with your story.">
+    <p class="brandmark">Oil<i>Tax</i>Pro</p>
+    <h2 style="margin-top:.5em">How oil &amp; gas tax structures <i>actually</i> work.</h2>
+    <p class="body" style="margin-top:.4em">An educational session for accredited investors and qualifying high-income professionals.</p>
+    <dl class="byline">
+      <div><dt>Presented by</dt><dd>Bennett Walsh</dd></div>
+      <div><dt>Duration</dt><dd>60 minutes + Q&amp;A</dd></div>
+      <div><dt>Content</dt><dd>Educational only</dd></div>
+      <div><dt>Offer presented</dt><dd>None</dd></div>
+    </dl>
+  </section>
+
+  <!-- 2 -->
+  <section class="slide" data-note="Say this plainly and slowly. It is the single biggest trust-builder in the session and it separates you from every pitch they have sat through.">
+    <p class="kicker">Before we start</p>
+    <h2>What this is, and what it is not.</h2>
+    <div class="cols">
+      <div class="col hi"><span class="col-k">This is</span><h4>An explanation of mechanisms</h4><p>Where the deductions come from, how timing works, what the risks are, and how to judge whether any of it is relevant to you.</p></div>
+      <div class="col mute"><span class="col-k">This is not</span><h4>An offer or a pitch</h4><p>Nothing is for sale on this session. No deal is presented, no projections are shown, and no one will chase you afterwards.</p></div>
+    </div>
+    <div class="callout"><p class="lbl">Say it out loud</p><p>If you leave tonight deciding this asset class is not for you, this session did its job. That is a legitimate outcome and a common one.</p></div>
+  </section>
+
+  <!-- 3 -->
+  <section class="slide" data-note="Keep this to ninety seconds. Credibility, not biography. The reinvest figure matters more than anything else here.">
+    <p class="kicker">Who is talking</p>
+    <h2>Bennett Walsh</h2>
+    <p class="body">I work in investor relations. My job is to sit between accredited investors and the operators who drill. I read every deal, I invest my own capital alongside my partners, and I only bring forward what I am willing to hold myself.</p>
+    <div class="cols">
+      <div class="col"><span class="col-k">Investors</span><h4>250+</h4><p>Worked with to date</p></div>
+      <div class="col"><span class="col-k">Capital placed</span><h4>$30M+</h4><p>Into private oil and gas deals</p></div>
+      <div class="col"><span class="col-k">Reinvest</span><h4>~90%</h4><p>Choose to come back</p></div>
+    </div>
+    <p class="small">I do not sell courses or newsletters. There is a qualification process and a minimum, and I will say so when something is not a fit.</p>
+  </section>
+
+  <!-- 4 -->
+  <section class="slide" data-note="This is the pain slide. Read the room. Most attendees will recognise themselves in two or three of these. Do not rush it.">
+    <p class="kicker">The usual experience</p>
+    <h2>How most high earners meet this asset class.</h2>
+    <div class="pts">
+      <div class="pt"><span class="pt-m">01</span><p class="pt-b"><b>At dinner.</b> A friend mentions an enormous write-off. No detail, no context, no idea whether it applied to their situation or yours.</p></div>
+      <div class="pt"><span class="pt-m">02</span><p class="pt-b"><b>In the inbox.</b> A flashy pitch with a countdown timer and a webinar promising the secrets of the rich. You ignored it, correctly.</p></div>
+      <div class="pt"><span class="pt-m">03</span><p class="pt-b"><b>Too late.</b> Someone asks for a six-figure decision in December, and nobody has explained the mechanism in a way that holds up.</p></div>
+      <div class="pt"><span class="pt-m">04</span><p class="pt-b"><b>Never.</b> Your CPA files accurately and moves on, because planning ahead was not what you engaged them to do.</p></div>
+    </div>
+    <div class="callout"><p>The problem was never that you had not heard of it. It is that nobody explained it in a way you could actually evaluate.</p></div>
+  </section>
+
+  <!-- 5 -->
+  <section class="slide divider" data-note="Transition. Pause, let the number land, then move.">
+    <p class="div-n">01</p>
+    <p class="kicker">Section one</p>
+    <h2>Why this asset class draws high-income capital.</h2>
+  </section>
+
+  <!-- 6 -->
+  <section class="slide" data-note="The key teaching point: the tax treatment follows the structure, not the commodity. Most people conflate all four of these.">
+    <p class="kicker">Four different things people call &ldquo;oil and gas&rdquo;</p>
+    <h2>The structure is what determines treatment.</h2>
+    <div class="cols">
+      <div class="col mute"><span class="col-k">Energy equities</span><h4>Public stock</h4><p>You own shares in a company. Liquid. No direct tax attributes pass to you.</p></div>
+      <div class="col mute"><span class="col-k">Royalties</span><h4>Revenue interest</h4><p>A share of production revenue, free of operating costs. Different treatment again.</p></div>
+      <div class="col mute"><span class="col-k">Funds</span><h4>Pooled vehicle</h4><p>A manager allocates across projects. Attributes depend entirely on the fund&rsquo;s own structure.</p></div>
+      <div class="col hi"><span class="col-k">What we discuss</span><h4>Non-operated working interest</h4><p>A direct interest in the well itself. You are a capital partner, not an operator.</p></div>
+    </div>
+    <p class="small">The word is the same in all four cases. The tax treatment is not. Almost every misunderstanding starts here.</p>
+  </section>
+
+  <!-- 7 -->
+  <section class="slide" data-note="Explain non-operated carefully. People hear working interest and picture themselves owning a rig. Kill that image.">
+    <p class="kicker">What non-operated means</p>
+    <h2>A capital partner, not an operator.</h2>
+    <div class="pts">
+      <div class="pt"><span class="pt-m">&mdash;</span><p class="pt-b"><b>The operator runs the well.</b> They permit it, drill it, complete it, and manage production. Some are large public names, others are private teams most investors never encounter.</p></div>
+      <div class="pt"><span class="pt-m">&mdash;</span><p class="pt-b"><b>You contribute capital for a share of the interest.</b> No property to manage, no staff, no daily operational decisions.</p></div>
+      <div class="pt"><span class="pt-m">&mdash;</span><p class="pt-b"><b>You hold a direct working interest.</b> That direct ownership is precisely why the tax attributes of the drilling activity can reach your return, rather than stopping at a corporate entity.</p></div>
+      <div class="pt"><span class="pt-m">&mdash;</span><p class="pt-b"><b>It also means you carry the risk directly.</b> We will spend real time on that in section four.</p></div>
+    </div>
+  </section>
+
+  <!-- 8 -->
+  <section class="slide divider" data-note="Transition. This is the section everyone came for. Slow down.">
+    <p class="div-n">02</p>
+    <p class="kicker">Section two</p>
+    <h2>Where the deductions actually come from.</h2>
+  </section>
+
+  <!-- 9 -->
+  <section class="slide" data-note="Do not quote a percentage without its conditions. If you only do one thing right tonight, do this.">
+    <p class="kicker">Three distinct mechanisms</p>
+    <h2>Not one deduction. Three, with different rules.</h2>
+    <div class="cols">
+      <div class="col hi"><span class="col-k">Mechanism one</span><h4>Intangible drilling costs</h4><p>The non-salvageable costs of drilling: labour, fuel, fluids, site prep. The portion of a well that leaves nothing behind to sell.</p></div>
+      <div class="col hi"><span class="col-k">Mechanism two</span><h4>Tangible costs</h4><p>Equipment with salvage value &mdash; casing, wellhead, pumping units. Treated differently from intangibles and recovered over time.</p></div>
+      <div class="col hi"><span class="col-k">Mechanism three</span><h4>Depletion</h4><p>An allowance recognising that a reservoir is a finite resource being consumed as it produces.</p></div>
+    </div>
+    <div class="callout warn"><p class="lbl">The part that gets skipped</p><p>Every one of these carries conditions &mdash; on the structure, on your participation, on timing, and on your own tax position. A headline percentage quoted without those conditions is not information. It is marketing.</p></div>
+  </section>
+
+  <!-- 10 -->
+  <section class="slide" data-note="Analogy that lands: you are deducting the hole, not the hardware. Then immediately give the conditions.">
+    <p class="kicker">Mechanism one, in plain terms</p>
+    <h2>Intangible costs are the spend that leaves nothing to sell.</h2>
+    <p class="body">Drilling a well consumes labour, fuel, drilling fluid, and site preparation. When the work is done, none of that can be recovered and resold. Tax policy has long treated that category differently from equipment, because encouraging domestic drilling was a deliberate choice by Congress, not an accident or a loophole.</p>
+    <div class="callout warn"><p class="lbl">Conditions, not footnotes</p><p>Whether any of this reaches your return depends on how the interest is held, the nature of your participation, when the capital was deployed, and your own circumstances. Two investors in the same well can face different outcomes.</p></div>
+  </section>
+
+  <!-- 11 -->
+  <section class="slide" data-note="This slide stops the dinner-party number. Expect questions. Welcome them.">
+    <p class="kicker">Why the headline numbers mislead</p>
+    <h2>The same well, two different investors.</h2>
+    <div class="cols">
+      <div class="col"><span class="col-k">Determines outcome</span><h4>How the interest is held</h4><p>Direct working interest, versus a pooled or corporate wrapper.</p></div>
+      <div class="col"><span class="col-k">Determines outcome</span><h4>When capital was deployed</h4><p>Relative to the drilling calendar and the tax year.</p></div>
+      <div class="col"><span class="col-k">Determines outcome</span><h4>Your own tax position</h4><p>Income type, offsetting activity, and what your return already contains.</p></div>
+    </div>
+    <p class="body" style="margin-top:.6em">This is why I will not give you a number tonight. Anyone who gives you one before knowing these three things is guessing, and you should treat it accordingly.</p>
+  </section>
+
+  <!-- 12 -->
+  <section class="slide divider" data-note="Transition. Timing is the most underrated section and the one that actually drives December urgency honestly.">
+    <p class="div-n">03</p>
+    <p class="kicker">Section three</p>
+    <h2>Why timing decides the outcome.</h2>
+  </section>
+
+  <!-- 13 -->
+  <section class="slide" data-note="Honest urgency: the calendar is real, the pressure is not manufactured. Never say act now.">
+    <p class="kicker">The calendar is a mechanism, not a sales tactic</p>
+    <h2>The same decision, eight weeks apart.</h2>
+    <div class="pts">
+      <div class="pt"><span class="pt-m">&mdash;</span><p class="pt-b"><b>Drilling has a schedule.</b> A well is permitted, spudded, drilled, and completed on a timeline that does not bend to anyone&rsquo;s tax year.</p></div>
+      <div class="pt"><span class="pt-m">&mdash;</span><p class="pt-b"><b>Tax years close.</b> Whether activity falls inside one year or the next is not a detail. For this asset class it is frequently the whole question.</p></div>
+      <div class="pt"><span class="pt-m">&mdash;</span><p class="pt-b"><b>Rushing is its own risk.</b> A December decision made without diligence is a bad decision that happens to be timely. That is not an improvement.</p></div>
+    </div>
+    <div class="callout"><p>The deadline is real. That is not a reason to hurry a decision &mdash; it is a reason to start the evaluation early enough that you never have to.</p></div>
+  </section>
+
+  <!-- 14 -->
+  <section class="slide divider" data-note="Say the transition line: this is not the disclaimer section, it is the reason the session exists.">
+    <p class="div-n">04</p>
+    <p class="kicker">Section four</p>
+    <h2>The risks, stated directly.</h2>
+  </section>
+
+  <!-- 15 -->
+  <section class="slide" data-note="Do not soften any of these. Credibility is built here. Slow pace, no jokes.">
+    <p class="kicker">What can go wrong</p>
+    <h2>This is where capital is actually lost.</h2>
+    <div class="pts">
+      <div class="pt"><span class="pt-m">01</span><p class="pt-b"><b>Geological risk.</b> Wells can underperform or fail to produce commercially. Capital committed to a well that does not deliver is capital at risk of total loss.</p></div>
+      <div class="pt"><span class="pt-m">02</span><p class="pt-b"><b>Commodity price exposure.</b> Returns depend on prices you do not control and nobody reliably predicts.</p></div>
+      <div class="pt"><span class="pt-m">03</span><p class="pt-b"><b>Illiquidity.</b> There is no exit button. Assume your capital is committed for the life of the project.</p></div>
+      <div class="pt"><span class="pt-m">04</span><p class="pt-b"><b>Operator quality.</b> The single largest variable. A good operator on a mediocre prospect beats a poor operator on a strong one.</p></div>
+      <div class="pt"><span class="pt-m">05</span><p class="pt-b"><b>Capital calls and cost overruns.</b> Understand your obligations beyond the initial contribution before you commit anything.</p></div>
+    </div>
+  </section>
+
+  <!-- 16 -->
+  <section class="slide" data-note="The most important sentence in the entire deck. Say it twice if you need to.">
+    <p class="kicker">The distinction that matters most</p>
+    <h2>A potential benefit is not a <i>guaranteed</i> one.</h2>
+    <div class="cols">
+      <div class="col mute"><span class="col-k">What people hear</span><h4>&ldquo;A guaranteed write-off&rdquo;</h4><p>A fixed outcome, certain in advance, independent of circumstances.</p></div>
+      <div class="col hi"><span class="col-k">What is true</span><h4>A conditional treatment</h4><p>A tax treatment that may apply, depending on structure, timing, participation, and your individual position &mdash; applied to an investment that can lose money.</p></div>
+    </div>
+    <div class="callout warn"><p class="lbl">Worth saying plainly</p><p>A tax benefit on an investment that loses capital is not a win. The investment has to make sense on its own merits first. If it only works because of the tax treatment, it does not work.</p></div>
+  </section>
+
+  <!-- 17 -->
+  <section class="slide divider" data-note="Transition to the practical section. Tell them to get a pen.">
+    <p class="div-n">05</p>
+    <p class="kicker">Section five</p>
+    <h2>The questions to ask before you write a cheque.</h2>
+  </section>
+
+  <!-- 18 -->
+  <section class="slide" data-note="Tell them explicitly: ask me these too. That line does more for trust than anything else in the hour.">
+    <p class="kicker">Take this to any sponsor</p>
+    <h2>Eight questions. Including to me.</h2>
+    <div class="pts">
+      <div class="pt"><span class="pt-m">01</span><p class="pt-b">Who is the operator, what have they drilled before, and what happened?</p></div>
+      <div class="pt"><span class="pt-m">02</span><p class="pt-b">Exactly what interest am I acquiring, and how is it held?</p></div>
+      <div class="pt"><span class="pt-m">03</span><p class="pt-b">What is the full cost structure, including every fee and who receives it?</p></div>
+      <div class="pt"><span class="pt-m">04</span><p class="pt-b">What obligations exist beyond my initial contribution?</p></div>
+      <div class="pt"><span class="pt-m">05</span><p class="pt-b">What is the realistic timeline from commitment to first production?</p></div>
+      <div class="pt"><span class="pt-m">06</span><p class="pt-b">What happens to my capital if this well underperforms?</p></div>
+      <div class="pt"><span class="pt-m">07</span><p class="pt-b">Does the sponsor invest their own money on the same terms as mine?</p></div>
+      <div class="pt"><span class="pt-m">08</span><p class="pt-b">What documentation will I receive, and when?</p></div>
+    </div>
+  </section>
+
+  <!-- 19 -->
+  <section class="slide" data-note="Position them as the informed client of their own CPA. This reframes the CPA from gatekeeper to ally.">
+    <p class="kicker">How to raise it with your CPA</p>
+    <h2>Change the question you bring them.</h2>
+    <div class="cols">
+      <div class="col mute"><span class="col-k">Backward looking</span><h4>&ldquo;What do I owe?&rdquo;</h4><p>Asked in March, about a year that has already closed. Nothing can be changed by then.</p></div>
+      <div class="col hi"><span class="col-k">Forward looking</span><h4>&ldquo;What should I be evaluating before year end, and what would rule it out?&rdquo;</h4><p>Asked with time to act, and specific enough to get a real answer.</p></div>
+    </div>
+    <p class="body" style="margin-top:.6em">This is designed to sit beside your CPA, never to replace them. Bring them the structure and let them tell you how it interacts with your actual return.</p>
+  </section>
+
+  <!-- 20 -->
+  <section class="slide" data-note="The only CTA in the session. Deliver it calmly, once, then stop talking and go to Q&A. Do not repeat it.">
+    <p class="kicker">What happens next</p>
+    <h2>Three honest options.</h2>
+    <div class="cols">
+      <div class="col mute"><span class="col-k">Option one</span><h4>Decide it is not for you</h4><p>Entirely legitimate, and the right answer for most people. Nothing further happens.</p></div>
+      <div class="col mute"><span class="col-k">Option two</span><h4>Take the framework away</h4><p>Use the eight questions on whatever crosses your desk, from me or from anyone else.</p></div>
+      <div class="col hi"><span class="col-k">Option three</span><h4>Request a suitability call</h4><p>A one-to-one conversation about whether this is relevant to your income, liquidity, and timeline. There is a qualification process and a minimum. If it is not a fit, I will tell you.</p></div>
+    </div>
+  </section>
+
+  <!-- 21 -->
+  <section class="slide" data-note="Stay to the end. The questions asked late are the ones that convert, and the recording of this section is reusable content.">
+    <p class="kicker">Open floor</p>
+    <h2>Questions.</h2>
+    <p class="body">Ask the awkward ones. The ones about what goes wrong are usually the most useful, and they are the reason this session is worth sitting through.</p>
+    <p class="small" style="margin-top:.8em">A replay and a short written summary will reach everyone registered, whether or not you attended live.</p>
+  </section>
+
+  <!-- 22 -->
+  <section class="slide" data-note="Leave this on screen while the room empties and while the recording finishes. Do not skip it.">
+    <p class="kicker">Important disclosures</p>
+    <h2>Before you go.</h2>
+    <p class="small" style="max-width:88ch;line-height:1.72">This session is educational and does not constitute financial, tax, legal, or investment advice, nor an offer to sell or a solicitation of an offer to buy any security or interest. No specific outcome, tax treatment, deduction, or return has been promised or implied.</p>
+    <p class="small" style="max-width:88ch;line-height:1.72">Oil and gas investments involve substantial risk, including total loss of capital. They are illiquid, long-horizon, and speculative, and are not suitable for all investors. Availability may be limited to verified accredited investors. Any potential tax treatment depends on the specific structure, the timing of deployment, and individual circumstances. Consult your own CPA, tax adviser, and legal counsel before making any decision.</p>
+    <p class="small" style="max-width:88ch">Figures describing past activity are not a prediction or guarantee of future results.</p>
+  </section>
+
+  </div>
+</main>
+
+<div class="bar">
+  <span class="tag">Concept deck &mdash; built for Bennett Walsh</span>
+  <span class="spacer"></span>
+  <button type="button" id="prev" aria-label="Previous slide">&larr; Prev</button>
+  <span class="cnt"><span id="cur">1</span> / <span id="tot">22</span></span>
+  <button type="button" id="next" aria-label="Next slide">Next &rarr;</button>
+  <span class="track" aria-hidden="true"><span id="fill"></span></span>
+  <button type="button" id="notesBtn" aria-pressed="false">Notes</button>
+  <span class="hint">&larr; &rarr; to navigate &middot; N for notes</span>
+</div>
+
+<aside class="notes" id="notes" hidden>
+  <p class="lbl">Presenter note</p>
+  <p id="noteText"></p>
+</aside>
+
+<script>
+(function(){
+  "use strict";
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var cur = 0;
+  var elCur = document.getElementById('cur');
+  var elTot = document.getElementById('tot');
+  var fill  = document.getElementById('fill');
+  var notes = document.getElementById('notes');
+  var noteText = document.getElementById('noteText');
+  var notesBtn = document.getElementById('notesBtn');
+  var deck = document.getElementById('deck');
+  elTot.textContent = slides.length;
+
+  function show(i){
+    cur = Math.max(0, Math.min(slides.length - 1, i));
+    slides.forEach(function(s, n){ s.classList.toggle('on', n === cur); });
+    elCur.textContent = cur + 1;
+    fill.style.width = ((cur + 1) / slides.length * 100) + '%';
+    noteText.textContent = slides[cur].getAttribute('data-note') || 'No note for this slide.';
+    try { location.hash = String(cur + 1); } catch(e) {}
+  }
+  function go(d){ show(cur + d); }
+
+  document.getElementById('next').addEventListener('click', function(){ go(1); deck.focus(); });
+  document.getElementById('prev').addEventListener('click', function(){ go(-1); deck.focus(); });
+
+  notesBtn.addEventListener('click', function(){
+    var open = notes.hidden;
+    notes.hidden = !open;
+    notesBtn.setAttribute('aria-pressed', open ? 'true' : 'false');
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.target && /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
+    var k = e.key;
+    if (k === 'ArrowRight' || k === 'PageDown' || k === ' ') { e.preventDefault(); go(1); }
+    else if (k === 'ArrowLeft' || k === 'PageUp') { e.preventDefault(); go(-1); }
+    else if (k === 'Home') { e.preventDefault(); show(0); }
+    else if (k === 'End')  { e.preventDefault(); show(slides.length - 1); }
+    else if (k === 'n' || k === 'N') { e.preventDefault(); notesBtn.click(); }
+  });
+
+  // swipe
+  var x0 = null;
+  deck.addEventListener('touchstart', function(e){ x0 = e.changedTouches[0].clientX; }, {passive:true});
+  deck.addEventListener('touchend', function(e){
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 48) go(dx < 0 ? 1 : -1);
+    x0 = null;
+  }, {passive:true});
+
+  var start = parseInt((location.hash || '').replace('#',''), 10);
+  show(isFinite(start) && start > 0 ? start - 1 : 0);
+  deck.focus();
+})();
+</script>
+</body>
+</html>
