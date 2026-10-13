@@ -242,6 +242,61 @@ h2.sec{font-family:var(--f-disp);font-size:clamp(30px,4vw,46px);line-height:1.08
 .fig-n{font-family:var(--f-disp);font-size:32px;color:var(--gold-lt);line-height:1;font-variant-numeric:tabular-nums;display:block}
 .fig-l{font-family:var(--f-mono);font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:var(--steel);margin-top:8px;display:block;line-height:1.5}
 
+/* ───────── FIELD IMAGERY ───────── */
+.reveal{transition:opacity .75s ease,transform .75s cubic-bezier(.22,.61,.36,1)}
+body.js .reveal{opacity:0;transform:translateY(18px)}
+body.js .reveal.in{opacity:1;transform:none}
+
+.opp-sec{background:linear-gradient(180deg,var(--graphite),var(--navy-2) 58%,var(--graphite))}
+.opp{display:grid;grid-template-columns:55fr 45fr;gap:54px;align-items:center}
+@media(max-width:900px){.opp{grid-template-columns:1fr;gap:34px}}
+.plate{position:relative;border-radius:6px;overflow:hidden;border:1px solid rgba(214,220,235,.12);
+  box-shadow:0 46px 90px -40px rgba(0,0,0,.95)}
+.plate img{display:block;width:100%;height:auto;max-width:100%}
+.plate figcaption{
+  position:absolute;left:0;right:0;bottom:0;padding:26px 18px 12px;
+  background:linear-gradient(to top,rgba(5,8,13,.92),transparent);
+  font-family:var(--f-mono);font-size:8.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--steel);
+}
+.opp-copy h2{font-family:var(--f-disp);font-size:clamp(28px,3.5vw,42px);line-height:1.08;letter-spacing:-.01em;margin-bottom:18px}
+.opp-copy h2 i{font-style:italic;color:var(--gold-lt)}
+.opp-copy p{color:var(--ivory-2);font-size:15.5px;max-width:52ch}
+.opp-copy p + p{margin-top:13px}
+.opp-pts{display:grid;gap:12px;margin-top:24px;border-top:1px solid var(--hair);padding-top:20px}
+.opp-pt{display:grid;grid-template-columns:auto 1fr;gap:13px;align-items:start}
+.opp-pt span:first-child{font-family:var(--f-mono);font-size:9.5px;color:var(--gold);padding-top:4px}
+.opp-pt span:last-child{font-size:14px;color:var(--ivory-2);line-height:1.6}
+.opp-pt b{color:var(--ivory);font-weight:500}
+
+.pan-sec{background:var(--graphite-2);border-top:1px solid var(--hair)}
+.pan-frame{position:relative;border-radius:6px;overflow:hidden;border:1px solid rgba(214,220,235,.12);
+  margin-top:40px;box-shadow:0 52px 100px -44px rgba(0,0,0,.95);aspect-ratio:1672/860}
+.pan-frame img{display:block;width:100%;height:112%;object-fit:cover;object-position:center 42%;
+  will-change:transform;transform:translate3d(0,var(--pan,-5%),0)}
+.pan-frame::after{content:'';position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to top,rgba(5,8,13,.72) 0%,transparent 42%)}
+.pan-note{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:22px 24px 14px;
+  font-family:var(--f-mono);font-size:8.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--steel)}
+@media(max-width:700px){.pan-frame{aspect-ratio:4/3}}
+
+.xsec-sec{background:linear-gradient(180deg,var(--navy-2),var(--graphite) 70%);border-top:1px solid var(--hair)}
+.xsec{position:relative;margin-top:40px;border-radius:6px;overflow:hidden;
+  border:1px solid rgba(214,220,235,.12);box-shadow:0 52px 100px -44px rgba(0,0,0,.95)}
+.xsec img{display:block;width:100%;height:auto;max-width:100%}
+.xsec figcaption{
+  position:absolute;left:0;right:0;bottom:0;padding:30px 20px 12px;
+  background:linear-gradient(to top,rgba(5,8,13,.9),transparent);
+  font-family:var(--f-mono);font-size:8.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--steel);
+}
+.proc{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:1px;
+  background:var(--hair);border:1px solid var(--hair);border-radius:4px;overflow:hidden;margin-top:34px}
+.proc-step{background:var(--navy-2);padding:24px 20px;display:flex;flex-direction:column;gap:9px;min-width:0}
+.proc-k{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.proc-step h3{font-size:15px;font-weight:500;line-height:1.35;font-family:var(--f-body)}
+.proc-step p{font-size:13px;color:var(--steel);line-height:1.58}
+.proc-tax{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--gold-lt);border-top:1px solid var(--hair);padding-top:9px;margin-top:auto;line-height:1.5}
+
 /* ───────── REGISTRATION ───────── */
 .reg-sec{background:linear-gradient(178deg,var(--navy-2),var(--graphite) 70%)}
 .reg-grid{display:grid;grid-template-columns:1fr 430px;gap:56px;align-items:start}
@@ -404,6 +459,32 @@ details p{padding-bottom:22px;color:var(--ivory-2);font-size:15px;max-width:72ch
   </div>
 </div></header>
 
+<!-- ═══ UNDERSTANDING THE OPPORTUNITY ═══ -->
+<section class="opp-sec"><div class="wrap">
+  <div class="opp">
+    <figure class="plate reveal">
+      <picture>
+        <source srcset="media/field-operations.webp" type="image/webp">
+        <img src="media/field-operations.jpg" width="1340" height="754" loading="lazy" decoding="async"
+             alt="Aerial view of an active onshore drilling site in arid scrubland: a drilling rig surrounded by storage tanks, site cabins, stacked drill pipe and access roads, with further pads visible on the horizon.">
+      </picture>
+      <figcaption>Illustrative &mdash; onshore drilling site and surface infrastructure</figcaption>
+    </figure>
+
+    <div class="opp-copy reveal">
+      <p class="eyebrow" style="margin-bottom:14px">Understanding the opportunity</p>
+      <h2>Your capital is attached to <i>a physical asset</i>.</h2>
+      <p>A non-operated working interest is not a paper position. It is a direct interest in a specific well, drilled by a specific operator, on a specific pad, on a schedule set by permits, rigs, and crews rather than by markets.</p>
+      <p>That is the reason the tax treatment exists at all, and it is also the reason the risk is real. Everything in the session follows from this one fact.</p>
+      <div class="opp-pts">
+        <div class="opp-pt"><span>01</span><span><b>Real operations.</b> Permitting, drilling, completion and production each take time and capital, and each carries its own way of going wrong.</span></div>
+        <div class="opp-pt"><span>02</span><span><b>Real operators.</b> Who drills the well is the largest single variable in the outcome &mdash; larger than the geology in most cases.</span></div>
+        <div class="opp-pt"><span>03</span><span><b>Real risk.</b> Wells can underperform or fail to produce commercially. Capital committed is capital at risk of total loss.</span></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
 <!-- ═══ CURRICULUM ═══ -->
 <section><div class="wrap">
   <div class="sec-head">
@@ -466,6 +547,59 @@ details p{padding-bottom:22px;color:var(--ivory-2);font-size:15px;max-width:72ch
   </div>
 </div></section>
 
+<!-- ═══ INVESTMENT STRUCTURES & DRILLING OPERATIONS ═══ -->
+<section class="xsec-sec"><div class="wrap">
+  <div class="sec-head">
+    <p class="eyebrow">Investment structures &amp; drilling operations</p>
+    <h2 class="sec">One well, from surface to lateral.</h2>
+    <p>A working interest follows the physical work. Understanding the sequence below is what lets you judge where costs arise, when timing matters, and what is actually at risk at each stage.</p>
+  </div>
+
+  <figure class="xsec reveal">
+    <picture>
+      <source srcset="media/well-crosssection.webp" type="image/webp">
+      <img src="media/well-crosssection.jpg" width="1672" height="942" loading="lazy" decoding="async"
+           alt="Cutaway illustration of a horizontal well: a drilling rig and surface facilities above ground, with the wellbore descending vertically through layered rock, curving through a build section, and extending horizontally along a dark target formation.">
+    </picture>
+    <figcaption>Illustrative cutaway &mdash; vertical section, build curve and horizontal lateral through the target formation</figcaption>
+  </figure>
+
+  <div class="proc">
+    <div class="proc-step">
+      <span class="proc-k">Stage 01</span>
+      <h3>Lease &amp; permit</h3>
+      <p>Acreage is secured and permits obtained, then the pad and access roads are built before any drilling begins.</p>
+      <span class="proc-tax">Capital committed &middot; nothing drilled yet</span>
+    </div>
+    <div class="proc-step">
+      <span class="proc-k">Stage 02</span>
+      <h3>Vertical section</h3>
+      <p>The bore is drilled down through shallow formations. Surface and intermediate casing are run and cemented to isolate groundwater and unstable rock.</p>
+      <span class="proc-tax">Tangible and intangible costs both arise</span>
+    </div>
+    <div class="proc-step">
+      <span class="proc-k">Stage 03</span>
+      <h3>Build &amp; lateral</h3>
+      <p>The bore curves from vertical to horizontal and is drilled along the target formation, often for thousands of feet.</p>
+      <span class="proc-tax">The bulk of drilling spend typically sits here</span>
+    </div>
+    <div class="proc-step">
+      <span class="proc-k">Stage 04</span>
+      <h3>Completion</h3>
+      <p>Production casing is set, the lateral is perforated, and the formation is stimulated so hydrocarbons can flow into the wellbore.</p>
+      <span class="proc-tax">Placed-in-service timing is decided around here</span>
+    </div>
+    <div class="proc-step">
+      <span class="proc-k">Stage 05</span>
+      <h3>Production &amp; decline</h3>
+      <p>The well flows, with output highest early and declining over time. Revenue, operating costs and any depletion allowance follow actual production.</p>
+      <span class="proc-tax">Outcome depends on the reservoir and on price</span>
+    </div>
+  </div>
+
+  <p class="fineprint" style="text-align:left;margin-top:20px;max-width:84ch">Sequence shown is a simplified illustration of a typical onshore horizontal well, not a representation of any specific project. Which costs arise at which stage, and whether any of them reach a given investor&rsquo;s return, depends on the structure of the interest, the timing of deployment, and that investor&rsquo;s own circumstances.</p>
+</div></section>
+
 <!-- ═══ FUNNEL ═══ -->
 <section><div class="wrap">
   <div class="sec-head">
@@ -502,6 +636,23 @@ details p{padding-bottom:22px;color:var(--ivory-2);font-size:15px;max-width:72ch
       </div>
     </div>
   </div>
+</div></section>
+
+<!-- ═══ PANORAMA BAND ═══ -->
+<section class="pan-sec"><div class="wrap">
+  <div class="sec-head" style="margin-bottom:0">
+    <p class="eyebrow">Scale and context</p>
+    <h2 class="sec">A field is not a single well.</h2>
+    <p>Programmes are usually drilled across multiple wells and multiple pads. How capital is spread across them is a question worth asking any sponsor before committing to one.</p>
+  </div>
+  <figure class="pan-frame reveal" id="panFrame">
+    <picture>
+      <source srcset="media/field-panorama.webp" type="image/webp">
+      <img src="media/field-panorama.jpg" width="1672" height="941" loading="lazy" decoding="async" id="panImg"
+           alt="Wide aerial landscape of a developed oilfield at golden hour: an active drilling rig in the foreground with tank batteries and service roads, and further rigs and pump jacks spread across the plain to the horizon.">
+    </picture>
+    <figcaption class="pan-note">Illustrative &mdash; multi-pad field development, not a depiction of any specific programme</figcaption>
+  </figure>
 </div></section>
 
 <!-- ═══ REGISTRATION ═══ -->
@@ -606,6 +757,7 @@ details p{padding-bottom:22px;color:var(--ivory-2);font-size:15px;max-width:72ch
   <p class="eyebrow">Important disclosures</p>
   <p>This session and this page are educational in nature and do not constitute financial, tax, legal, or investment advice, nor an offer to sell or a solicitation of an offer to buy any security or interest. No specific outcome, tax treatment, deduction, or return is promised or implied.</p>
   <p>Oil and gas investments involve substantial risk, including the risk of total loss of capital. They are illiquid, long-horizon, and speculative, and they are not suitable for all investors. Availability may be limited to verified accredited investors. Any potential tax treatment depends on the specific investment structure, the timing of capital deployment, and your individual circumstances. Consult your own CPA, tax adviser, and legal counsel before making any decision.</p>
+  <p>All oilfield imagery on this page consists of illustrative representations of drilling and production infrastructure. It does not depict projects owned, operated, or offered by OilTaxPro, and is included to explain the subject matter rather than to represent any specific asset or programme.</p>
   <p>Figures shown describe past activity as published by OilTaxPro and are not a prediction or guarantee of future results. The hero footage is a synthetic preview visualisation generated for layout purposes; it is not a recording of any actual session and would be replaced with the client&rsquo;s own approved footage before any live use. Session dates, times, the player interface, and all registration functionality on this page are sample data for demonstration purposes; no information entered is stored, transmitted, or used.</p>
   <div class="foot">
     <span>OilTaxPro &mdash; Educational session</span>
@@ -639,6 +791,42 @@ details p{padding-bottom:22px;color:var(--ivory-2);font-size:15px;max-width:72ch
       stage.style.setProperty('--my', ty.toFixed(3));
     }
   }
+
+  /* ── scroll reveal ── */
+  (function(){
+    var items = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+    if (!items.length) return;
+    if (reduce || !('IntersectionObserver' in window)) return;
+    document.body.classList.add('js');
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {rootMargin: '0px 0px -8% 0px', threshold: 0.12});
+    items.forEach(function(el){ io.observe(el); });
+  })();
+
+  /* ── panorama drift ── */
+  (function(){
+    var frame = document.getElementById('panFrame');
+    var img = document.getElementById('panImg');
+    if (!frame || !img || reduce) return;
+    var ticking = false;
+    function update(){
+      ticking = false;
+      var r = frame.getBoundingClientRect();
+      var vh = window.innerHeight || 1;
+      if (r.bottom < 0 || r.top > vh) return;
+      var p = (r.top + r.height / 2 - vh / 2) / vh;   // -1 .. 1 through viewport
+      p = Math.max(-1, Math.min(1, p));
+      img.style.setProperty('--pan', (-6 + p * 2.6).toFixed(2) + '%');
+    }
+    window.addEventListener('scroll', function(){
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    }, {passive: true});
+    window.addEventListener('resize', update, {passive: true});
+    update();
+  })();
 
   /* ── hero video ── */
   (function(){
