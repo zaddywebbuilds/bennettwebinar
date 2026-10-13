@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Oil &amp; Gas Tax Structures &mdash; Educational Session</title>
+<meta name="description" content="An educational session for accredited investors on how oil and gas tax structures are designed to work, including risks and suitability considerations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: editorial single-column with hairline rules; asymmetric hero; institutional spacing */
+:root{
+  --ink:        #070B14;
+  --ink-2:      #0C1220;
+  --ink-3:      #121A2B;
+  --panel:      #0E1626;
+  --line:       rgba(184,146,63,0.22);
+  --line-soft:  rgba(214,220,235,0.09);
+  --paper:      #F2EFE6;
+  --paper-2:    #BDC4D4;
+  --paper-3:    #76819B;
+  --gold:       #B8923F;
+  --gold-lt:    #D9B463;
+  --gold-dim:   rgba(184,146,63,0.10);
+  --flag:       #8FA67E;
+
+  --f-disp: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --f-body: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  --f-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  color-scheme: dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{max-width:100%;overflow-x:clip}
+body{
+  margin:0;background:var(--ink);color:var(--paper);
+  font-family:var(--f-body);font-size:16px;font-weight:300;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{margin:0;font-weight:400;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+
+.wrap{max-width:1140px;margin:0 auto;padding-inline:28px}
+@media(max-width:700px){.wrap{padding-inline:18px}}
+
+.eyebrow{
+  font-family:var(--f-mono);font-size:11px;font-weight:500;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--gold);margin:0;
+}
+.rule{height:1px;background:var(--line-soft);border:0;margin:0}
+
+/* ─────────── NAV ─────────── */
+.nav{
+  position:sticky;top:env(safe-area-inset-top,0px);z-index:50;
+  background:rgba(7,11,20,.88);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line-soft);
+}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:16px}
+.brand{font-family:var(--f-disp);font-size:23px;letter-spacing:.01em;text-decoration:none;white-space:nowrap}
+.brand i{font-style:italic;color:var(--gold)}
+.nav-right{display:flex;align-items:center;gap:18px}
+.nav-note{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--paper-3)}
+@media(max-width:620px){.nav-note{display:none}}
+.btn{
+  display:inline-block;font-family:var(--f-mono);font-size:12px;font-weight:500;
+  letter-spacing:.13em;text-transform:uppercase;text-decoration:none;
+  padding:11px 22px;border-radius:2px;cursor:pointer;border:1px solid var(--gold);
+  background:var(--gold);color:#0A0D15;transition:background .16s,border-color .16s;
+}
+.btn:hover{background:var(--gold-lt);border-color:var(--gold-lt)}
+.btn-ghost{background:transparent;color:var(--gold)}
+.btn-ghost:hover{background:var(--gold-dim);border-color:var(--gold-lt)}
+
+/* ─────────── HERO ─────────── */
+.hero{padding-block:76px 64px;position:relative;overflow:hidden}
+.hero::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(900px 420px at 72% 12%, rgba(184,146,63,.10), transparent 70%);
+}
+.hero-in{position:relative;z-index:1;display:grid;grid-template-columns:1.12fr .88fr;gap:64px;align-items:start}
+@media(max-width:940px){.hero-in{grid-template-columns:1fr;gap:44px}.hero{padding-block:52px 48px}}
+
+.gate{
+  display:inline-flex;align-items:center;gap:9px;
+  border:1px solid var(--line);border-radius:2px;padding:7px 13px;margin-bottom:26px;
+  font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-lt);
+}
+.gate::before{content:'';width:5px;height:5px;background:var(--gold);border-radius:50%}
+
+h1{
+  font-family:var(--f-disp);
+  font-size:clamp(40px,5.6vw,66px);line-height:1.04;letter-spacing:-.012em;margin-bottom:26px;
+}
+h1 i{font-style:italic;color:var(--gold-lt)}
+.lede{font-size:17px;color:var(--paper-2);max-width:54ch;line-height:1.72}
+.lede + .lede{margin-top:16px}
+
+.meta{display:flex;flex-wrap:wrap;gap:0;margin-top:36px;border-top:1px solid var(--line-soft)}
+.meta-cell{
+  flex:1 1 150px;min-width:0;padding:18px 20px 16px 0;border-right:1px solid var(--line-soft);
+}
+.meta-cell:last-child{border-right:0}
+@media(max-width:700px){.meta-cell{flex-basis:50%;border-right:0;padding-right:12px}}
+.meta-k{font-family:var(--f-mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--paper-3);display:block;margin-bottom:7px}
+.meta-v{font-size:14.5px;color:var(--paper);font-weight:400}
+
+/* ─────────── FORM ─────────── */
+.form-shell{
+  background:linear-gradient(180deg,var(--panel),var(--ink-2));
+  border:1px solid var(--line);border-radius:3px;padding:30px 28px 26px;
+  position:sticky;top:calc(env(safe-area-inset-top,0px) + 86px);
+  box-shadow:0 22px 60px -30px rgba(0,0,0,.95);
+}
+@media(max-width:940px){.form-shell{position:static}}
+.form-shell h2{font-family:var(--f-disp);font-size:27px;line-height:1.18;margin-bottom:6px}
+.form-shell .sub{font-size:13.5px;color:var(--paper-3);margin-bottom:22px}
+form{display:flex;flex-direction:column;gap:15px}
+.fld label{
+  display:block;font-family:var(--f-mono);font-size:10px;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--paper-3);margin-bottom:7px;
+}
+.fld input[type=text],.fld input[type=email],.fld select{
+  width:100%;background:var(--ink);border:1px solid var(--line-soft);border-radius:2px;
+  padding:11px 13px;font-family:var(--f-body);font-size:14.5px;font-weight:300;color:var(--paper);
+  outline:none;transition:border-color .16s;
+}
+.fld select{font-family:var(--f-body)}
+.fld input:focus,.fld select:focus{border-color:var(--gold)}
+.fld input[aria-invalid=true],.fld select[aria-invalid=true]{border-color:#C96A5A}
+.fld option{background:var(--ink-3);color:var(--paper)}
+.err{display:block;font-size:11.5px;color:#D98A7A;margin-top:5px}
+.err[hidden]{display:none}
+
+.check{display:flex;gap:11px;align-items:flex-start;cursor:pointer}
+.check input{
+  appearance:none;flex:0 0 auto;width:17px;height:17px;margin:2px 0 0;
+  border:1px solid var(--line);border-radius:2px;background:var(--ink);cursor:pointer;
+  display:grid;place-content:center;transition:background .14s,border-color .14s;
+}
+.check input::after{
+  content:'';width:9px;height:9px;transform:scale(0);transition:transform .12s;
+  background:var(--gold);clip-path:polygon(14% 44%,0 60%,39% 100%,100% 18%,84% 2%,39% 68%);
+}
+.check input:checked{border-color:var(--gold)}
+.check input:checked::after{transform:scale(1)}
+.check input:focus-visible{outline:2px solid var(--gold-lt);outline-offset:2px}
+.check span{font-size:12.5px;line-height:1.55;color:var(--paper-2)}
+.btn-submit{
+  width:100%;margin-top:4px;padding:14px;font-size:12.5px;letter-spacing:.14em;
+  font-family:var(--f-mono);font-weight:500;text-transform:uppercase;
+  background:var(--gold);color:#0A0D15;border:1px solid var(--gold);border-radius:2px;cursor:pointer;
+  transition:background .16s;
+}
+.btn-submit:hover{background:var(--gold-lt)}
+.fineprint{font-size:11.5px;color:var(--paper-3);line-height:1.55;text-align:center;margin-top:12px}
+
+/* confirmation */
+.confirm{text-align:left}
+.confirm .tick{
+  width:46px;height:46px;border-radius:50%;border:1px solid var(--flag);
+  background:rgba(143,166,126,.11);display:grid;place-content:center;margin-bottom:20px;
+}
+.confirm h2{margin-bottom:10px}
+.confirm .detail{
+  border-top:1px solid var(--line-soft);margin-top:20px;padding-top:16px;
+  display:grid;gap:11px;
+}
+.d-row{display:flex;justify-content:space-between;gap:16px;font-size:13px}
+.d-row dt{color:var(--paper-3);font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;padding-top:2px}
+.d-row dd{margin:0;text-align:right;color:var(--paper);font-weight:400}
+
+/* ─────────── SECTIONS ─────────── */
+section{padding-block:72px;border-top:1px solid var(--line-soft)}
+@media(max-width:700px){section{padding-block:52px}}
+.sec-head{max-width:62ch;margin-bottom:46px}
+.sec-head .eyebrow{margin-bottom:14px}
+h2.sec{font-family:var(--f-disp);font-size:clamp(29px,3.9vw,44px);line-height:1.1;letter-spacing:-.01em}
+.sec-head p{margin-top:16px;color:var(--paper-2);font-size:16px}
+
+/* curriculum */
+.mods{display:grid;gap:0;border-top:1px solid var(--line-soft)}
+.mod{
+  display:grid;grid-template-columns:62px 1fr;gap:26px;
+  padding-block:26px;border-bottom:1px solid var(--line-soft);align-items:start;
+}
+@media(max-width:620px){.mod{grid-template-columns:40px 1fr;gap:16px}}
+.mod-n{font-family:var(--f-mono);font-size:12px;color:var(--gold);padding-top:5px;letter-spacing:.06em}
+.mod h3{font-family:var(--f-disp);font-size:24px;line-height:1.25;margin-bottom:9px}
+.mod p{color:var(--paper-2);font-size:15px;max-width:66ch}
+
+/* fit columns */
+.fit{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line-soft);border-radius:3px;overflow:hidden}
+@media(max-width:780px){.fit{grid-template-columns:1fr}}
+.fit-col{padding:30px 28px}
+.fit-col:first-child{border-right:1px solid var(--line-soft);background:rgba(184,146,63,.035)}
+@media(max-width:780px){.fit-col:first-child{border-right:0;border-bottom:1px solid var(--line-soft)}}
+.fit-col h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:20px}
+.fit-col:first-child h3{color:var(--gold)}
+.fit-col:last-child h3{color:var(--paper-3)}
+.fit-col ul{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.fit-col li{display:flex;gap:12px;font-size:14.5px;line-height:1.6;color:var(--paper-2)}
+.mk{flex:0 0 auto;width:15px;height:15px;margin-top:4px}
+
+/* journey */
+.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:3px;overflow:hidden}
+.step{background:var(--ink-2);padding:24px 20px;display:flex;flex-direction:column;gap:9px;min-width:0}
+.step-n{font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;color:var(--gold)}
+.step h3{font-size:15px;font-family:var(--f-body);font-weight:500;line-height:1.35}
+.step p{font-size:13px;color:var(--paper-3);line-height:1.55}
+.step.is-existing{background:var(--ink-3)}
+.step.is-existing .step-n{color:var(--paper-3)}
+.tagline{
+  display:inline-block;margin-top:18px;font-family:var(--f-mono);font-size:11px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--paper-3);
+}
+.tagline b{color:var(--gold-lt);font-weight:500}
+
+/* host */
+.host{display:grid;grid-template-columns:230px 1fr;gap:44px;align-items:start}
+@media(max-width:780px){.host{grid-template-columns:1fr;gap:28px}}
+.portrait{
+  aspect-ratio:4/5;max-width:100%;border:1px solid var(--line);border-radius:3px;
+  background:
+    linear-gradient(145deg,rgba(184,146,63,.09),transparent 60%),
+    linear-gradient(180deg,var(--ink-3),var(--ink));
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:20px;text-align:center;
+}
+.portrait .mono{font-family:var(--f-disp);font-size:40px;color:var(--gold);line-height:1}
+.portrait .cap{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--paper-3);line-height:1.5}
+.host h3{font-family:var(--f-disp);font-size:34px;line-height:1.1;margin-bottom:6px}
+.host .role{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.host p{color:var(--paper-2);font-size:15.5px;max-width:64ch}
+.host p + p{margin-top:14px}
+.figs{display:flex;flex-wrap:wrap;gap:0;margin-top:28px;border-top:1px solid var(--line-soft)}
+.fig{flex:1 1 130px;min-width:0;padding:18px 18px 0 0}
+.fig-n{font-family:var(--f-disp);font-size:31px;color:var(--gold-lt);line-height:1;font-variant-numeric:tabular-nums;display:block}
+.fig-l{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--paper-3);margin-top:8px;display:block;line-height:1.5}
+
+/* faq */
+.faq{display:grid;gap:0;border-top:1px solid var(--line-soft)}
+details{border-bottom:1px solid var(--line-soft)}
+summary{
+  list-style:none;cursor:pointer;padding-block:20px;display:flex;gap:18px;align-items:baseline;
+  font-size:17px;font-weight:400;color:var(--paper);
+}
+summary::-webkit-details-marker{display:none}
+summary::after{
+  content:'+';margin-left:auto;font-family:var(--f-mono);color:var(--gold);font-size:17px;flex:0 0 auto;
+}
+details[open] summary::after{content:'\2212'}
+summary:focus-visible{outline:2px solid var(--gold-lt);outline-offset:3px}
+details p{padding-bottom:22px;color:var(--paper-2);font-size:15px;max-width:72ch}
+
+/* close */
+.close-cta{text-align:center;padding-block:86px}
+.close-cta h2{font-family:var(--f-disp);font-size:clamp(31px,4.4vw,50px);line-height:1.08;max-width:17ch;margin:0 auto 18px}
+.close-cta p{color:var(--paper-2);max-width:50ch;margin:0 auto 32px}
+
+/* disclosure */
+.disc{background:var(--ink-2);border-top:1px solid var(--line)}
+.disc-in{padding-block:38px;display:grid;gap:14px}
+.disc p{font-size:12.5px;color:var(--paper-3);line-height:1.7;max-width:96ch}
+.disc .eyebrow{margin-bottom:4px}
+.foot{border-top:1px solid var(--line-soft);padding-block:22px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--paper-3)}
+
+/* demo tag */
+.demo-tag{
+  position:fixed;left:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:60;
+  font-family:var(--f-mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;
+  background:rgba(12,18,32,.93);border:1px solid var(--line);color:var(--gold-lt);
+  padding:7px 11px;border-radius:2px;backdrop-filter:blur(8px);
+}
+@media(max-width:620px){.demo-tag{font-size:8.5px;padding:6px 9px}}
+
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="wrap nav-in">
+  <a class="brand" href="#reserve">Oil<i>Tax</i>Pro</a>
+  <div class="nav-right">
+    <span class="nav-note">Educational &mdash; Accredited Investors</span>
+    <a class="btn btn-ghost" href="#reserve">Reserve a seat</a>
+  </div>
+</div></nav>
+
+<!-- HERO -->
+<header class="hero"><div class="wrap hero-in">
+  <div>
+    <span class="gate">Accredited investors &amp; qualifying high-income professionals</span>
+    <h1>How oil &amp; gas tax structures <i>actually</i> work.</h1>
+    <p class="lede">A 60-minute educational session on where the deductions in private oil and gas investments come from, how timing affects them, what the real risks are, and how to tell whether any of it is relevant to your situation.</p>
+    <p class="lede">No projections. No pitch deck. No offer presented. If you leave deciding it is not a fit for you, the session did its job.</p>
+
+    <dl class="meta">
+      <div class="meta-cell"><dt class="meta-k">Format</dt><dd class="meta-v">Live, 60 minutes + Q&amp;A</dd></div>
+      <div class="meta-cell"><dt class="meta-k">Cost</dt><dd class="meta-v">None</dd></div>
+      <div class="meta-cell"><dt class="meta-k">Presented by</dt><dd class="meta-v">Bennett Walsh</dd></div>
+      <div class="meta-cell"><dt class="meta-k">Content</dt><dd class="meta-v">Educational only</dd></div>
+    </dl>
+  </div>
+
+  <!-- registration -->
+  <div class="form-shell" id="reserve">
+    <div id="panel-form">
+      <h2>Reserve a seat</h2>
+      <p class="sub">Select a session below. You will receive a confirmation and calendar invitation by email.</p>
+      <form id="reg" novalidate>
+        <div class="fld">
+          <label for="f-name">First name</label>
+          <input type="text" id="f-name" name="name" autocomplete="given-name" placeholder="First name">
+          <span class="err" id="e-name" hidden>Please enter your first name.</span>
+        </div>
+        <div class="fld">
+          <label for="f-email">Email address</label>
+          <input type="email" id="f-email" name="email" autocomplete="email" placeholder="you@example.com">
+          <span class="err" id="e-email" hidden>Please enter a valid email address.</span>
+        </div>
+        <div class="fld">
+          <label for="f-session">Session</label>
+          <select id="f-session" name="session">
+            <option value="">Select a session&hellip;</option>
+            <option value="Thursday, October 22, 2026 — 1:00 PM EDT">Thu, Oct 22 &mdash; 1:00 PM EDT</option>
+            <option value="Tuesday, October 27, 2026 — 7:00 PM EDT">Tue, Oct 27 &mdash; 7:00 PM EDT</option>
+          </select>
+          <span class="err" id="e-session" hidden>Please choose a session.</span>
+          <span class="err" id="tz-note" style="color:var(--paper-3)" hidden></span>
+        </div>
+        <label class="check" for="f-acc">
+          <input type="checkbox" id="f-acc" name="accredited">
+          <span>I am an accredited investor, or I expect to qualify. I understand attending creates no obligation and that no investment is offered on this session.</span>
+        </label>
+        <span class="err" id="e-acc" hidden>Please confirm to continue.</span>
+        <label class="check" for="f-consent">
+          <input type="checkbox" id="f-consent" name="consent">
+          <span>I agree to receive session reminders and related educational email about this event.</span>
+        </label>
+        <span class="err" id="e-consent" hidden>Consent is required to send your session reminders.</span>
+        <button type="submit" class="btn-submit">Reserve my seat</button>
+      </form>
+      <p class="fineprint">Educational content only. Not financial, tax, or investment advice.</p>
+    </div>
+
+    <!-- confirmation -->
+    <div id="panel-done" class="confirm" hidden>
+      <div class="tick" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8FA67E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.2 5.2L20 7"/></svg>
+      </div>
+      <h2 id="done-h">You&rsquo;re registered.</h2>
+      <p class="sub" id="done-p">A confirmation and calendar invitation are on the way.</p>
+      <dl class="detail">
+        <div class="d-row"><dt>Session</dt><dd id="done-session">&mdash;</dd></div>
+        <div class="d-row"><dt>Your time</dt><dd id="done-local">&mdash;</dd></div>
+        <div class="d-row"><dt>Sent to</dt><dd id="done-email">&mdash;</dd></div>
+        <div class="d-row"><dt>Reminders</dt><dd>24 hours &amp; 1 hour before</dd></div>
+      </dl>
+      <p class="fineprint" style="text-align:left;margin-top:18px">Demonstration only &mdash; no email is sent and no data is stored or transmitted.</p>
+    </div>
+  </div>
+</div></header>
+
+<!-- WHAT IS COVERED -->
+<section><div class="wrap">
+  <div class="sec-head">
+    <p class="eyebrow">What the session covers</p>
+    <h2 class="sec">Five things most investors are never told plainly.</h2>
+    <p>Structure first, outcomes later. Each segment explains a mechanism and the conditions under which it does and does not apply.</p>
+  </div>
+  <div class="mods">
+    <article class="mod"><span class="mod-n">01</span><div>
+      <h3>Why this asset class draws high-income capital</h3>
+      <p>How non-operated working interests differ from royalties, funds, and energy equities &mdash; and why the tax treatment of a direct working interest is the reason the structure exists at all.</p>
+    </div></article>
+    <article class="mod"><span class="mod-n">02</span><div>
+      <h3>Where the deductions come from</h3>
+      <p>Intangible drilling costs, tangible costs, and depletion explained at the mechanism level: what each one is, what it attaches to, and why the headline percentages people quote at dinner parties are usually missing their conditions.</p>
+    </div></article>
+    <article class="mod"><span class="mod-n">03</span><div>
+      <h3>Why timing decides the outcome</h3>
+      <p>How the placed-in-service and year-end calendar interacts with when capital is committed, and why the same investment made eight weeks apart can be treated very differently.</p>
+    </div></article>
+    <article class="mod"><span class="mod-n">04</span><div>
+      <h3>The risks, stated directly</h3>
+      <p>Dry holes, commodity price exposure, illiquidity, operator quality, capital calls, and the difference between a potential tax benefit and a guaranteed one. This segment is not an afterthought &mdash; it is the reason the session exists.</p>
+    </div></article>
+    <article class="mod"><span class="mod-n">05</span><div>
+      <h3>The questions to ask before you ever write a check</h3>
+      <p>A short diligence framework you can take to any sponsor, including this one, plus how to raise the subject with your CPA so the conversation is forward-looking rather than a post-mortem.</p>
+    </div></article>
+  </div>
+</div></section>
+
+<!-- FIT -->
+<section><div class="wrap">
+  <div class="sec-head">
+    <p class="eyebrow">Suitability</p>
+    <h2 class="sec">Not everyone qualifies. That is by design.</h2>
+    <p>There is a real qualification process and a minimum investment. It is more useful to know early whether this is irrelevant to you.</p>
+  </div>
+  <div class="fit">
+    <div class="fit-col">
+      <h3>Likely a fit if</h3>
+      <ul>
+        <li><svg class="mk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.4l3.2 3.2L13 4.8" stroke="#B8923F" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>You are an accredited investor, or expect to qualify</span></li>
+        <li><svg class="mk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.4l3.2 3.2L13 4.8" stroke="#B8923F" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>You earn a high income and consistently pay substantial federal tax</span></li>
+        <li><svg class="mk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.4l3.2 3.2L13 4.8" stroke="#B8923F" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>You work with a CPA but suspect proactive planning has not been explored</span></li>
+        <li><svg class="mk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.4l3.2 3.2L13 4.8" stroke="#B8923F" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>You prefer to understand structures and tradeoffs before considering anything</span></li>
+        <li><svg class="mk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.4l3.2 3.2L13 4.8" stroke="#B8923F" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>You are comfortable with complexity, risk, and long-term decisions</span></li>
+      </ul>
+    </div>
+    <div class="fit-col">
+      <h3>Not a fit if</h3>
+      <ul>
+        <li><svg class="mk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4.6 4.6l6.8 6.8M11.4 4.6l-6.8 6.8" stroke="#76819B" stroke-width="1.7" stroke-linecap="round"/></svg><span>You are seeking guarantees, projections, or specific outcomes</span></li>
+        <li><svg class="mk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4.6 4.6l6.8 6.8M11.4 4.6l-6.8 6.8" stroke="#76819B" stroke-width="1.7" stroke-linecap="round"/></svg><span>You are looking for quick wins or short-term solutions</span></li>
+        <li><svg class="mk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4.6 4.6l6.8 6.8M11.4 4.6l-6.8 6.8" stroke="#76819B" stroke-width="1.7" stroke-linecap="round"/></svg><span>You are uncomfortable with alternative assets or illiquidity</span></li>
+        <li><svg class="mk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4.6 4.6l6.8 6.8M11.4 4.6l-6.8 6.8" stroke="#76819B" stroke-width="1.7" stroke-linecap="round"/></svg><span>You prefer to delegate all thinking and decision-making to someone else</span></li>
+        <li><svg class="mk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4.6 4.6l6.8 6.8M11.4 4.6l-6.8 6.8" stroke="#76819B" stroke-width="1.7" stroke-linecap="round"/></svg><span>You are not accredited, or unwilling to have a suitability conversation</span></li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<!-- JOURNEY -->
+<section><div class="wrap">
+  <div class="sec-head">
+    <p class="eyebrow">How it fits your existing funnel</p>
+    <h2 class="sec">The session sits between interest and the suitability call.</h2>
+    <p>Traffic you already pay for arrives warmer and better informed, and the suitability conversation starts further along.</p>
+  </div>
+  <div class="flow">
+    <div class="step is-existing"><span class="step-n">Existing</span><h3>Ads &amp; organic</h3><p>Current campaigns and YouTube continue to run unchanged.</p></div>
+    <div class="step"><span class="step-n">New &mdash; 01</span><h3>Reserve a seat</h3><p>Accreditation attestation and consent captured at registration.</p></div>
+    <div class="step"><span class="step-n">New &mdash; 02</span><h3>Reminders</h3><p>Confirmation, calendar invite, 24-hour and 1-hour reminders.</p></div>
+    <div class="step"><span class="step-n">New &mdash; 03</span><h3>Educational session</h3><p>Structures, timing, risks. No offer presented.</p></div>
+    <div class="step"><span class="step-n">New &mdash; 04</span><h3>Follow-up by behaviour</h3><p>Attended, partial, and no-show each receive a different sequence.</p></div>
+    <div class="step is-existing"><span class="step-n">Existing</span><h3>Suitability call</h3><p>Qualified prospects route into your current booking process and CRM.</p></div>
+  </div>
+  <span class="tagline">Replaces nothing. The webinar layer is <b>additive</b> to the funnel already running.</span>
+</div></section>
+
+<!-- HOST -->
+<section><div class="wrap">
+  <div class="sec-head"><p class="eyebrow">Presented by</p></div>
+  <div class="host">
+    <div class="portrait">
+      <span class="mono">BW</span>
+      <span class="cap">Client photograph<br>to be supplied</span>
+    </div>
+    <div>
+      <h3>Bennett Walsh</h3>
+      <p class="role">Investor Relations &mdash; OilTaxPro</p>
+      <p>Bennett works in investor relations, acting as the bridge between accredited investors and oil and gas operators. He has helped place more than $30 million into private oil and gas deals, invests his own capital alongside his partners, and only brings forward opportunities he is willing to hold himself.</p>
+      <p>The projects he works on are drilled by established operators &mdash; some large public names, others private teams most investors never encounter. These are non-operated working interests: investors participate as capital partners rather than managing property or operations.</p>
+      <p>He does not sell courses or newsletters, and he is deliberate about who he works with. There is a qualification process, a minimum investment, and a willingness to say when something is not a fit.</p>
+      <div class="figs">
+        <div class="fig"><span class="fig-n">250+</span><span class="fig-l">Investors worked with</span></div>
+        <div class="fig"><span class="fig-n">$30M+</span><span class="fig-l">Placed into private deals</span></div>
+        <div class="fig"><span class="fig-n">~90%</span><span class="fig-l">Choose to reinvest</span></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- FAQ -->
+<section><div class="wrap">
+  <div class="sec-head"><p class="eyebrow">Questions</p><h2 class="sec">Before you register.</h2></div>
+  <div class="faq">
+    <details><summary>Who is this session for?</summary><p>Accredited investors and high-income professionals who consistently pay substantial federal tax and want to understand how oil and gas tax structures work before deciding whether they are relevant. It is educational, not an offer.</p></details>
+    <details><summary>Does attending commit me to anything?</summary><p>No. Nothing is offered or sold on the session, and there is no obligation of any kind. Attendees who want to go further can request a suitability conversation afterwards; most will not, and that is a legitimate outcome.</p></details>
+    <details><summary>Are oil and gas investments suitable for everyone?</summary><p>No. All investing carries risk, and these are private, illiquid, long-horizon investments that are unsuitable for many people regardless of income. Potential tax treatment depends on the specific structure and on your individual circumstances. The session covers these limits directly.</p></details>
+    <details><summary>Will specific returns or tax savings be presented?</summary><p>No. No projections, guaranteed savings, or performance figures are presented. The session explains how structures are designed to work and what determines whether a benefit applies at all.</p></details>
+    <details><summary>Is it live or recorded?</summary><p>Each session is presented live and includes live Q&amp;A. Registrants who cannot attend receive access to a replay.</p></details>
+    <details><summary>Why has my CPA never raised this?</summary><p>Most CPAs are engaged to report accurately on what already happened rather than to explore alternative structures ahead of time. Oil and gas sits where tax law, energy markets, and private investing overlap, which falls outside many practices&rsquo; scope.</p></details>
+    <details><summary>What happens after the session?</summary><p>You receive the replay and a short summary. If you want to explore whether the strategy applies to your situation, you can request a one-to-one suitability call. There is no follow-up pressure either way.</p></details>
+  </div>
+</div></section>
+
+<!-- CLOSE -->
+<div class="close-cta"><div class="wrap">
+  <h2>Understand it properly, then decide.</h2>
+  <p>Sixty minutes of plain explanation &mdash; structures, timing, and risk &mdash; so the decision is yours to make calmly, with or without us.</p>
+  <a class="btn" href="#reserve">Reserve a seat</a>
+</div></div>
+
+<!-- DISCLOSURE -->
+<div class="disc"><div class="wrap disc-in">
+  <p class="eyebrow">Important disclosures</p>
+  <p>This session and this page are educational in nature and do not constitute financial, tax, legal, or investment advice, nor an offer to sell or a solicitation of an offer to buy any security or interest. No specific outcome, tax treatment, deduction, or return is promised or implied.</p>
+  <p>Oil and gas investments involve substantial risk, including the risk of total loss of capital. They are illiquid, long-horizon, and speculative, and they are not suitable for all investors. Availability may be limited to verified accredited investors. Any potential tax treatment depends on the specific investment structure, the timing of capital deployment, and your individual circumstances. Consult your own CPA, tax adviser, and legal counsel before making any decision.</p>
+  <p>Figures shown describe past activity and are not a prediction or guarantee of future results. Session dates, times, and all registration functionality on this page are sample data for demonstration purposes; no information entered is stored, transmitted, or used.</p>
+  <div class="foot">
+    <span>OilTaxPro &mdash; Educational session</span>
+    <span>Concept demonstration &mdash; not an active registration page</span>
+  </div>
+</div></div>
+
+<span class="demo-tag">Concept demo &mdash; built for Bennett Walsh</span>
+
+<script>
+(function(){
+  "use strict";
+  var form = document.getElementById('reg');
+  var fields = {
+    name:    {el: document.getElementById('f-name'),    err: document.getElementById('e-name')},
+    email:   {el: document.getElementById('f-email'),   err: document.getElementById('e-email')},
+    session: {el: document.getElementById('f-session'), err: document.getElementById('e-session')},
+    acc:     {el: document.getElementById('f-acc'),     err: document.getElementById('e-acc')},
+    consent: {el: document.getElementById('f-consent'), err: document.getElementById('e-consent')}
+  };
+
+  // timezone detection
+  var tzNote = document.getElementById('tz-note');
+  var tz = '';
+  try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch(e) { tz = ''; }
+  if (tz) {
+    tzNote.textContent = 'Times shown in EDT. Your timezone: ' + tz + '.';
+    tzNote.hidden = false;
+  }
+
+  function setErr(k, show){
+    var f = fields[k];
+    f.err.hidden = !show;
+    if (f.el.type !== 'checkbox') f.el.setAttribute('aria-invalid', show ? 'true' : 'false');
+  }
+  Object.keys(fields).forEach(function(k){
+    fields[k].el.addEventListener('input',  function(){ setErr(k, false); });
+    fields[k].el.addEventListener('change', function(){ setErr(k, false); });
+  });
+
+  function validEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v); }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = fields.name.el.value.trim();
+    var email = fields.email.el.value.trim();
+    var session = fields.session.el.value;
+    var ok = true, firstBad = null;
+
+    if (!name)              { setErr('name', true);    ok = false; firstBad = firstBad || fields.name.el; }
+    if (!validEmail(email)) { setErr('email', true);   ok = false; firstBad = firstBad || fields.email.el; }
+    if (!session)           { setErr('session', true); ok = false; firstBad = firstBad || fields.session.el; }
+    if (!fields.acc.el.checked)     { setErr('acc', true);     ok = false; firstBad = firstBad || fields.acc.el; }
+    if (!fields.consent.el.checked) { setErr('consent', true); ok = false; firstBad = firstBad || fields.consent.el; }
+
+    if (!ok) { if (firstBad) firstBad.focus(); return; }
+
+    document.getElementById('done-h').textContent = "You're registered, " + name + '.';
+    document.getElementById('done-session').textContent = session;
+    document.getElementById('done-email').textContent = email;
+    document.getElementById('done-local').textContent = tz ? tz.replace(/_/g,' ') : 'Local time';
+
+    document.getElementById('panel-form').hidden = true;
+    document.getElementById('panel-done').hidden = false;
+    document.getElementById('reserve').scrollIntoView({behavior:'smooth', block:'center'});
+  });
+
+  // smooth anchor scroll to the form
+  Array.prototype.forEach.call(document.querySelectorAll('a[href="#reserve"]'), function(a){
+    a.addEventListener('click', function(ev){
+      ev.preventDefault();
+      document.getElementById('reserve').scrollIntoView({behavior:'smooth', block:'center'});
+      var t = document.getElementById('panel-form').hidden ? null : document.getElementById('f-name');
+      if (t) setTimeout(function(){ t.focus({preventScroll:true}); }, 420);
+    });
+  });
+})();
+</script>
+</body>
+</html>
