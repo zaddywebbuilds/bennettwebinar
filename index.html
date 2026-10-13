@@ -104,23 +104,18 @@ h1 i{font-style:italic;color:var(--gold-lt)}
 /* ───────── 3D SCENE ───────── */
 .scene{
   position:relative;perspective:1500px;perspective-origin:58% 44%;
-  min-height:620px;display:grid;place-items:center;
+  display:grid;place-items:center;padding-block:34px 72px;
 }
-@media(max-width:1020px){.scene{min-height:520px;margin-top:8px}}
-@media(max-width:560px){.scene{min-height:430px}}
+@media(max-width:1020px){.scene{padding-block:10px 64px}}
 .stageT{
-  position:relative;width:100%;max-width:560px;transform-style:preserve-3d;
-  transform:rotateY(calc(var(--mx) * -7deg)) rotateX(calc(var(--my) * 5deg));
+  position:relative;width:100%;max-width:520px;transform-style:preserve-3d;
+  transform:rotateY(calc(var(--mx) * -6deg)) rotateX(calc(var(--my) * 4deg));
   transition:transform .5s cubic-bezier(.22,.61,.36,1);
 }
-.layer{position:absolute;transform-style:preserve-3d}
+.layer{transform-style:preserve-3d}
 
 /* — well schematic (back) — */
-.l-well{
-  inset:auto;left:50%;top:50%;width:min(104%,540px);
-  transform:translate(-63%,-64%) translateZ(-130px);
-  opacity:.95;
-}
+.l-well{position:relative;width:100%;transform:translateZ(-110px)}
 .wellcard{
   border:1px solid var(--line-soft);border-radius:4px;overflow:hidden;
   background:linear-gradient(165deg,#0F1824,#0A0E14 70%);
@@ -137,10 +132,7 @@ h1 i{font-style:italic;color:var(--gold-lt)}
 @keyframes bore{0%{stroke-dashoffset:360}100%{stroke-dashoffset:0}}
 
 /* — webinar player (mid) — */
-.l-player{
-  left:50%;top:50%;width:min(86%,430px);
-  transform:translate(-26%,-6%) translateZ(80px);
-}
+.l-player{position:absolute;right:-9%;bottom:-19%;width:76%;transform:translateZ(80px)}
 .player{
   border:1px solid rgba(214,220,235,.14);border-radius:7px;overflow:hidden;
   background:linear-gradient(180deg,#19212D,#0E141D);
@@ -177,10 +169,7 @@ h1 i{font-style:italic;color:var(--gold-lt)}
 .t-txt{font-family:var(--f-mono);font-size:9px;color:var(--steel);font-variant-numeric:tabular-nums;white-space:nowrap}
 
 /* — confirmation chip (front) — */
-.l-chip{
-  left:50%;top:50%;width:min(76%,274px);
-  transform:translate(-78%,52%) translateZ(160px);
-}
+.l-chip{position:absolute;left:-8%;bottom:-7%;width:60%;min-width:232px;transform:translateZ(165px)}
 .chip{
   display:flex;align-items:center;gap:12px;padding:13px 15px;border-radius:5px;
   background:linear-gradient(145deg,rgba(28,38,51,.92),rgba(13,19,27,.92));
@@ -191,11 +180,11 @@ h1 i{font-style:italic;color:var(--gold-lt)}
 .chip-k{display:block;font-family:var(--f-mono);font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--flag)}
 .chip-v{display:block;font-size:12px;color:var(--ivory);margin-top:4px;line-height:1.35}
 
-@media(max-width:560px){
-  .l-well{width:100%;transform:translate(-52%,-70%) translateZ(-110px)}
-  .l-player{width:min(100%,360px);transform:translate(-40%,6%) translateZ(60px)}
-  .l-chip{width:min(84%,248px);transform:translate(-62%,74%) translateZ(130px)}
-  .stageT{transform:none}
+@media(max-width:620px){
+  .stageT{transform:none;max-width:420px}
+  .l-player{right:-4%;bottom:-22%;width:84%}
+  .l-chip{left:-3%;bottom:-13%;width:68%;min-width:0}
+  .chip{padding:11px 13px}
 }
 
 /* ───────── SECTIONS ───────── */
