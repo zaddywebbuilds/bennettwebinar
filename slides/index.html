@@ -447,8 +447,15 @@ p{margin:0}
     x0 = null;
   }, {passive:true});
 
-  var start = parseInt((location.hash || '').replace('#',''), 10);
-  show(isFinite(start) && start > 0 ? start - 1 : 0);
+  function fromHash(){
+    var n = parseInt((location.hash || '').replace('#',''), 10);
+    return (isFinite(n) && n > 0) ? n - 1 : 0;
+  }
+  window.addEventListener('hashchange', function(){
+    var n = fromHash();
+    if (n !== cur) show(n);
+  });
+  show(fromHash());
   deck.focus();
 })();
 </script>
