@@ -104,10 +104,10 @@ h1 i{font-style:italic;color:var(--gold-lt)}
 /* ───────── 3D SCENE ───────── */
 .scene{
   position:relative;perspective:1500px;perspective-origin:58% 44%;
-  min-height:560px;display:grid;place-items:center;
+  min-height:620px;display:grid;place-items:center;
 }
-@media(max-width:1020px){.scene{min-height:460px;margin-top:8px}}
-@media(max-width:560px){.scene{min-height:400px}}
+@media(max-width:1020px){.scene{min-height:520px;margin-top:8px}}
+@media(max-width:560px){.scene{min-height:430px}}
 .stageT{
   position:relative;width:100%;max-width:560px;transform-style:preserve-3d;
   transform:rotateY(calc(var(--mx) * -7deg)) rotateX(calc(var(--my) * 5deg));
@@ -117,9 +117,9 @@ h1 i{font-style:italic;color:var(--gold-lt)}
 
 /* — well schematic (back) — */
 .l-well{
-  inset:auto;left:50%;top:50%;width:min(100%,520px);
-  transform:translate(-50%,-50%) translateZ(-120px) scale(1.06);
-  opacity:.92;
+  inset:auto;left:50%;top:50%;width:min(104%,540px);
+  transform:translate(-63%,-64%) translateZ(-130px);
+  opacity:.95;
 }
 .wellcard{
   border:1px solid var(--line-soft);border-radius:4px;overflow:hidden;
@@ -138,8 +138,8 @@ h1 i{font-style:italic;color:var(--gold-lt)}
 
 /* — webinar player (mid) — */
 .l-player{
-  left:50%;top:50%;width:min(94%,470px);
-  transform:translate(-46%,-34%) translateZ(70px);
+  left:50%;top:50%;width:min(86%,430px);
+  transform:translate(-26%,-6%) translateZ(80px);
 }
 .player{
   border:1px solid rgba(214,220,235,.14);border-radius:7px;overflow:hidden;
@@ -178,8 +178,8 @@ h1 i{font-style:italic;color:var(--gold-lt)}
 
 /* — confirmation chip (front) — */
 .l-chip{
-  left:50%;top:50%;width:min(80%,276px);
-  transform:translate(2%,76%) translateZ(150px);
+  left:50%;top:50%;width:min(76%,274px);
+  transform:translate(-78%,52%) translateZ(160px);
 }
 .chip{
   display:flex;align-items:center;gap:12px;padding:13px 15px;border-radius:5px;
@@ -188,13 +188,13 @@ h1 i{font-style:italic;color:var(--gold-lt)}
   box-shadow:0 36px 64px -26px rgba(0,0,0,.95);
 }
 .chip-ic{width:28px;height:28px;border-radius:50%;border:1px solid var(--flag);background:rgba(143,166,126,.14);display:grid;place-content:center;flex:0 0 auto}
-.chip-k{font-family:var(--f-mono);font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--flag)}
-.chip-v{font-size:12px;color:var(--ivory);margin-top:3px;line-height:1.35}
+.chip-k{display:block;font-family:var(--f-mono);font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--flag)}
+.chip-v{display:block;font-size:12px;color:var(--ivory);margin-top:4px;line-height:1.35}
 
 @media(max-width:560px){
-  .l-player{width:100%;transform:translate(-50%,-42%) translateZ(60px)}
-  .l-well{width:100%;transform:translate(-50%,-50%) translateZ(-110px) scale(1)}
-  .l-chip{width:min(86%,250px);transform:translate(-32%,86%) translateZ(130px)}
+  .l-well{width:100%;transform:translate(-52%,-70%) translateZ(-110px)}
+  .l-player{width:min(100%,360px);transform:translate(-40%,6%) translateZ(60px)}
+  .l-chip{width:min(84%,248px);transform:translate(-62%,74%) translateZ(130px)}
   .stageT{transform:none}
 }
 

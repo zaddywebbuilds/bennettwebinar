@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Webinar Automation Sequence</title>
+<meta name="description" content="Interactive follow-up automation for the OilTaxPro educational webinar, branching by attendance behaviour.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --graphite:#0A0E13; --graphite-2:#10151A; --navy-2:#0D1622; --panel:#131C28;
+  --ivory:#F5F2EB; --ivory-2:#C2C8D1; --steel:#667583; --steel-d:#48535F;
+  --gold:#C6A56B; --gold-lt:#E0C68E;
+  --line:rgba(198,165,107,.22); --hair:rgba(214,220,235,.08);
+  --flag:#8FA67E; --warn:#C98A6A; --stop:#9A6E63;
+  --f-disp:'Instrument Serif',Georgia,serif;
+  --f-body:'IBM Plex Sans',system-ui,sans-serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{max-width:100%;overflow-x:clip}
+body{margin:0;background:var(--graphite);color:var(--ivory);font-family:var(--f-body);font-size:16px;font-weight:300;line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0;font-weight:400;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:30px}
+@media(max-width:700px){.wrap{padding-inline:18px}}
+.eyebrow{font-family:var(--f-mono);font-size:11px;font-weight:500;letter-spacing:.19em;text-transform:uppercase;color:var(--gold);margin:0}
+
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(10,14,19,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--hair)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:18px;padding-block:15px}
+.brand{font-family:var(--f-disp);font-size:23px;text-decoration:none}
+.brand i{font-style:italic;color:var(--gold)}
+.backlink{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--steel);text-decoration:none;border:1px solid var(--hair);border-radius:2px;padding:8px 14px;transition:color .15s,border-color .15s}
+.backlink:hover{color:var(--gold-lt);border-color:var(--line)}
+
+.head{padding-block:64px 36px;background:radial-gradient(760px 300px at 24% 0%,rgba(198,165,107,.09),transparent 70%)}
+.head h1{font-family:var(--f-disp);font-size:clamp(34px,4.8vw,56px);line-height:1.06;letter-spacing:-.012em;margin:14px 0 18px}
+.head h1 i{font-style:italic;color:var(--gold-lt)}
+.head p{color:var(--ivory-2);max-width:62ch;font-size:16.5px}
+
+/* scenario switcher */
+.switch-sec{padding-block:30px 10px}
+.switch-k{font-family:var(--f-mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--steel);margin-bottom:14px}
+.switch{display:flex;flex-wrap:wrap;gap:9px}
+.sc{
+  font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  background:var(--navy-2);color:var(--steel);border:1px solid var(--hair);border-radius:2px;
+  padding:11px 18px;cursor:pointer;transition:all .16s;display:flex;align-items:center;gap:9px;
+}
+.sc:hover{border-color:var(--line);color:var(--ivory-2)}
+.sc[aria-pressed=true]{background:rgba(198,165,107,.1);border-color:var(--gold);color:var(--gold-lt)}
+.sc .pip{width:6px;height:6px;border-radius:50%;background:currentColor;flex:0 0 auto;opacity:.6}
+.sc[aria-pressed=true] .pip{opacity:1}
+.sc:focus-visible{outline:2px solid var(--gold-lt);outline-offset:2px}
+
+.scene-note{
+  margin-top:20px;border-left:2px solid var(--gold);background:rgba(198,165,107,.06);
+  padding:15px 20px;border-radius:0 3px 3px 0;
+}
+.scene-note p{font-size:14.5px;color:var(--ivory);max-width:74ch}
+.scene-note .lbl{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:7px}
+
+/* timeline */
+.track{padding-block:34px 72px}
+.phase{font-family:var(--f-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--steel);margin:28px 0 16px;display:flex;align-items:center;gap:14px}
+.phase::after{content:'';flex:1 1 auto;height:1px;background:var(--hair)}
+.phase.gold{color:var(--gold)}
+
+.node{position:relative;padding-left:40px;padding-bottom:14px}
+.node::before{content:'';position:absolute;left:9px;top:26px;bottom:-6px;width:1px;background:var(--hair)}
+.node:last-child::before{display:none}
+.node::after{
+  content:'';position:absolute;left:4px;top:17px;width:11px;height:11px;border-radius:50%;
+  background:var(--graphite);border:1px solid var(--gold);
+}
+.node.evt::after{border-color:var(--steel-d);background:var(--steel-d)}
+.node.stop::after{border-color:var(--stop);background:var(--graphite)}
+.node.end::after{border-color:var(--flag);background:var(--flag)}
+@media(max-width:620px){.node{padding-left:28px}.node::before{left:5px}.node::after{left:0}}
+
+.card{border:1px solid var(--hair);border-radius:3px;background:var(--navy-2);overflow:hidden;transition:border-color .16s}
+.card:hover{border-color:rgba(198,165,107,.18)}
+.card > summary{
+  list-style:none;cursor:pointer;padding:16px 18px;display:flex;flex-wrap:wrap;align-items:center;gap:12px;
+}
+.card > summary::-webkit-details-marker{display:none}
+.card > summary:focus-visible{outline:2px solid var(--gold-lt);outline-offset:-2px}
+.when{font-family:var(--f-mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--gold);border:1px solid var(--line);border-radius:2px;padding:4px 9px;white-space:nowrap;flex:0 0 auto}
+.node.evt .when{color:var(--steel);border-color:var(--hair)}
+.node.stop .when{color:var(--stop);border-color:rgba(154,110,99,.35)}
+.node.end .when{color:var(--flag);border-color:rgba(143,166,126,.35)}
+.subj{flex:1 1 220px;min-width:0;font-size:15px;color:var(--ivory);line-height:1.4}
+.chan{font-family:var(--f-mono);font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:var(--steel);white-space:nowrap}
+.card > summary::after{content:'+';font-family:var(--f-mono);color:var(--gold);font-size:16px;flex:0 0 auto;margin-left:auto}
+.card[open] > summary::after{content:'\2212'}
+
+.body{padding:0 18px 18px;border-top:1px solid var(--hair);margin-top:-1px}
+.mail{background:var(--graphite);border:1px solid var(--hair);border-radius:3px;padding:18px;margin-top:16px}
+.mail .from{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--steel);padding-bottom:11px;border-bottom:1px solid var(--hair);margin-bottom:14px}
+.mail p{font-size:14.5px;color:var(--ivory-2);line-height:1.72;max-width:70ch}
+.mail p + p{margin-top:12px}
+.mail .sig{color:var(--steel);font-size:13.5px;margin-top:14px}
+.mail .cta-line{color:var(--gold-lt)}
+
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.tag{font-family:var(--f-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--steel);border:1px solid var(--hair);border-radius:2px;padding:4px 9px}
+.tag.crm{color:var(--gold);border-color:var(--line)}
+.tag.stopt{color:var(--stop);border-color:rgba(154,110,99,.3)}
+
+.logic{margin-top:14px;font-size:13.5px;color:var(--steel);line-height:1.65;max-width:72ch}
+.logic b{color:var(--ivory-2);font-weight:400}
+
+/* rules */
+.rules{border-top:1px solid var(--hair);padding-block:60px}
+.rule-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:1px;background:var(--hair);border:1px solid var(--hair);border-radius:3px;overflow:hidden;margin-top:34px}
+.rule{background:var(--navy-2);padding:24px 22px;display:flex;flex-direction:column;gap:9px;min-width:0}
+.rule-k{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.rule h3{font-size:15.5px;font-weight:500;line-height:1.35}
+.rule p{font-size:13.5px;color:var(--steel);line-height:1.6}
+
+.disc{background:var(--graphite-2);border-top:1px solid var(--line)}
+.disc-in{padding-block:36px;display:grid;gap:13px}
+.disc p{font-size:12.5px;color:var(--steel);line-height:1.7;max-width:96ch}
+.foot{border-top:1px solid var(--hair);padding-block:22px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-family:var(--f-mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--steel)}
+.demo-tag{position:fixed;left:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:50;font-family:var(--f-mono);font-size:9px;letter-spacing:.13em;text-transform:uppercase;background:rgba(13,19,27,.93);border:1px solid var(--line);color:var(--gold-lt);padding:7px 11px;border-radius:2px;backdrop-filter:blur(8px)}
+@media(max-width:620px){.demo-tag{font-size:8px;padding:6px 9px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="wrap nav-in">
+  <a class="brand" href="../">Oil<i>Tax</i>Pro</a>
+  <a class="backlink" href="../">&larr; Landing page</a>
+</div></nav>
+
+<header class="head"><div class="wrap">
+  <p class="eyebrow">Follow-up automation</p>
+  <h1>What happens <i>after</i> they register.</h1>
+  <p>Everyone gets the same three messages before the session. After it, the sequence splits on what they actually did &mdash; attended, left early, or never showed. Pick a path below to see the messages that path receives.</p>
+</div></header>
+
+<div class="switch-sec"><div class="wrap">
+  <p class="switch-k">Select a registrant path</p>
+  <div class="switch" role="group" aria-label="Registrant path">
+    <button class="sc" type="button" data-sc="attended" aria-pressed="true"><span class="pip"></span>Attended</button>
+    <button class="sc" type="button" data-sc="partial" aria-pressed="false"><span class="pip"></span>Left early</button>
+    <button class="sc" type="button" data-sc="noshow" aria-pressed="false"><span class="pip"></span>No-show</button>
+    <button class="sc" type="button" data-sc="booked" aria-pressed="false"><span class="pip"></span>Booked a call</button>
+  </div>
+  <div class="scene-note"><p class="lbl" id="scLbl">Attended</p><p id="scTxt"></p></div>
+</div></div>
+
+<div class="track"><div class="wrap">
+
+  <!-- shared pre-webinar -->
+  <p class="phase gold">Before the session &mdash; everyone</p>
+
+  <div class="node">
+    <details class="card" open>
+      <summary><span class="when">Immediate</span><span class="subj">You&rsquo;re registered &mdash; here are the details</span><span class="chan">Email + .ics</span></summary>
+      <div class="body">
+        <div class="mail">
+          <p class="from">From: Bennett Walsh &middot; OilTaxPro</p>
+          <p>Hi {{first_name}},</p>
+          <p>You&rsquo;re booked in for {{session_date}} at {{session_time}}. A calendar invitation is attached so it&rsquo;s in your diary with the join link already in it.</p>
+          <p>Two things worth knowing before you turn up. Nothing is sold on this session &mdash; no deal is presented and nobody will chase you afterwards. And if you can&rsquo;t make it live, the replay reaches you either way, so there&rsquo;s no need to cancel.</p>
+          <p>If you want to come with a question ready, the one most people wish they&rsquo;d asked sooner is what actually happens when a well underperforms. We cover it properly.</p>
+          <p class="sig">&mdash; Bennett</p>
+        </div>
+        <div class="tags">
+          <span class="tag crm">CRM: contact created</span>
+          <span class="tag crm">Tag: webinar_registered</span>
+          <span class="tag">Field: accredited_attested = true</span>
+          <span class="tag">Field: session_id</span>
+        </div>
+        <p class="logic"><b>Why it reads this way.</b> Setting the no-pitch expectation in the first email is what lifts attendance for a sceptical, high-income audience. The replay promise removes the reason to cancel.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="node">
+    <details class="card">
+      <summary><span class="when">24 hours before</span><span class="subj">Tomorrow &mdash; what we&rsquo;ll actually cover</span><span class="chan">Email</span></summary>
+      <div class="body">
+        <div class="mail">
+          <p class="from">From: Bennett Walsh &middot; OilTaxPro</p>
+          <p>Hi {{first_name}},</p>
+          <p>We&rsquo;re on tomorrow at {{session_time}}. Here&rsquo;s the running order so you know whether it&rsquo;s worth your hour:</p>
+          <p>Why this asset class attracts high-income capital &middot; where the deductions actually come from &middot; why timing decides the outcome &middot; the risks, stated directly &middot; the questions to ask any sponsor before you write a cheque.</p>
+          <p>That fourth section is the one most presentations skip. It&rsquo;s the reason this session exists.</p>
+          <p class="sig">&mdash; Bennett</p>
+        </div>
+        <div class="tags"><span class="tag crm">Tag: reminder_24h_sent</span><span class="tag">Suppressed if already attended</span></div>
+        <p class="logic"><b>Why it reads this way.</b> Publishing the agenda lets the wrong people self-select out. A smaller, better-qualified room is worth more than a full one.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="node">
+    <details class="card">
+      <summary><span class="when">1 hour before</span><span class="subj">Starting in an hour &mdash; your link</span><span class="chan">Email (SMS optional)</span></summary>
+      <div class="body">
+        <div class="mail">
+          <p class="from">From: Bennett Walsh &middot; OilTaxPro</p>
+          <p>Hi {{first_name}},</p>
+          <p>We start in an hour. Your link: {{join_url}}</p>
+          <p>Come with questions. The last fifteen minutes are open floor and that&rsquo;s usually the most useful part of the hour.</p>
+          <p class="sig">&mdash; Bennett</p>
+        </div>
+        <div class="tags"><span class="tag crm">Tag: reminder_1h_sent</span><span class="tag">Optional SMS at T&minus;10 min</span></div>
+      </div>
+    </details>
+  </div>
+
+  <div class="node evt">
+    <details class="card">
+      <summary><span class="when">Session</span><span class="subj">Attendance and watch-time recorded</span><span class="chan">System event</span></summary>
+      <div class="body">
+        <p class="logic" style="margin-top:16px"><b>This is the branch point.</b> The webinar platform reports join time, leave time, and total watch percentage back to the CRM. Everything below depends on which bucket the registrant lands in.</p>
+        <div class="tags">
+          <span class="tag crm">Field: watch_pct</span>
+          <span class="tag crm">Field: asked_question</span>
+          <span class="tag">Attended &ge; 70%</span>
+          <span class="tag">Partial &lt; 70%</span>
+          <span class="tag">No-show = 0%</span>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <!-- ATTENDED -->
+  <div data-path="attended">
+    <p class="phase gold">After the session &mdash; attended</p>
+
+    <div class="node">
+      <details class="card" open>
+        <summary><span class="when">+1 hour</span><span class="subj">The replay, and the eight questions</span><span class="chan">Email</span></summary>
+        <div class="body">
+          <div class="mail">
+            <p class="from">From: Bennett Walsh &middot; OilTaxPro</p>
+            <p>Hi {{first_name}},</p>
+            <p>Thanks for staying to the end &mdash; good questions tonight.</p>
+            <p>The replay is here: {{replay_url}}. I&rsquo;ve also attached the eight diligence questions as a one-page PDF. Use them on anything that crosses your desk, including anything from me. That&rsquo;s the point of them.</p>
+            <p>If you want to work out whether any of this is relevant to your own income and timeline, that&rsquo;s a one-to-one conversation rather than an email. You can request one here: {{suitability_url}}</p>
+            <p>And if you&rsquo;ve decided it&rsquo;s not for you, that&rsquo;s a perfectly good outcome. You won&rsquo;t hear from me about it again.</p>
+            <p class="sig">&mdash; Bennett</p>
+          </div>
+          <div class="tags"><span class="tag crm">Tag: attended_full</span><span class="tag crm">Lead score +30</span><span class="tag">Asset: diligence_questions.pdf</span></div>
+          <p class="logic"><b>Why it reads this way.</b> Giving the diligence framework away &mdash; explicitly including &ldquo;use it on me&rdquo; &mdash; is the single strongest trust move available, and it costs nothing.</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="node">
+      <details class="card">
+        <summary><span class="when">+2 days</span><span class="subj">The question three people asked afterwards</span><span class="chan">Email</span></summary>
+        <div class="body">
+          <div class="mail">
+            <p class="from">From: Bennett Walsh &middot; OilTaxPro</p>
+            <p>Hi {{first_name}},</p>
+            <p>Three people asked the same thing after Thursday, so it&rsquo;s worth answering properly: what happens if the well underperforms?</p>
+            <p>The honest answer is that capital in a well that doesn&rsquo;t produce commercially is capital at risk of total loss. That risk doesn&rsquo;t get engineered away. What it gets is managed &mdash; through operator selection, through how many wells the capital sits across, and through going in with a realistic view rather than a projection.</p>
+            <p>Anyone who answers that question without using the words &ldquo;total loss&rdquo; is managing your feelings, not your risk.</p>
+            <p>Replay, if you want to send it to your CPA: {{replay_url}}</p>
+            <p class="sig">&mdash; Bennett</p>
+          </div>
+          <div class="tags"><span class="tag crm">Tag: nurture_d2_sent</span><span class="tag stopt">Skipped if call already booked</span></div>
+        </div>
+      </details>
+    </div>
+
+    <div class="node">
+      <details class="card">
+        <summary><span class="when">+5 days</span><span class="subj">Closing the loop</span><span class="chan">Email</span></summary>
+        <div class="body">
+          <div class="mail">
+            <p class="from">From: Bennett Walsh &middot; OilTaxPro</p>
+            <p>Hi {{first_name}},</p>
+            <p>Last note on this one.</p>
+            <p>If the timing is wrong or it isn&rsquo;t a fit, no reply needed &mdash; I&rsquo;ll leave you be. If you&rsquo;d like to work out whether it applies to your situation before the year closes, the suitability call is here: {{suitability_url}}</p>
+            <p>Either way, keep the eight questions. They&rsquo;ll save you money on something eventually, even if it&rsquo;s nothing to do with me.</p>
+            <p class="sig">&mdash; Bennett</p>
+          </div>
+          <div class="tags"><span class="tag crm">Tag: sequence_complete</span><span class="tag">Moves to quarterly list if consented</span></div>
+          <p class="logic"><b>Why it reads this way.</b> An explicit last message beats an open-ended drip. It gives the recipient a clean exit, which is exactly what a sceptical audience responds to.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <!-- PARTIAL -->
+  <div data-path="partial" hidden>
+    <p class="phase gold">After the session &mdash; left early</p>
+
+    <div class="node">
+      <details class="card" open>
+        <summary><span class="when">+1 hour</span><span class="subj">You left before the part that matters most</span><span class="chan">Email</span></summary>
+        <div class="body">
+          <div class="mail">
+            <p class="from">From: Bennett Walsh &middot; OilTaxPro</p>
+            <p>Hi {{first_name}},</p>
+            <p>You dropped off around the {{exit_point}} mark, which means you got the mechanisms but missed the risk section &mdash; and that&rsquo;s the part I&rsquo;d actually want you to have.</p>
+            <p>It starts at {{risk_timestamp}} in the replay: {{replay_url}}</p>
+            <p>It&rsquo;s eleven minutes and it covers what goes wrong, not what goes right. If you only watch one section, watch that one.</p>
+            <p class="sig">&mdash; Bennett</p>
+          </div>
+          <div class="tags"><span class="tag crm">Tag: attended_partial</span><span class="tag crm">Lead score +15</span><span class="tag">Deep-links to drop-off point</span></div>
+          <p class="logic"><b>Why it reads this way.</b> Referencing where they actually left proves a person is paying attention, and sending them to the risk section rather than the pitch is consistent with everything else in the funnel.</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="node">
+      <details class="card">
+        <summary><span class="when">+3 days</span><span class="subj">The one-page version</span><span class="chan">Email</span></summary>
+        <div class="body">
+          <div class="mail">
+            <p class="from">From: Bennett Walsh &middot; OilTaxPro</p>
+            <p>Hi {{first_name}},</p>
+            <p>In case the hour was the problem rather than the topic &mdash; here&rsquo;s the whole thing on one page: the three deduction mechanisms, why timing changes the outcome, and the eight questions to ask any sponsor.</p>
+            <p>{{summary_pdf}}</p>
+            <p>If it&rsquo;s worth a proper conversation after that, the suitability call is here: {{suitability_url}}. If not, no reply needed.</p>
+            <p class="sig">&mdash; Bennett</p>
+          </div>
+          <div class="tags"><span class="tag crm">Tag: nurture_d3_sent</span><span class="tag stopt">Skipped if call already booked</span></div>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <!-- NO-SHOW -->
+  <div data-path="noshow" hidden>
+    <p class="phase gold">After the session &mdash; no-show</p>
+
+    <div class="node">
+      <details class="card" open>
+        <summary><span class="when">+1 hour</span><span class="subj">Missed you &mdash; here it is anyway</span><span class="chan">Email</span></summary>
+        <div class="body">
+          <div class="mail">
+            <p class="from">From: Bennett Walsh &middot; OilTaxPro</p>
+            <p>Hi {{first_name}},</p>
+            <p>You weren&rsquo;t able to make it tonight, which is what usually happens to a 7pm commitment made ten days earlier. No problem.</p>
+            <p>Full replay, nothing held back: {{replay_url}}</p>
+            <p>If an hour is unrealistic, start at {{risk_timestamp}} &mdash; that&rsquo;s the risk section, and it&rsquo;s the most useful eleven minutes of the lot.</p>
+            <p class="sig">&mdash; Bennett</p>
+          </div>
+          <div class="tags"><span class="tag crm">Tag: no_show</span><span class="tag crm">Lead score +5</span></div>
+          <p class="logic"><b>Why it reads this way.</b> No guilt, no &ldquo;we missed you!&rdquo; theatre. Naming the real reason people miss webinars is disarming and keeps the list warm.</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="node">
+      <details class="card">
+        <summary><span class="when">+2 days</span><span class="subj">Next dates, if live suits you better</span><span class="chan">Email</span></summary>
+        <div class="body">
+          <div class="mail">
+            <p class="from">From: Bennett Walsh &middot; OilTaxPro</p>
+            <p>Hi {{first_name}},</p>
+            <p>If you&rsquo;d rather do this live so you can ask questions in the room, the next two dates are {{next_session_1}} and {{next_session_2}}.</p>
+            <p>{{reserve_url}}</p>
+            <p>Replay is still open if you&rsquo;d rather just watch it: {{replay_url}}</p>
+            <p class="sig">&mdash; Bennett</p>
+          </div>
+          <div class="tags"><span class="tag crm">Tag: reoffer_sent</span><span class="tag">Re-enters pre-session sequence on re-register</span></div>
+        </div>
+      </details>
+    </div>
+
+    <div class="node">
+      <details class="card">
+        <summary><span class="when">+6 days</span><span class="subj">Closing the loop</span><span class="chan">Email</span></summary>
+        <div class="body">
+          <div class="mail">
+            <p class="from">From: Bennett Walsh &middot; OilTaxPro</p>
+            <p>Hi {{first_name}},</p>
+            <p>I&rsquo;ll stop here so I&rsquo;m not cluttering your inbox.</p>
+            <p>The replay stays open at {{replay_url}}. If the timing is wrong this year, that&rsquo;s genuinely fine &mdash; this is a long-horizon decision and rushing it is how people get it wrong.</p>
+            <p class="sig">&mdash; Bennett</p>
+          </div>
+          <div class="tags"><span class="tag crm">Tag: sequence_complete</span><span class="tag">Moves to quarterly list if consented</span></div>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <!-- BOOKED -->
+  <div data-path="booked" hidden>
+    <p class="phase gold">Booked a suitability call</p>
+
+    <div class="node stop">
+      <details class="card" open>
+        <summary><span class="when">On booking</span><span class="subj">All marketing sequences stop immediately</span><span class="chan">System event</span></summary>
+        <div class="body">
+          <p class="logic" style="margin-top:16px"><b>Suppression is the most important rule in the whole system.</b> The moment someone books, every nurture sequence they are sitting in is cancelled. Nothing is worse than a prospect receiving &ldquo;still thinking about it?&rdquo; the day after they committed to a call.</p>
+          <div class="tags">
+            <span class="tag stopt">Cancel: attended sequence</span>
+            <span class="tag stopt">Cancel: partial sequence</span>
+            <span class="tag stopt">Cancel: no-show sequence</span>
+            <span class="tag crm">Stage: suitability_booked</span>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <div class="node">
+      <details class="card">
+        <summary><span class="when">Immediate</span><span class="subj">Confirmed &mdash; and how to make the call useful</span><span class="chan">Email + .ics</span></summary>
+        <div class="body">
+          <div class="mail">
+            <p class="from">From: Bennett Walsh &middot; OilTaxPro</p>
+            <p>Hi {{first_name}},</p>
+            <p>We&rsquo;re set for {{call_date}} at {{call_time}}. Invitation attached.</p>
+            <p>To make it worth both our time, have a rough sense of three things: your approximate federal tax position this year, what your capital needs to do over the next five years, and your honest comfort with illiquidity.</p>
+            <p>No documents, no forms. If it isn&rsquo;t a fit I&rsquo;ll tell you on the call rather than string it out.</p>
+            <p class="sig">&mdash; Bennett</p>
+          </div>
+          <div class="tags"><span class="tag crm">Routed to existing booking system</span><span class="tag crm">Owner assigned</span></div>
+        </div>
+      </details>
+    </div>
+
+    <div class="node">
+      <details class="card">
+        <summary><span class="when">24 hours before</span><span class="subj">Tomorrow, and a way out</span><span class="chan">Email</span></summary>
+        <div class="body">
+          <div class="mail">
+            <p class="from">From: Bennett Walsh &middot; OilTaxPro</p>
+            <p>Hi {{first_name}},</p>
+            <p>Speaking tomorrow at {{call_time}}.</p>
+            <p>If something&rsquo;s come up or you&rsquo;ve changed your mind, reschedule or cancel here &mdash; {{reschedule_url}} &mdash; no explanation needed. I&rsquo;d rather have the slot back than have you feel obliged.</p>
+            <p class="sig">&mdash; Bennett</p>
+          </div>
+          <div class="tags"><span class="tag crm">Tag: call_reminder_sent</span><span class="tag">Reduces no-show rate on calls</span></div>
+          <p class="logic"><b>Why it reads this way.</b> Offering an easy cancel increases show rate rather than reducing it. People who feel trapped ghost; people given an exit turn up.</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="node end">
+      <details class="card">
+        <summary><span class="when">After the call</span><span class="subj">Hands off to your existing process</span><span class="chan">System event</span></summary>
+        <div class="body">
+          <p class="logic" style="margin-top:16px">The automation layer ends here. Everything past this point &mdash; qualification, documentation, and any investment discussion &mdash; happens in the process you already run, with a person, not a sequence.</p>
+          <div class="tags"><span class="tag crm">Stage: handed to existing CRM process</span><span class="tag end">Automation complete</span></div>
+        </div>
+      </details>
+    </div>
+  </div>
+
+</div></div>
+
+<div class="rules"><div class="wrap">
+  <p class="eyebrow">Rules that apply across every path</p>
+  <h2 style="font-family:var(--f-disp);font-size:clamp(28px,3.6vw,40px);line-height:1.1;margin-top:13px">The guardrails.</h2>
+  <div class="rule-grid">
+    <div class="rule"><span class="rule-k">Rule 01</span><h3>Booking stops everything</h3><p>A booked suitability call cancels every active nurture sequence instantly. No exceptions.</p></div>
+    <div class="rule"><span class="rule-k">Rule 02</span><h3>Every sequence ends</h3><p>Each path has a final message that says it is the final message. Nothing drips indefinitely.</p></div>
+    <div class="rule"><span class="rule-k">Rule 03</span><h3>Consent is per-purpose</h3><p>Session reminders and ongoing educational email are separate permissions, captured separately at registration.</p></div>
+    <div class="rule"><span class="rule-k">Rule 04</span><h3>No fabricated urgency</h3><p>No countdown timers, no invented seat counts, no expiring replays. The year-end calendar is the only real deadline and it is stated plainly.</p></div>
+    <div class="rule"><span class="rule-k">Rule 05</span><h3>No claims in email</h3><p>No projections, savings figures, or performance numbers appear in any message. The disclosures travel with the educational content.</p></div>
+    <div class="rule"><span class="rule-k">Rule 06</span><h3>One unsubscribe ends all</h3><p>Opting out removes the contact from every sequence at once, not just the one they received.</p></div>
+  </div>
+</div></div>
+
+<div class="disc"><div class="wrap disc-in">
+  <p class="eyebrow">Important disclosures</p>
+  <p>The messages shown here are proposed draft copy for a concept demonstration. They are educational in nature and do not constitute financial, tax, legal, or investment advice, nor an offer to sell or a solicitation of an offer to buy any security or interest. No specific outcome, tax treatment, deduction, or return is promised or implied.</p>
+  <p>Placeholders in double braces represent merge fields that would be populated by the sending system. No email platform, CRM, or webinar platform is connected to this page, no sequence is live, and no message is sent. Timings, tags, and field names are illustrative and would be finalised against the tooling already in use. All copy is subject to review and approval before any live use.</p>
+  <div class="foot">
+    <span>OilTaxPro &mdash; Automation sequence</span>
+    <span>Concept demonstration &mdash; no live integration</span>
+  </div>
+</div></div>
+
+<span class="demo-tag">Concept demo &mdash; built for Bennett Walsh</span>
+
+<script>
+(function(){
+  "use strict";
+  var notes = {
+    attended: 'Watched 70% or more. Highest intent in the system. They get the diligence framework immediately and one clearly-final close five days later.',
+    partial:  'Joined but dropped before the end. Usually they got the mechanisms and missed the risk section, so the follow-up sends them straight back to that timestamp rather than to a pitch.',
+    noshow:   'Registered and never joined. Still a qualified lead who raised a hand, so the tone is matter-of-fact: here is the replay, here are the next dates, and then it stops.',
+    booked:   'Requested a suitability call. Every marketing sequence is cancelled the moment this happens, and the contact is handed to the booking process already running.'
+  };
+  var labels = {attended:'Attended', partial:'Left early', noshow:'No-show', booked:'Booked a call'};
+  var btns  = Array.prototype.slice.call(document.querySelectorAll('.sc'));
+  var paths = Array.prototype.slice.call(document.querySelectorAll('[data-path]'));
+  var lbl = document.getElementById('scLbl');
+  var txt = document.getElementById('scTxt');
+
+  function show(key){
+    btns.forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-sc') === key ? 'true' : 'false'); });
+    paths.forEach(function(p){ p.hidden = p.getAttribute('data-path') !== key; });
+    lbl.textContent = labels[key];
+    txt.textContent = notes[key];
+  }
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){ show(b.getAttribute('data-sc')); });
+  });
+  show('attended');
+})();
+</script>
+</body>
+</html>
