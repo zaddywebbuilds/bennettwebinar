@@ -86,8 +86,26 @@ svg{display:block}
 .hero-in{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
 @media(max-width:1020px){.hero-in{grid-template-columns:1fr;gap:48px}.hero{padding-block:52px 60px}}
 
-.gate{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:2px;padding:7px 13px;margin-bottom:26px;font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-lt)}
-.gate::before{content:'';width:5px;height:5px;background:var(--gold);border-radius:50%;flex:0 0 auto}
+.kicker-line{
+  display:flex;align-items:center;gap:13px;margin-bottom:22px;
+  font-family:var(--f-mono);font-size:10.5px;font-weight:500;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--gold);
+}
+.kicker-line::before{content:'';width:34px;height:1px;background:var(--gold);flex:0 0 auto}
+
+.feats{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.feat{
+  display:flex;align-items:center;gap:10px;min-width:0;flex:1 1 160px;
+  border:1px solid var(--hair);border-radius:3px;padding:11px 13px;background:rgba(17,30,44,.4);
+}
+.feat-ic{
+  width:28px;height:28px;border-radius:3px;flex:0 0 auto;display:grid;place-content:center;
+  border:1px solid var(--line);background:rgba(198,165,107,.08);color:var(--gold);
+}
+.feat > span:last-child{min-width:0;font-family:var(--f-mono);font-size:8.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--steel);line-height:1.5}
+.feat b{display:block;font-family:var(--f-body);font-size:12.5px;font-weight:500;letter-spacing:0;text-transform:none;color:var(--ivory);margin-bottom:2px}
+
+.hero-fine{margin-top:16px;font-size:11.5px;color:var(--steel);line-height:1.6}
 h1{font-family:var(--f-disp);font-size:clamp(42px,5.4vw,70px);line-height:1.02;letter-spacing:-.015em;margin-bottom:24px}
 h1 i{font-style:italic;color:var(--gold-lt)}
 .lede{font-size:17px;color:var(--ivory-2);max-width:52ch;line-height:1.72}
@@ -101,92 +119,76 @@ h1 i{font-style:italic;color:var(--gold-lt)}
 .cred-n{font-family:var(--f-disp);font-size:30px;color:var(--gold-lt);line-height:1;font-variant-numeric:tabular-nums;display:block}
 .cred-l{font-family:var(--f-mono);font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:var(--steel);margin-top:8px;display:block;line-height:1.5}
 
-/* ───────── 3D SCENE ───────── */
+/* ───────── HERO MEDIA ───────── */
 .scene{
-  position:relative;perspective:1500px;perspective-origin:58% 44%;
-  display:grid;place-items:center;padding-block:34px 72px;
+  position:relative;perspective:1600px;perspective-origin:54% 46%;
+  display:grid;place-items:center;padding-block:14px 56px;
 }
-@media(max-width:1020px){.scene{padding-block:10px 64px}}
+@media(max-width:1020px){.scene{padding-block:6px 54px}}
 .stageT{
-  position:relative;width:100%;max-width:520px;transform-style:preserve-3d;
-  transform:rotateY(calc(var(--mx) * -6deg)) rotateX(calc(var(--my) * 4deg));
+  position:relative;width:100%;max-width:560px;transform-style:preserve-3d;
+  transform:rotateY(calc(var(--mx) * -5deg)) rotateX(calc(var(--my) * 3.4deg));
   transition:transform .5s cubic-bezier(.22,.61,.36,1);
 }
 .layer{transform-style:preserve-3d}
 
-/* — well schematic (back) — */
-.l-well{position:relative;width:100%;transform:translateZ(-110px)}
-.wellcard{
-  border:1px solid var(--line-soft);border-radius:4px;overflow:hidden;
-  background:linear-gradient(165deg,#0F1824,#0A0E14 70%);
-  box-shadow:0 40px 90px -42px rgba(0,0,0,.95);
+/* — video card — */
+.l-video{position:relative;width:100%;transform:translateZ(0)}
+.videocard{
+  position:relative;border:1px solid rgba(214,220,235,.16);border-radius:8px;overflow:hidden;
+  background:#090D13;box-shadow:0 60px 120px -42px rgba(0,0,0,.97),0 0 0 1px rgba(255,255,255,.03) inset;
 }
-.wellcard figcaption{
-  display:flex;align-items:center;justify-content:space-between;gap:12px;
-  padding:9px 14px;border-bottom:1px solid var(--hair);
-  font-family:var(--f-mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);
+.videocard video{
+  display:block;width:100%;aspect-ratio:16/10.2;object-fit:cover;object-position:center 34%;
+  background:#090D13;
 }
-.wellcard figcaption b{color:var(--gold);font-weight:500}
-.well-svg{width:100%;height:auto;display:block}
-.bore-pulse{animation:bore 5.2s linear infinite}
-@keyframes bore{0%{stroke-dashoffset:360}100%{stroke-dashoffset:0}}
-
-/* — webinar player (mid) — */
-.l-player{position:absolute;right:-10%;bottom:-27%;width:63%;transform:translateZ(80px)}
-.player{
-  border:1px solid rgba(214,220,235,.14);border-radius:7px;overflow:hidden;
-  background:linear-gradient(180deg,#19212D,#0E141D);
-  box-shadow:0 58px 110px -34px rgba(0,0,0,.96), 0 0 0 1px rgba(255,255,255,.03) inset;
+.vc-shade{position:absolute;left:0;right:0;bottom:0;height:52%;pointer-events:none;
+  background:linear-gradient(to top,rgba(5,8,13,.95) 0%,rgba(5,8,13,.6) 38%,transparent 100%)}
+.vc-tag{
+  position:absolute;top:13px;font-family:var(--f-mono);font-size:8px;letter-spacing:.14em;
+  text-transform:uppercase;border:1px solid var(--line);border-radius:2px;padding:5px 9px;
+  background:rgba(8,12,18,.72);backdrop-filter:blur(6px);color:var(--gold-lt);
 }
-.chrome{display:flex;align-items:center;gap:8px;padding:9px 12px;background:linear-gradient(180deg,#232C39,#19212C);border-bottom:1px solid rgba(0,0,0,.5)}
-.dot{width:8px;height:8px;border-radius:50%;background:#394553;flex:0 0 auto}
-.urlchip{
-  flex:1 1 auto;min-width:0;margin-left:6px;background:rgba(10,14,19,.72);border:1px solid rgba(255,255,255,.05);
-  border-radius:3px;padding:4px 9px;font-family:var(--f-mono);font-size:9px;color:var(--steel);
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-}
-.screen{position:relative;min-height:0;aspect-ratio:16/10.6;background:radial-gradient(640px 300px at 32% 22%,#1A2433,#0A0F16 72%);padding:18px 20px 0;display:flex;flex-direction:column;overflow:hidden}
-.screen-mark{font-family:var(--f-disp);font-size:13px;color:var(--ivory);opacity:.72}
-.screen-mark i{font-style:italic;color:var(--gold)}
-.screen-k{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.17em;text-transform:uppercase;color:var(--gold);margin-top:16px}
-.screen h3{font-family:var(--f-disp);font-size:clamp(17px,2.5vw,25px);line-height:1.12;margin-top:7px;max-width:16ch}
-.screen h3 i{font-style:italic;color:var(--gold-lt)}
-.screen-rule{height:1px;background:var(--line-soft);margin-top:14px;width:52%}
-.screen-sub{font-size:10.5px;color:var(--steel);margin-top:11px;max-width:30ch;line-height:1.55}
-.badge-edu{
-  position:absolute;right:16px;top:16px;font-family:var(--f-mono);font-size:7.5px;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--gold-lt);border:1px solid var(--line);border-radius:2px;padding:4px 8px;
-  background:rgba(10,14,19,.6);
-}
-.presenter{margin-top:auto;padding-bottom:15px;display:flex;align-items:center;gap:9px}
-.pres-av{width:28px;height:28px;border-radius:3px;border:1px solid var(--line);background:linear-gradient(140deg,#24313F,#141C26);display:grid;place-content:center;font-family:var(--f-disp);font-size:12px;color:var(--gold)}
-.pres-n{font-size:10.5px;color:var(--ivory);line-height:1.3}
-.pres-r{font-family:var(--f-mono);font-size:8px;letter-spacing:.11em;text-transform:uppercase;color:var(--steel)}
-.controls{display:flex;align-items:center;gap:11px;padding:11px 14px;background:#0B1119;border-top:1px solid rgba(255,255,255,.05)}
-.play{width:25px;height:25px;border-radius:50%;background:var(--gold);display:grid;place-content:center;flex:0 0 auto}
-.bar-t{flex:1 1 auto;min-width:0;height:2.5px;border-radius:2px;background:rgba(214,220,235,.14);overflow:hidden}
-.bar-t span{display:block;height:100%;width:22%;background:var(--gold);border-radius:2px}
+.vc-tag.l{left:13px}
+.vc-tag.r{right:13px;color:var(--steel);border-color:rgba(214,220,235,.14)}
+.vc-pres{position:absolute;left:16px;right:16px;bottom:50px;display:flex;align-items:flex-end;gap:11px}
+.vc-slide{flex:1 1 auto;min-width:0}
+.vc-k{font-family:var(--f-mono);font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);display:block}
+.vc-h{font-family:var(--f-disp);font-size:clamp(16px,2.3vw,23px);line-height:1.12;margin-top:5px;color:var(--ivory)}
+.vc-h i{font-style:italic;color:var(--gold-lt)}
+.vc-ctrl{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;gap:11px;
+  padding:10px 14px;background:rgba(7,11,17,.78);backdrop-filter:blur(10px);border-top:1px solid rgba(255,255,255,.06)}
+.play{width:24px;height:24px;border-radius:50%;background:var(--gold);display:grid;place-content:center;flex:0 0 auto;border:0;cursor:pointer;padding:0}
+.play:focus-visible{outline:2px solid var(--gold-lt);outline-offset:2px}
+.bar-t{flex:1 1 auto;min-width:0;height:2.5px;border-radius:2px;background:rgba(214,220,235,.16);overflow:hidden}
+.bar-t span{display:block;height:100%;width:0;background:var(--gold);border-radius:2px}
 .t-txt{font-family:var(--f-mono);font-size:9px;color:var(--steel);font-variant-numeric:tabular-nums;white-space:nowrap}
 
-/* — confirmation chip (front) — */
-.l-chip{position:absolute;left:-8%;bottom:-7%;width:60%;min-width:232px;transform:translateZ(165px)}
-.chip{
-  display:flex;align-items:center;gap:12px;padding:13px 15px;border-radius:5px;
-  background:linear-gradient(145deg,rgba(28,38,51,.92),rgba(13,19,27,.92));
-  border:1px solid rgba(214,220,235,.15);backdrop-filter:blur(12px);
-  box-shadow:0 36px 64px -26px rgba(0,0,0,.95);
+/* — session panel — */
+.l-panel{position:absolute;right:-5%;bottom:-13%;width:min(58%,254px);transform:translateZ(90px)}
+.spanel{
+  background:linear-gradient(160deg,rgba(23,32,45,.96),rgba(11,16,24,.96));
+  border:1px solid rgba(214,220,235,.16);border-radius:6px;padding:16px 16px 14px;
+  backdrop-filter:blur(14px);box-shadow:0 40px 74px -28px rgba(0,0,0,.96);
 }
-.chip-ic{width:28px;height:28px;border-radius:50%;border:1px solid var(--flag);background:rgba(143,166,126,.14);display:grid;place-content:center;flex:0 0 auto}
-.chip-k{display:block;font-family:var(--f-mono);font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--flag)}
-.chip-v{display:block;font-size:12px;color:var(--ivory);margin-top:4px;line-height:1.35}
-
-@media(max-width:620px){
-  .scene{padding-block:2px 26px}
+.spanel-k{font-family:var(--f-mono);font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:11px}
+.srow{display:flex;align-items:center;gap:9px;padding:8px 9px;border:1px solid var(--hair);border-radius:3px;margin-bottom:7px}
+.srow.on{border-color:var(--gold);background:rgba(198,165,107,.09)}
+.srow i{width:11px;height:11px;border-radius:50%;border:1px solid var(--steel-d);flex:0 0 auto;display:grid;place-content:center}
+.srow.on i{border-color:var(--gold)}
+.srow.on i::after{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold)}
+.srow b{font-weight:400;font-size:11px;color:var(--ivory);line-height:1.3}
+.srow span{font-family:var(--f-mono);font-size:8px;letter-spacing:.08em;color:var(--steel);display:block;margin-top:2px}
+.spanel-btn{display:block;width:100%;margin-top:10px;text-align:center;font-family:var(--f-mono);font-size:9px;letter-spacing:.13em;text-transform:uppercase;background:var(--gold);color:#0A0D11;border-radius:2px;padding:9px;text-decoration:none}
+.spanel-btn:hover{background:var(--gold-lt)}
+@media(max-width:1020px){
+  .stageT{max-width:520px}
+}
+@media(max-width:640px){
   .stageT{transform:none;max-width:460px}
-  .l-well,.l-player,.l-chip{transform:none}
-  .l-player{position:static;width:88%;margin:-9% 0 0 auto}
-  .l-chip{position:static;width:80%;min-width:0;margin:-8% auto 0 0}
-  .chip{padding:11px 13px}
+  .l-video,.l-panel{transform:none}
+  .l-panel{position:static;width:84%;max-width:300px;margin:-7% auto 0 0}
+  .vc-pres{bottom:46px}
 }
 
 /* ───────── SECTIONS ───────── */
@@ -329,14 +331,31 @@ details p{padding-bottom:22px;color:var(--ivory-2);font-size:15px;max-width:72ch
 <!-- ═══ HERO ═══ -->
 <header class="hero"><div class="wrap hero-in">
   <div>
-    <span class="gate">Accredited investors &amp; qualifying high-income professionals</span>
-    <h1>How oil &amp; gas tax structures <i>actually</i> work.</h1>
-    <p class="lede">A 60-minute educational session on where the deductions in private oil and gas investments come from, how timing affects them, what the real risks are, and how to tell whether any of it is relevant to your situation.</p>
-    <p class="lede">No projections. No pitch deck. No offer presented.</p>
+    <p class="kicker-line">Live &amp; on-demand webinar</p>
+    <h1>How oil &amp; gas <i>tax structures</i> actually work.</h1>
+    <p class="lede">Discover how sophisticated investors evaluate oil and gas opportunities &mdash; where the deductions come from, how timing affects them, and what the real risks are.</p>
+
+    <div class="feats">
+      <div class="feat">
+        <span class="feat-ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V6a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2z"/><path d="M8 8h7M8 12h7"/></svg></span>
+        <span><b>Educational</b>Not a pitch</span>
+      </div>
+      <div class="feat">
+        <span class="feat-ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 3 6-7"/><path d="M15 8h4v4"/></svg></span>
+        <span><b>Structures</b>Explained plainly</span>
+      </div>
+      <div class="feat">
+        <span class="feat-ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.2 7.8-8 9-4.8-1.2-8-4.5-8-9V6z"/><path d="M12 9v4"/><path d="M12 16h.01"/></svg></span>
+        <span><b>Risk &amp; suitability</b>Covered directly</span>
+      </div>
+    </div>
+
     <div class="hero-cta">
-      <a class="btn" href="#reserve">Reserve a seat</a>
+      <a class="btn" href="#reserve">Reserve your spot</a>
       <span class="cta-aside">Free &middot; 60 min + Q&amp;A</span>
     </div>
+    <p class="hero-fine">Free educational session &middot; No obligation &middot; Accredited investors &amp; qualifying high-income professionals</p>
+
     <div class="creds">
       <div class="cred"><span class="cred-n">250+</span><span class="cred-l">Investors worked with</span></div>
       <div class="cred"><span class="cred-n">$30M+</span><span class="cred-l">Placed into private deals</span></div>
@@ -345,122 +364,39 @@ details p{padding-bottom:22px;color:var(--ivory-2);font-size:15px;max-width:72ch
   </div>
 
   <!-- layered 3D composition -->
-  <div class="scene" id="scene" aria-hidden="true">
+  <div class="scene" id="scene">
     <div class="stageT" id="stageT">
 
-      <!-- back: well schematic -->
-      <div class="layer l-well">
-        <figure class="wellcard">
-          <figcaption><span>Illustrative schematic</span><b>Non-operated working interest</b></figcaption>
-          <svg class="well-svg" viewBox="0 0 520 360" role="img" aria-label="Illustrative well schematic">
-            <defs>
-              <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#16202E"/><stop offset="100%" stop-color="#0C1119"/>
-              </linearGradient>
-              <linearGradient id="rock" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#0E1520"/><stop offset="100%" stop-color="#080C12"/>
-              </linearGradient>
-              <linearGradient id="pay" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="rgba(198,165,107,.03)"/><stop offset="50%" stop-color="rgba(198,165,107,.14)"/><stop offset="100%" stop-color="rgba(198,165,107,.03)"/>
-              </linearGradient>
-            </defs>
-
-            <rect x="0" y="0" width="520" height="78" fill="url(#sky)"/>
-            <rect x="0" y="78" width="520" height="282" fill="url(#rock)"/>
-
-            <!-- strata -->
-            <g stroke="rgba(214,220,235,.055)" stroke-width="1">
-              <path d="M0 116 H520"/><path d="M0 154 H520"/><path d="M0 194 H520"/><path d="M0 232 H520"/>
-            </g>
-            <!-- pay zone -->
-            <rect x="0" y="252" width="520" height="28" fill="url(#pay)"/>
-            <path d="M0 252 H520 M0 280 H520" stroke="rgba(198,165,107,.26)" stroke-width="1"/>
-            <text x="14" y="270" font-family="IBM Plex Mono, monospace" font-size="8.5" letter-spacing="1.3" fill="#C6A56B">TARGET FORMATION</text>
-
-            <!-- surface line -->
-            <path d="M0 78 H520" stroke="rgba(198,165,107,.4)" stroke-width="1.2"/>
-            <g stroke="rgba(198,165,107,.2)" stroke-width="1">
-              <path d="M12 78 l-7 7"/><path d="M44 78 l-7 7"/><path d="M76 78 l-7 7"/><path d="M108 78 l-7 7"/>
-              <path d="M140 78 l-7 7"/><path d="M172 78 l-7 7"/><path d="M204 78 l-7 7"/><path d="M236 78 l-7 7"/>
-              <path d="M268 78 l-7 7"/><path d="M300 78 l-7 7"/><path d="M332 78 l-7 7"/><path d="M364 78 l-7 7"/>
-              <path d="M396 78 l-7 7"/><path d="M428 78 l-7 7"/><path d="M460 78 l-7 7"/><path d="M492 78 l-7 7"/>
-            </g>
-
-            <!-- derrick -->
-            <g stroke="#C6A56B" stroke-width="1.3" fill="none" opacity=".92">
-              <path d="M62 78 L78 22 M114 78 L98 22 M78 22 H98"/>
-              <path d="M68 58 H108 M72 44 H104 M75 33 H101"/>
-              <path d="M84 22 V13 M92 22 V13 M84 13 H92"/>
-            </g>
-            <rect x="76" y="72" width="24" height="7" fill="#C6A56B" opacity=".55"/>
-
-            <!-- wellbore: vertical, build, lateral -->
-            <path d="M88 78 V216 Q88 266 138 266 H330"
-                  stroke="rgba(214,220,235,.2)" stroke-width="9" fill="none" stroke-linecap="round"/>
-            <path d="M88 78 V216 Q88 266 138 266 H330"
-                  stroke="#C6A56B" stroke-width="2" fill="none" stroke-linecap="round" opacity=".85"/>
-            <path class="bore-pulse" d="M88 78 V216 Q88 266 138 266 H330"
-                  stroke="#E0C68E" stroke-width="2.4" fill="none" stroke-linecap="round"
-                  stroke-dasharray="26 334" opacity=".95"/>
-
-            <!-- casing strings -->
-            <g stroke="rgba(214,220,235,.3)" stroke-width="1.4">
-              <path d="M77 78 V128 M99 78 V128"/>
-              <path d="M81 78 V186 M95 78 V186"/>
-            </g>
-            <!-- perforations -->
-            <g stroke="#E0C68E" stroke-width="1.4" opacity=".85">
-              <path d="M172 258 v-9 M172 274 v9"/><path d="M212 258 v-9 M212 274 v9"/>
-              <path d="M252 258 v-9 M252 274 v9"/><path d="M292 258 v-9 M292 274 v9"/>
-            </g>
-
-            <!-- depth annotations -->
-            <g font-family="IBM Plex Mono, monospace" font-size="8" letter-spacing="1.2" fill="#667583">
-              <path d="M110 128 H158" stroke="rgba(214,220,235,.16)" stroke-width="1"/>
-              <text x="164" y="131">SURFACE CASING</text>
-              <path d="M110 186 H158" stroke="rgba(214,220,235,.16)" stroke-width="1"/>
-              <text x="164" y="189">INTERMEDIATE CASING</text>
-              <path d="M110 226 H158" stroke="rgba(214,220,235,.16)" stroke-width="1"/>
-              <text x="164" y="229">PRODUCTION CASING</text>
-              <path d="M232 300 V276" stroke="rgba(198,165,107,.3)" stroke-width="1"/>
-              <text x="150" y="314" fill="#C6A56B">HORIZONTAL LATERAL</text>
-            </g>
-          </svg>
-        </figure>
-      </div>
-
-      <!-- mid: webinar player -->
-      <div class="layer l-player">
-        <div class="player">
-          <div class="chrome">
-            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-            <span class="urlchip">oiltaxpro.com / educational-session</span>
+      <div class="layer l-video">
+        <div class="videocard">
+          <video id="heroVid" src="media/session-loop.mp4" poster="media/session-poster.jpg"
+                 autoplay muted loop playsinline preload="metadata"
+                 aria-label="Preview visualisation of an educational session"></video>
+          <span class="vc-shade"></span>
+          <span class="vc-tag l">Preview visualisation</span>
+          <span class="vc-tag r">Educational &mdash; no offer</span>
+          <div class="vc-pres">
+            <span class="vc-slide">
+              <span class="vc-k">Section 02 &mdash; Mechanisms</span>
+              <span class="vc-h">Where the deductions <i>come from</i></span>
+            </span>
           </div>
-          <div class="screen">
-            <span class="badge-edu">Preview &mdash; sample interface</span>
-            <p class="screen-mark">Oil<i>Tax</i>Pro</p>
-            <p class="screen-k">Section 02 &mdash; Mechanisms</p>
-            <h3>Where the deductions <i>come from</i></h3>
-            <div class="screen-rule"></div>
-            <p class="screen-sub">Intangible costs, tangible costs, and depletion &mdash; and the conditions attached to each.</p>
-            <div class="presenter">
-              <span class="pres-av">BW</span>
-              <span><span class="pres-n">Bennett Walsh</span><br><span class="pres-r">Investor Relations</span></span>
-            </div>
-          </div>
-          <div class="controls">
-            <span class="play"><svg width="9" height="9" viewBox="0 0 10 10"><path d="M2 1 L9 5 L2 9 Z" fill="#0A0D11"/></svg></span>
-            <span class="bar-t"><span></span></span>
-            <span class="t-txt">13:12 / 60:00</span>
+          <div class="vc-ctrl">
+            <button class="play" id="vidToggle" type="button" aria-label="Pause preview">
+              <svg id="vidIcon" width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1.5" width="2" height="7" fill="#0A0D11"/><rect x="6" y="1.5" width="2" height="7" fill="#0A0D11"/></svg>
+            </button>
+            <span class="bar-t"><span id="vidBar"></span></span>
+            <span class="t-txt" id="vidTime">0:00 / 0:04</span>
           </div>
         </div>
       </div>
 
-      <!-- front: confirmation chip -->
-      <div class="layer l-chip">
-        <div class="chip">
-          <span class="chip-ic"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8FA67E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.2 5.2L20 7"/></svg></span>
-          <span><span class="chip-k">Seat reserved</span><span class="chip-v">Confirmation &amp; calendar invite sent</span></span>
+      <div class="layer l-panel">
+        <div class="spanel">
+          <span class="spanel-k">Choose a session</span>
+          <div class="srow on"><i></i><span><b>Thu, 22 October</b><span>1:00 PM EDT</span></span></div>
+          <div class="srow"><i></i><span><b>Tue, 27 October</b><span>7:00 PM EDT</span></span></div>
+          <a class="spanel-btn" href="#reserve">Reserve a seat</a>
         </div>
       </div>
 
@@ -670,7 +606,7 @@ details p{padding-bottom:22px;color:var(--ivory-2);font-size:15px;max-width:72ch
   <p class="eyebrow">Important disclosures</p>
   <p>This session and this page are educational in nature and do not constitute financial, tax, legal, or investment advice, nor an offer to sell or a solicitation of an offer to buy any security or interest. No specific outcome, tax treatment, deduction, or return is promised or implied.</p>
   <p>Oil and gas investments involve substantial risk, including the risk of total loss of capital. They are illiquid, long-horizon, and speculative, and they are not suitable for all investors. Availability may be limited to verified accredited investors. Any potential tax treatment depends on the specific investment structure, the timing of capital deployment, and your individual circumstances. Consult your own CPA, tax adviser, and legal counsel before making any decision.</p>
-  <p>Figures shown describe past activity as published by OilTaxPro and are not a prediction or guarantee of future results. The well schematic is an illustrative diagram, not a representation of any specific project. Session dates, times, the webinar interface preview, and all registration functionality on this page are sample data for demonstration purposes; no information entered is stored, transmitted, or used.</p>
+  <p>Figures shown describe past activity as published by OilTaxPro and are not a prediction or guarantee of future results. The hero footage is a synthetic preview visualisation generated for layout purposes; it is not a recording of any actual session and would be replaced with the client&rsquo;s own approved footage before any live use. Session dates, times, the player interface, and all registration functionality on this page are sample data for demonstration purposes; no information entered is stored, transmitted, or used.</p>
   <div class="foot">
     <span>OilTaxPro &mdash; Educational session</span>
     <span>Concept demonstration &mdash; not an active registration page</span>
@@ -703,6 +639,39 @@ details p{padding-bottom:22px;color:var(--ivory-2);font-size:15px;max-width:72ch
       stage.style.setProperty('--my', ty.toFixed(3));
     }
   }
+
+  /* ── hero video ── */
+  (function(){
+    var v = document.getElementById('heroVid');
+    if (!v) return;
+    var btn = document.getElementById('vidToggle');
+    var icon = document.getElementById('vidIcon');
+    var bar = document.getElementById('vidBar');
+    var tt  = document.getElementById('vidTime');
+    var PAUSE = '<rect x="2" y="1.5" width="2" height="7" fill="#0A0D11"/><rect x="6" y="1.5" width="2" height="7" fill="#0A0D11"/>';
+    var PLAY  = '<path d="M2 1 L9 5 L2 9 Z" fill="#0A0D11"/>';
+
+    function fmt(s){
+      if (!isFinite(s) || s < 0) s = 0;
+      return Math.floor(s / 60) + ':' + ('0' + Math.floor(s % 60)).slice(-2);
+    }
+    function paint(){
+      var d = v.duration;
+      if (!isFinite(d) || d <= 0) return;
+      bar.style.width = ((v.currentTime / d) * 100).toFixed(2) + '%';
+      tt.textContent = fmt(v.currentTime) + ' / ' + fmt(d);
+    }
+    v.addEventListener('timeupdate', paint);
+    v.addEventListener('loadedmetadata', paint);
+    v.addEventListener('play',  function(){ icon.innerHTML = PAUSE; btn.setAttribute('aria-label','Pause preview'); });
+    v.addEventListener('pause', function(){ icon.innerHTML = PLAY;  btn.setAttribute('aria-label','Play preview'); });
+
+    btn.addEventListener('click', function(){
+      if (v.paused) { v.play().catch(function(){}); } else { v.pause(); }
+    });
+    if (reduce) { v.removeAttribute('autoplay'); v.pause(); icon.innerHTML = PLAY; }
+    else { v.play().catch(function(){ icon.innerHTML = PLAY; }); }
+  })();
 
   /* ── session cards ↔ select ── */
   var cards = Array.prototype.slice.call(document.querySelectorAll('.sess'));
