@@ -7,7 +7,7 @@
 <meta name="description" content="A free 60-minute educational webinar on how oil and gas tax structures actually work: where deductions come from, why timing decides the outcome, and the risks stated directly. For accredited investors and high-income professionals.">
 <meta name="keywords" content="oil and gas tax structures, intangible drilling costs, non-operated working interest, accredited investor education, depletion allowance, oil and gas webinar, tax planning for high income earners">
 <meta name="author" content="Bennett Walsh">
-<meta name="theme-color" content="#0A0E13">
+<meta name="theme-color" content="#0E1B2B">
 
 <!-- DEMO: concept page on a developer subdomain. Change to index,follow only once
      this is deployed on the client's own domain, to avoid competing with or
@@ -15,7 +15,7 @@
 <meta name="robots" content="noindex, nofollow">
 
 <link rel="canonical" href="https://zaddywebbuilds.github.io/bennettwebinar/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%230A0E13'/%3E%3Cpath d='M16 5 L22 27 M16 5 L10 27 M12 20 H20' stroke='%23C6A56B' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%230E1B2B'/%3E%3Cpath d='M16 5 L22 27 M16 5 L10 27 M12 20 H20' stroke='%23C9A368' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="OilTaxPro">
@@ -39,21 +39,21 @@
 <style>
 /* Layout: cinematic asymmetric hero over layered 3D scene; editorial sections below on hairline rules */
 :root{
-  --graphite:#0A0E13;
-  --graphite-2:#10151A;
-  --navy:#111E2C;
-  --navy-2:#0D1622;
-  --panel:#131C28;
+  --graphite:#0E1B2B;
+  --graphite-2:#0B1624;
+  --navy:#15283E;
+  --navy-2:#132436;
+  --panel:#17293F;
   --ivory:#F5F2EB;
-  --ivory-2:#C2C8D1;
-  --steel:#667583;
-  --steel-d:#48535F;
-  --gold:#C6A56B;
-  --gold-lt:#E0C68E;
-  --gold-d:#8A7140;
-  --line:rgba(198,165,107,.22);
-  --line-soft:rgba(198,165,107,.09);
-  --hair:rgba(214,220,235,.08);
+  --ivory-2:#C4CCD8;
+  --steel:#8694A6;
+  --steel-d:#566475;
+  --gold:#C9A368;
+  --gold-lt:#E2C68C;
+  --gold-d:#8E7540;
+  --line:rgba(201,163,104,.24);
+  --line-soft:rgba(201,163,104,.09);
+  --hair:rgba(214,222,238,.09);
   --flag:#8FA67E;
   --warn:#C98A6A;
 
@@ -82,7 +82,7 @@ svg{display:block}
 .eyebrow{font-family:var(--f-mono);font-size:11px;font-weight:500;letter-spacing:.19em;text-transform:uppercase;color:var(--gold);margin:0}
 
 /* ───────── NAV ───────── */
-.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:60;background:rgba(10,14,19,.86);backdrop-filter:blur(16px);border-bottom:1px solid var(--hair)}
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:60;background:rgba(14,27,43,.86);backdrop-filter:blur(16px);border-bottom:1px solid var(--hair)}
 .nav-in{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:15px}
 .brand{font-family:var(--f-disp);font-size:24px;text-decoration:none;white-space:nowrap}
 .brand i{font-style:italic;color:var(--gold)}
@@ -92,16 +92,16 @@ svg{display:block}
 .btn{
   display:inline-block;font-family:var(--f-mono);font-size:11.5px;font-weight:500;letter-spacing:.13em;
   text-transform:uppercase;text-decoration:none;padding:11px 22px;border-radius:2px;cursor:pointer;
-  border:1px solid var(--gold);background:var(--gold);color:#0A0D11;transition:background .16s,border-color .16s,transform .16s;
+  border:1px solid var(--gold);background:var(--gold);color:#0D1726;transition:background .16s,border-color .16s,transform .16s;
 }
 .btn:hover{background:var(--gold-lt);border-color:var(--gold-lt)}
 .btn:active{transform:translateY(1px)}
 .btn-ghost{background:transparent;color:var(--gold)}
-.btn-ghost:hover{background:rgba(198,165,107,.1);border-color:var(--gold-lt)}
+.btn-ghost:hover{background:rgba(201,163,104,.1);border-color:var(--gold-lt)}
 
 /* ───────── HERO ───────── */
 .hero{position:relative;overflow:hidden;padding-block:48px 48px;background:
-  radial-gradient(1100px 620px at 76% 6%, rgba(198,165,107,.11), transparent 64%),
+  radial-gradient(1100px 620px at 76% 6%, rgba(201,163,104,.11), transparent 64%),
   linear-gradient(176deg, var(--navy-2) 0%, var(--graphite) 58%);
 }
 .hero::before{
@@ -124,11 +124,11 @@ svg{display:block}
 .feats{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
 .feat{
   display:flex;align-items:center;gap:10px;min-width:0;flex:1 1 160px;
-  border:1px solid var(--hair);border-radius:3px;padding:11px 13px;background:rgba(17,30,44,.4);
+  border:1px solid var(--hair);border-radius:3px;padding:11px 13px;background:rgba(21,40,62,.4);
 }
 .feat-ic{
   width:28px;height:28px;border-radius:3px;flex:0 0 auto;display:grid;place-content:center;
-  border:1px solid var(--line);background:rgba(198,165,107,.08);color:var(--gold);
+  border:1px solid var(--line);background:rgba(201,163,104,.08);color:var(--gold);
 }
 .feat > span:last-child{min-width:0;font-family:var(--f-mono);font-size:8.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--steel);line-height:1.5}
 .feat b{display:block;font-family:var(--f-body);font-size:12.5px;font-weight:500;letter-spacing:0;text-transform:none;color:var(--ivory);margin-bottom:2px}
@@ -163,20 +163,20 @@ h1 i{font-style:italic;color:var(--gold-lt)}
 /* — video card — */
 .l-video{position:relative;width:100%;transform:translateZ(0)}
 .videocard{
-  position:relative;border:1px solid rgba(214,220,235,.16);border-radius:8px;overflow:hidden;
-  background:#090D13;box-shadow:0 60px 120px -42px rgba(0,0,0,.97),0 0 0 1px rgba(255,255,255,.03) inset;
+  position:relative;border:1px solid rgba(214,222,238,.16);border-radius:8px;overflow:hidden;
+  background:#0C1826;box-shadow:0 60px 120px -42px rgba(0,0,0,.97),0 0 0 1px rgba(255,255,255,.03) inset;
 }
 /* Source footage is 544x544. The card is capped near that width so the frame
    fills the column without being upscaled into softness. */
 .videocard video{
   display:block;width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center 32%;
-  background:#090D13;
+  background:#0C1826;
 }
 .vc-tag{
   font-family:var(--f-mono);font-size:8px;letter-spacing:.14em;white-space:nowrap;
   text-transform:uppercase;border:1px solid var(--line);border-radius:2px;padding:4px 8px;color:var(--gold-lt);
 }
-.vc-tag.r{color:var(--steel);border-color:rgba(214,220,235,.14)}
+.vc-tag.r{color:var(--steel);border-color:rgba(214,222,238,.14)}
 .vc-meta{display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap;
   padding:13px 16px 12px;background:var(--panel);border-top:1px solid rgba(255,255,255,.06)}
 .vc-slide{flex:1 1 180px;min-width:0}
@@ -185,10 +185,10 @@ h1 i{font-style:italic;color:var(--gold-lt)}
 .vc-h i{font-style:italic;color:var(--gold-lt)}
 .vc-tags{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
 .vc-ctrl{display:flex;align-items:center;gap:11px;
-  padding:10px 14px;background:#0B1119;border-top:1px solid rgba(255,255,255,.06)}
+  padding:10px 14px;background:#0F2033;border-top:1px solid rgba(255,255,255,.06)}
 .play{width:24px;height:24px;border-radius:50%;background:var(--gold);display:grid;place-content:center;flex:0 0 auto;border:0;cursor:pointer;padding:0}
 .play:focus-visible{outline:2px solid var(--gold-lt);outline-offset:2px}
-.bar-t{flex:1 1 auto;min-width:0;height:2.5px;border-radius:2px;background:rgba(214,220,235,.16);overflow:hidden}
+.bar-t{flex:1 1 auto;min-width:0;height:2.5px;border-radius:2px;background:rgba(214,222,238,.16);overflow:hidden}
 .bar-t span{display:block;height:100%;width:0;background:var(--gold);border-radius:2px}
 .t-txt{font-family:var(--f-mono);font-size:9px;color:var(--steel);font-variant-numeric:tabular-nums;white-space:nowrap}
 
@@ -221,7 +221,7 @@ h2.sec{font-family:var(--f-disp);font-size:clamp(30px,4vw,46px);line-height:1.08
 .fit{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--hair);border-radius:3px;overflow:hidden}
 @media(max-width:780px){.fit{grid-template-columns:1fr}}
 .fit-col{padding:24px 24px}
-.fit-col:first-child{border-right:1px solid var(--hair);background:rgba(198,165,107,.04)}
+.fit-col:first-child{border-right:1px solid var(--hair);background:rgba(201,163,104,.04)}
 @media(max-width:780px){.fit-col:first-child{border-right:0;border-bottom:1px solid var(--hair)}}
 .fit-col h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:15px}
 .fit-col:first-child h3{color:var(--gold)}
@@ -242,7 +242,7 @@ h2.sec{font-family:var(--f-disp);font-size:clamp(30px,4vw,46px);line-height:1.08
 
 .host{display:grid;grid-template-columns:168px 1fr;gap:34px;align-items:start}
 @media(max-width:780px){.host{grid-template-columns:1fr;gap:28px}}
-.portrait{aspect-ratio:4/5;max-width:100%;border:1px solid var(--line);border-radius:3px;background:linear-gradient(150deg,rgba(198,165,107,.1),transparent 58%),linear-gradient(180deg,var(--panel),var(--graphite));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:20px;text-align:center}
+.portrait{aspect-ratio:4/5;max-width:100%;border:1px solid var(--line);border-radius:3px;background:linear-gradient(150deg,rgba(201,163,104,.1),transparent 58%),linear-gradient(180deg,var(--panel),var(--graphite));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:20px;text-align:center}
 .portrait .mono{font-family:var(--f-disp);font-size:42px;color:var(--gold);line-height:1}
 .portrait .cap{font-family:var(--f-mono);font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:var(--steel);line-height:1.5}
 .host h2{font-family:var(--f-disp);font-size:35px;line-height:1.1;margin-bottom:6px}
@@ -262,7 +262,7 @@ body.js .reveal.in{opacity:1;transform:none}
 .opp-sec{background:linear-gradient(180deg,var(--graphite),var(--navy-2) 58%,var(--graphite))}
 .opp{display:grid;grid-template-columns:55fr 45fr;gap:40px;align-items:center}
 @media(max-width:900px){.opp{grid-template-columns:1fr;gap:34px}}
-.plate{position:relative;border-radius:6px;overflow:hidden;border:1px solid rgba(214,220,235,.12);
+.plate{position:relative;border-radius:6px;overflow:hidden;border:1px solid rgba(214,222,238,.12);
   box-shadow:0 46px 90px -40px rgba(0,0,0,.95)}
 .plate img{display:block;width:100%;height:auto;max-width:100%}
 .plate figcaption{
@@ -280,7 +280,7 @@ body.js .reveal.in{opacity:1;transform:none}
 .opp-pt b{color:var(--ivory);font-weight:500}
 
 .pan-sec{background:var(--graphite-2);border-top:1px solid var(--hair)}
-.pan-frame{position:relative;border-radius:6px;overflow:hidden;border:1px solid rgba(214,220,235,.12);
+.pan-frame{position:relative;border-radius:6px;overflow:hidden;border:1px solid rgba(214,222,238,.12);
   margin-top:0;box-shadow:0 52px 100px -44px rgba(0,0,0,.95)}
 .pan-frame img{display:block;width:100%;height:auto;max-width:100%}
 .pan-note{padding:11px 16px;background:var(--navy-2);border-top:1px solid var(--hair);
@@ -288,7 +288,7 @@ body.js .reveal.in{opacity:1;transform:none}
 
 .xsec-sec{background:linear-gradient(180deg,var(--navy-2),var(--graphite) 70%);border-top:1px solid var(--hair)}
 .xsec{position:relative;margin-top:22px;max-width:1020px;margin-inline:auto;border-radius:6px;overflow:hidden;
-  border:1px solid rgba(214,220,235,.12);box-shadow:0 52px 100px -44px rgba(0,0,0,.95)}
+  border:1px solid rgba(214,222,238,.12);box-shadow:0 52px 100px -44px rgba(0,0,0,.95)}
 .xsec img{display:block;width:100%;height:auto;max-width:100%}
 .xsec figcaption{
   padding:11px 16px;background:var(--navy-2);border-top:1px solid var(--hair);
@@ -307,19 +307,19 @@ body.js .reveal.in{opacity:1;transform:none}
 .xsec-wrap{position:relative}
 .hot{
   position:absolute;width:22px;height:22px;border-radius:50%;padding:0;cursor:pointer;
-  border:1px solid var(--gold);background:rgba(10,14,19,.72);backdrop-filter:blur(4px);
+  border:1px solid var(--gold);background:rgba(14,27,43,.72);backdrop-filter:blur(4px);
   transform:translate(-50%,-50%);display:grid;place-content:center;z-index:3;
   transition:background .16s,transform .16s;
 }
 .hot::after{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold)}
 .hot:hover,.hot:focus-visible{background:var(--gold);transform:translate(-50%,-50%) scale(1.14)}
-.hot:hover::after,.hot:focus-visible::after{background:#0A0D11}
+.hot:hover::after,.hot:focus-visible::after{background:#0D1726}
 .hot:focus-visible{outline:2px solid var(--gold-lt);outline-offset:3px}
 .hot[aria-expanded=true]{background:var(--gold)}
-.hot[aria-expanded=true]::after{background:#0A0D11}
+.hot[aria-expanded=true]::after{background:#0D1726}
 .hot-pop{
   position:absolute;z-index:4;width:min(248px,62vw);transform:translate(-50%,14px);
-  background:rgba(13,19,28,.97);border:1px solid var(--line);border-radius:4px;padding:13px 14px;
+  background:rgba(16,30,47,.97);border:1px solid var(--line);border-radius:4px;padding:13px 14px;
   backdrop-filter:blur(10px);box-shadow:0 26px 54px -20px rgba(0,0,0,.95);
 }
 .hot-pop[hidden]{display:none}
@@ -342,7 +342,7 @@ body.js .reveal.in{opacity:1;transform:none}
 .split.a{grid-template-columns:44fr 56fr}
 .split.b{grid-template-columns:56fr 44fr}
 @media(max-width:900px){.split.a,.split.b{grid-template-columns:1fr;gap:30px}.split .ord{order:-1}}
-.shot{border-radius:5px;overflow:hidden;border:1px solid rgba(214,220,235,.12);
+.shot{border-radius:5px;overflow:hidden;border:1px solid rgba(214,222,238,.12);
   box-shadow:0 36px 72px -34px rgba(0,0,0,.94);max-width:768px}
 .shot img{display:block;width:100%;height:auto;max-width:100%}
 .shot figcaption{padding:9px 13px;background:var(--navy-2);border-top:1px solid var(--hair);
@@ -361,7 +361,7 @@ body.js .reveal.in{opacity:1;transform:none}
 .final{position:relative;border-top:1px solid var(--line);background:var(--graphite-2)}
 .final-panel{
   position:relative;max-width:1040px;margin:0 auto;border-radius:6px;overflow:hidden;
-  border:1px solid rgba(214,220,235,.12);box-shadow:0 44px 86px -38px rgba(0,0,0,.95);
+  border:1px solid rgba(214,222,238,.12);box-shadow:0 44px 86px -38px rgba(0,0,0,.95);
   display:grid;grid-template-columns:1.04fr .96fr;align-items:center;background:var(--navy-2);
 }
 @media(max-width:780px){.final-panel{grid-template-columns:1fr}}
@@ -390,7 +390,7 @@ body.js .reveal.in{opacity:1;transform:none}
   border-radius:3px;background:var(--navy-2);cursor:pointer;transition:border-color .16s,background .16s;
 }
 .sess:hover{border-color:var(--line)}
-.sess.sel{border-color:var(--gold);background:rgba(198,165,107,.07)}
+.sess.sel{border-color:var(--gold);background:rgba(201,163,104,.07)}
 .sess-r{width:15px;height:15px;border-radius:50%;border:1px solid var(--steel-d);flex:0 0 auto;display:grid;place-content:center;transition:border-color .16s}
 .sess.sel .sess-r{border-color:var(--gold)}
 .sess-r::after{content:'';width:7px;height:7px;border-radius:50%;background:var(--gold);transform:scale(0);transition:transform .16s}
@@ -421,7 +421,7 @@ form{display:flex;flex-direction:column;gap:15px}
 .check input:checked::after{transform:scale(1)}
 .check input:focus-visible{outline:2px solid var(--gold-lt);outline-offset:2px}
 .check span{font-size:12.5px;line-height:1.55;color:var(--ivory-2)}
-.btn-submit{width:100%;margin-top:4px;padding:14px;font-size:12px;letter-spacing:.14em;font-family:var(--f-mono);font-weight:500;text-transform:uppercase;background:var(--gold);color:#0A0D11;border:1px solid var(--gold);border-radius:2px;cursor:pointer;transition:background .16s}
+.btn-submit{width:100%;margin-top:4px;padding:14px;font-size:12px;letter-spacing:.14em;font-family:var(--f-mono);font-weight:500;text-transform:uppercase;background:var(--gold);color:#0D1726;border:1px solid var(--gold);border-radius:2px;cursor:pointer;transition:background .16s}
 .btn-submit:hover{background:var(--gold-lt)}
 .fineprint{font-size:11.5px;color:var(--steel);line-height:1.55;text-align:center;margin-top:12px}
 .confirm .tick{width:46px;height:46px;border-radius:50%;border:1px solid var(--flag);background:rgba(143,166,126,.12);display:grid;place-content:center;margin-bottom:20px}
@@ -441,14 +441,14 @@ summary::after{content:'+';margin-left:auto;font-family:var(--f-mono);color:var(
 details[open] summary::after{content:'\2212'}
 summary:focus-visible{outline:2px solid var(--gold-lt);outline-offset:3px}
 details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch}
-.close-cta{text-align:center;padding-block:88px;background:radial-gradient(760px 300px at 50% 0%,rgba(198,165,107,.09),transparent 70%)}
+.close-cta{text-align:center;padding-block:88px;background:radial-gradient(760px 300px at 50% 0%,rgba(201,163,104,.09),transparent 70%)}
 .close-cta h2{font-family:var(--f-disp);font-size:clamp(32px,4.6vw,52px);line-height:1.06;max-width:17ch;margin:0 auto 18px}
 .close-cta p{color:var(--ivory-2);max-width:50ch;margin:0 auto 32px}
 .disc{background:var(--graphite-2);border-top:1px solid var(--line)}
 .disc-in{padding-block:30px;display:grid;gap:12px}
 .disc p{font-size:12.5px;color:var(--steel);line-height:1.7;max-width:96ch}
 .foot{border-top:1px solid var(--hair);padding-block:22px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-family:var(--f-mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--steel)}
-.demo-tag{position:fixed;left:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:70;font-family:var(--f-mono);font-size:9px;letter-spacing:.13em;text-transform:uppercase;background:rgba(13,19,27,.93);border:1px solid var(--line);color:var(--gold-lt);padding:7px 11px;border-radius:2px;backdrop-filter:blur(8px)}
+.demo-tag{position:fixed;left:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:70;font-family:var(--f-mono);font-size:9px;letter-spacing:.13em;text-transform:uppercase;background:rgba(16,30,47,.93);border:1px solid var(--line);color:var(--gold-lt);padding:7px 11px;border-radius:2px;backdrop-filter:blur(8px)}
 @media(max-width:620px){.demo-tag{font-size:8px;padding:6px 9px}}
 
 /* ───────── MOBILE FIT ───────── */
@@ -587,7 +587,7 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
           </div>
           <div class="vc-ctrl">
             <button class="play" id="vidToggle" type="button" aria-label="Pause preview">
-              <svg id="vidIcon" width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1.5" width="2" height="7" fill="#0A0D11"/><rect x="6" y="1.5" width="2" height="7" fill="#0A0D11"/></svg>
+              <svg id="vidIcon" width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1.5" width="2" height="7" fill="#0D1726"/><rect x="6" y="1.5" width="2" height="7" fill="#0D1726"/></svg>
             </button>
             <span class="bar-t"><span id="vidBar"></span></span>
             <span class="t-txt" id="vidTime">0:00 / 0:04</span>
@@ -854,21 +854,21 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
         <div class="fit-col">
           <h3>Likely a fit if</h3>
           <ul>
-            <li><svg class="mk" viewBox="0 0 16 16" fill="none"><path d="M3 8.4l3.2 3.2L13 4.8" stroke="#C6A56B" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>You are an accredited investor, or expect to qualify</span></li>
-            <li><svg class="mk" viewBox="0 0 16 16" fill="none"><path d="M3 8.4l3.2 3.2L13 4.8" stroke="#C6A56B" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>You earn a high income and consistently pay substantial federal tax</span></li>
-            <li><svg class="mk" viewBox="0 0 16 16" fill="none"><path d="M3 8.4l3.2 3.2L13 4.8" stroke="#C6A56B" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>You work with a CPA but suspect proactive planning has not been explored</span></li>
-            <li><svg class="mk" viewBox="0 0 16 16" fill="none"><path d="M3 8.4l3.2 3.2L13 4.8" stroke="#C6A56B" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>You prefer to understand structures and tradeoffs before considering anything</span></li>
-            <li><svg class="mk" viewBox="0 0 16 16" fill="none"><path d="M3 8.4l3.2 3.2L13 4.8" stroke="#C6A56B" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>You are comfortable with complexity, risk, and long-term decisions</span></li>
+            <li><svg class="mk" viewBox="0 0 16 16" fill="none"><path d="M3 8.4l3.2 3.2L13 4.8" stroke="#C9A368" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>You are an accredited investor, or expect to qualify</span></li>
+            <li><svg class="mk" viewBox="0 0 16 16" fill="none"><path d="M3 8.4l3.2 3.2L13 4.8" stroke="#C9A368" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>You earn a high income and consistently pay substantial federal tax</span></li>
+            <li><svg class="mk" viewBox="0 0 16 16" fill="none"><path d="M3 8.4l3.2 3.2L13 4.8" stroke="#C9A368" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>You work with a CPA but suspect proactive planning has not been explored</span></li>
+            <li><svg class="mk" viewBox="0 0 16 16" fill="none"><path d="M3 8.4l3.2 3.2L13 4.8" stroke="#C9A368" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>You prefer to understand structures and tradeoffs before considering anything</span></li>
+            <li><svg class="mk" viewBox="0 0 16 16" fill="none"><path d="M3 8.4l3.2 3.2L13 4.8" stroke="#C9A368" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>You are comfortable with complexity, risk, and long-term decisions</span></li>
           </ul>
         </div>
         <div class="fit-col">
           <h3>Not a fit if</h3>
           <ul>
-            <li><svg class="mk" viewBox="0 0 16 16" fill="none"><path d="M4.6 4.6l6.8 6.8M11.4 4.6l-6.8 6.8" stroke="#667583" stroke-width="1.7" stroke-linecap="round"/></svg><span>You are seeking guarantees, projections, or specific outcomes</span></li>
-            <li><svg class="mk" viewBox="0 0 16 16" fill="none"><path d="M4.6 4.6l6.8 6.8M11.4 4.6l-6.8 6.8" stroke="#667583" stroke-width="1.7" stroke-linecap="round"/></svg><span>You are looking for quick wins or short-term solutions</span></li>
-            <li><svg class="mk" viewBox="0 0 16 16" fill="none"><path d="M4.6 4.6l6.8 6.8M11.4 4.6l-6.8 6.8" stroke="#667583" stroke-width="1.7" stroke-linecap="round"/></svg><span>You are uncomfortable with alternative assets or illiquidity</span></li>
-            <li><svg class="mk" viewBox="0 0 16 16" fill="none"><path d="M4.6 4.6l6.8 6.8M11.4 4.6l-6.8 6.8" stroke="#667583" stroke-width="1.7" stroke-linecap="round"/></svg><span>You prefer to delegate all thinking and decision-making to someone else</span></li>
-            <li><svg class="mk" viewBox="0 0 16 16" fill="none"><path d="M4.6 4.6l6.8 6.8M11.4 4.6l-6.8 6.8" stroke="#667583" stroke-width="1.7" stroke-linecap="round"/></svg><span>You are not accredited, or unwilling to have a suitability conversation</span></li>
+            <li><svg class="mk" viewBox="0 0 16 16" fill="none"><path d="M4.6 4.6l6.8 6.8M11.4 4.6l-6.8 6.8" stroke="#8694A6" stroke-width="1.7" stroke-linecap="round"/></svg><span>You are seeking guarantees, projections, or specific outcomes</span></li>
+            <li><svg class="mk" viewBox="0 0 16 16" fill="none"><path d="M4.6 4.6l6.8 6.8M11.4 4.6l-6.8 6.8" stroke="#8694A6" stroke-width="1.7" stroke-linecap="round"/></svg><span>You are looking for quick wins or short-term solutions</span></li>
+            <li><svg class="mk" viewBox="0 0 16 16" fill="none"><path d="M4.6 4.6l6.8 6.8M11.4 4.6l-6.8 6.8" stroke="#8694A6" stroke-width="1.7" stroke-linecap="round"/></svg><span>You are uncomfortable with alternative assets or illiquidity</span></li>
+            <li><svg class="mk" viewBox="0 0 16 16" fill="none"><path d="M4.6 4.6l6.8 6.8M11.4 4.6l-6.8 6.8" stroke="#8694A6" stroke-width="1.7" stroke-linecap="round"/></svg><span>You prefer to delegate all thinking and decision-making to someone else</span></li>
+            <li><svg class="mk" viewBox="0 0 16 16" fill="none"><path d="M4.6 4.6l6.8 6.8M11.4 4.6l-6.8 6.8" stroke="#8694A6" stroke-width="1.7" stroke-linecap="round"/></svg><span>You are not accredited, or unwilling to have a suitability conversation</span></li>
           </ul>
         </div>
       </div>
@@ -1208,8 +1208,8 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
     var icon = document.getElementById('vidIcon');
     var bar = document.getElementById('vidBar');
     var tt  = document.getElementById('vidTime');
-    var PAUSE = '<rect x="2" y="1.5" width="2" height="7" fill="#0A0D11"/><rect x="6" y="1.5" width="2" height="7" fill="#0A0D11"/>';
-    var PLAY  = '<path d="M2 1 L9 5 L2 9 Z" fill="#0A0D11"/>';
+    var PAUSE = '<rect x="2" y="1.5" width="2" height="7" fill="#0D1726"/><rect x="6" y="1.5" width="2" height="7" fill="#0D1726"/>';
+    var PLAY  = '<path d="M2 1 L9 5 L2 9 Z" fill="#0D1726"/>';
 
     function fmt(s){
       if (!isFinite(s) || s < 0) s = 0;
