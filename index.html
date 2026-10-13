@@ -100,7 +100,7 @@ svg{display:block}
 .btn-ghost:hover{background:rgba(198,165,107,.1);border-color:var(--gold-lt)}
 
 /* ───────── HERO ───────── */
-.hero{position:relative;overflow:hidden;padding-block:56px 60px;background:
+.hero{position:relative;overflow:hidden;padding-block:48px 48px;background:
   radial-gradient(1100px 620px at 76% 6%, rgba(198,165,107,.11), transparent 64%),
   linear-gradient(176deg, var(--navy-2) 0%, var(--graphite) 58%);
 }
@@ -204,6 +204,9 @@ h1 i{font-style:italic;color:var(--gold-lt)}
 section{padding-block:54px;border-top:1px solid var(--hair)}
 @media(max-width:700px){section{padding-block:40px}}
 .sec-head{max-width:62ch;margin-bottom:30px}
+.sec-head.row{max-width:none;display:grid;grid-template-columns:1.08fr .92fr;gap:44px;align-items:end;margin-bottom:22px}
+.sec-head.row p{margin-top:0;padding-bottom:5px}
+@media(max-width:860px){.sec-head.row{grid-template-columns:1fr;gap:10px;align-items:start}.sec-head.row p{padding-bottom:0}}
 .sec-head .eyebrow{margin-bottom:13px}
 h2.sec{font-family:var(--f-disp);font-size:clamp(30px,4vw,46px);line-height:1.08;letter-spacing:-.012em}
 .sec-head p{margin-top:13px;color:var(--ivory-2);font-size:15.5px}
@@ -689,9 +692,9 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
 
 <!-- ═══ INVESTMENT STRUCTURES & DRILLING OPERATIONS ═══ -->
 <section class="xsec-sec"><div class="wrap">
-  <div class="sec-head">
-    <p class="eyebrow">How oil &amp; gas wells work</p>
-    <h2 class="sec">One well, from surface to lateral.</h2>
+  <div class="sec-head row">
+    <div><p class="eyebrow">How oil &amp; gas wells work</p>
+    <h2 class="sec" style="margin-top:12px">One well, from surface to lateral.</h2></div>
     <p>A working interest follows the physical work. Understanding the sequence below is what lets you judge where costs arise, when timing matters, and what is actually at risk at each stage.</p>
   </div>
 
@@ -775,9 +778,9 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
 
 <!-- ═══ FUNNEL ═══ -->
 <section><div class="wrap">
-  <div class="sec-head">
-    <p class="eyebrow">How it fits your existing funnel</p>
-    <h2 class="sec">The session sits between interest and the suitability call.</h2>
+  <div class="sec-head row">
+    <div><p class="eyebrow">How it fits your existing funnel</p>
+    <h2 class="sec" style="margin-top:12px">The session sits between interest and the suitability call.</h2></div>
     <p>Traffic you already pay for arrives warmer and better informed, and the suitability conversation starts further along.</p>
   </div>
   <div class="flow">
@@ -962,7 +965,7 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
   </div>
 </div></section>
 
-<div class="final"><div class="wrap" style="padding-block:52px">
+<div class="final"><div class="wrap" style="padding-block:40px">
   <div class="final-panel reveal">
     <picture>
       <source srcset="media/final-band.webp" type="image/webp">
