@@ -1006,11 +1006,10 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
   padding:13px 18px;margin-top:20px;font-family:var(--f-mono);font-size:11px;letter-spacing:.2em;
   text-transform:uppercase;color:var(--gold-lt)}
 @media(max-width:700px){.cond-bar{letter-spacing:.12em;font-size:9.5px;padding:11px 13px}}
-.cond-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:14px}
-@media(max-width:1180px){.cond-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:700px){.cond-grid{grid-template-columns:1fr}}
+.cond-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:14px}
+@media(max-width:760px){.cond-grid{grid-template-columns:1fr}}
 .cnd{border:1px solid var(--hair);border-radius:6px;background:linear-gradient(180deg,var(--navy-2),var(--graphite-2));
-  padding:17px;display:flex;flex-direction:column;gap:13px;transition:border-color .18s}
+  padding:17px;display:flex;flex-direction:column;gap:13px;height:100%;transition:border-color .18s}
 .cnd:hover{border-color:var(--line)}
 .cnd-h{display:grid;grid-template-columns:auto 1fr;gap:13px;align-items:start}
 .cnd-n{width:40px;height:40px;flex:0 0 auto;border:1px solid var(--gold);border-radius:5px;
@@ -1126,31 +1125,31 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
 .cnd-n span{transform:rotate(-45deg);display:block}
 
 /* photo stage */
-.cst{position:relative;border-radius:5px;overflow:hidden;border:1px solid var(--hair);min-height:214px;
-  display:flex;align-items:center;padding:13px}
+.cst{position:relative;border-radius:5px;overflow:hidden;border:1px solid var(--hair);
+  padding:15px;display:flex;flex-direction:column;gap:11px}
 .cst > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
-.cst::after{content:'';position:absolute;inset:0;z-index:1;
-  background:linear-gradient(100deg,rgba(8,16,27,.93) 20%,rgba(8,16,27,.62) 58%,rgba(8,16,27,.84))}
+.cst::after{content:'';position:absolute;inset:0;z-index:1;background:rgba(8,16,27,.84)}
 .cst > *:not(img){position:relative;z-index:2}
-.cst-grid{display:grid;grid-template-columns:auto 18px 1fr;gap:0;align-items:center;width:100%}
-.cst-entry{border:1px solid var(--gold);border-radius:5px;background:rgba(12,22,36,.9);
-  padding:11px 12px;display:flex;align-items:center;gap:9px;max-width:138px;backdrop-filter:blur(3px)}
-.cst-entry b{font-size:11.5px;color:var(--ivory);font-weight:500;line-height:1.25}
-.cst-join{position:relative;height:100%;min-height:150px}
-.cst-join::before{content:'';position:absolute;left:0;top:50%;width:9px;height:1px;background:var(--gold)}
-.cst-join::after{content:'';position:absolute;left:9px;top:16%;bottom:16%;width:1px;background:var(--gold)}
-.cst-opts{display:grid;gap:8px}
-.cst-opt{position:relative;border:1px solid var(--hair);border-radius:5px;background:rgba(12,22,36,.9);
-  padding:9px 11px;display:grid;grid-template-columns:auto 1fr;gap:9px;align-items:start;backdrop-filter:blur(3px)}
-.cst-opt.on{border-color:var(--gold);background:rgba(201,163,104,.12)}
-.cst-opt::before{content:'';position:absolute;left:-9px;top:50%;width:9px;height:1px;background:rgba(201,163,104,.6)}
-.cst-ic{width:26px;height:26px;border-radius:4px;border:1px solid var(--line);
+.cst-entry{border:1px solid var(--gold);border-radius:5px;background:rgba(12,22,36,.92);
+  padding:11px 13px;display:flex;align-items:center;gap:10px;backdrop-filter:blur(3px)}
+.cst-entry b{font-size:12.5px;color:var(--ivory);font-weight:500;line-height:1.25}
+.cst-join{height:14px;position:relative}
+.cst-join::before{content:'';position:absolute;left:50%;top:0;bottom:4px;width:1px;background:var(--gold)}
+.cst-join::after{content:'';position:absolute;left:50%;bottom:0;width:6px;height:6px;
+  border-right:1px solid var(--gold);border-bottom:1px solid var(--gold);
+  transform:translateX(-50%) rotate(45deg)}
+.cst-opts{display:grid;gap:9px}
+.cst-opt{border:1px solid var(--hair);border-radius:5px;background:rgba(12,22,36,.92);
+  padding:11px 12px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:11px;align-items:start;
+  backdrop-filter:blur(3px)}
+.cst-opt.on{border-color:var(--gold);background:rgba(201,163,104,.14)}
+.cst-ic{width:28px;height:28px;border-radius:5px;border:1px solid var(--line);
   background:rgba(201,163,104,.1);display:grid;place-content:center}
-.cst-opt b{display:block;font-size:11.5px;color:var(--ivory);font-weight:500;line-height:1.25}
-.cst-opt span{display:block;font-size:10px;color:var(--steel);line-height:1.4;margin-top:2px}
+.cst-opt b{display:block;font-size:12.5px;color:var(--ivory);font-weight:500;line-height:1.3}
+.cst-opt span{display:block;font-size:11px;color:var(--steel);line-height:1.45;margin-top:3px}
 
 /* photo strip */
-.cstrip{position:relative;border-radius:5px;overflow:hidden;border:1px solid var(--hair);height:118px}
+.cstrip{position:relative;border-radius:5px;overflow:hidden;border:1px solid var(--hair);height:148px;width:100%}
 .cstrip img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 55%}
 .cstrip::after{content:'';position:absolute;inset:0;
   background:linear-gradient(to top,rgba(8,16,27,.92),rgba(8,16,27,.25))}
@@ -1166,7 +1165,7 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
 /* timing badges */
 .ctb{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;text-align:center}
 .ctb span{display:flex;flex-direction:column;align-items:center;gap:7px}
-.ctb .ic{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);
+.ctb .ic{width:50px;height:50px;border-radius:50%;border:1px solid var(--line);
   background:rgba(201,163,104,.08);display:grid;place-content:center}
 .ctb b{font-size:10.5px;color:var(--ivory);font-weight:500;line-height:1.25}
 .ctb em{font-style:normal;font-size:9.5px;color:var(--steel)}
@@ -1186,25 +1185,22 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
 .ccal span{display:block;font-size:11px;color:var(--ivory-2);line-height:1.5}
 
 /* own position */
-.cop{position:relative;border-radius:5px;overflow:hidden;border:1px solid var(--hair);min-height:230px}
-.cop > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:30% 50%}
-.cop::after{content:'';position:absolute;inset:0;
-  background:linear-gradient(95deg,rgba(8,16,27,.4) 18%,rgba(8,16,27,.88) 52%,rgba(8,16,27,.95))}
-.cop-panel{position:absolute;right:11px;top:11px;z-index:2;width:min(63%,188px);
-  border:1px solid var(--line);border-radius:5px;background:rgba(12,22,36,.93);
-  padding:11px;backdrop-filter:blur(4px)}
-.cop-panel > b{display:block;font-family:var(--f-mono);font-size:8.5px;letter-spacing:.14em;
+.cop{display:flex;flex-direction:column;gap:11px}
+.cop-img{position:relative;border-radius:5px;overflow:hidden;border:1px solid var(--hair)}
+.cop-img img{display:block;width:100%;height:132px;object-fit:cover;object-position:center 42%}
+.cop-img::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(8,16,27,.72),rgba(8,16,27,.12))}
+.cop-panel{border:1px solid var(--line);border-radius:5px;background:var(--graphite);padding:12px 13px}
+.cop-panel > b{display:block;font-family:var(--f-mono);font-size:9px;letter-spacing:.14em;
   text-transform:uppercase;color:var(--gold);margin-bottom:9px}
-.cop-row{display:flex;align-items:center;gap:8px;padding:5px 0;font-size:10.5px;color:var(--ivory-2)}
-.cop-note{position:absolute;right:11px;bottom:11px;left:28%;z-index:2;
-  border:1px solid var(--hair);border-radius:5px;background:rgba(12,22,36,.93);padding:10px 11px;
-  backdrop-filter:blur(4px)}
-.cop-note b{display:block;font-family:var(--f-mono);font-size:8.5px;letter-spacing:.14em;
+.cop-rows{display:grid;grid-template-columns:1fr 1fr;gap:4px 14px}
+@media(max-width:520px){.cop-rows{grid-template-columns:1fr}}
+.cop-row{display:flex;align-items:center;gap:8px;padding:4px 0;font-size:11.5px;color:var(--ivory-2);min-width:0}
+.cop-row svg{flex:0 0 auto}
+.cop-note{border:1px solid var(--hair);border-radius:5px;background:var(--graphite);padding:11px 13px}
+.cop-note b{display:block;font-family:var(--f-mono);font-size:9px;letter-spacing:.14em;
   text-transform:uppercase;color:var(--gold-lt);margin-bottom:5px}
-.cop-note span{display:block;font-size:10.5px;color:var(--ivory-2);line-height:1.5}
-@media(max-width:1180px){.cop-note{left:34%}}
-@media(max-width:700px){.cop-panel{position:static;width:auto;margin:11px}.cop-note{position:static;margin:0 11px 11px;left:auto}
-  .cop{min-height:0}.cop > img{position:relative;height:130px}.cop::after{display:none}}
+.cop-note span{display:block;font-size:11.5px;color:var(--ivory-2);line-height:1.5}.cop > img{position:relative;height:130px}.cop::after{display:none}}
 
 .cnd-more{margin-top:auto;padding-top:4px}
 .cnd-more .tmore{width:100%;justify-content:space-between}
@@ -1608,15 +1604,13 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
       </div></div>
       <div class="cst">
         <img src="media/field-panorama.jpg" alt="" loading="lazy" decoding="async">
-        <div class="cst-grid">
-          <span class="cst-entry"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="2.6"/><path d="M5 6v12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V6"/><path d="M5 12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6"/></svg><b>Investment entry point</b></span>
+                  <span class="cst-entry"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="2.6"/><path d="M5 6v12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V6"/><path d="M5 12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6"/></svg><b>Investment entry point</b></span>
           <span class="cst-join"></span>
           <span class="cst-opts">
             <span class="cst-opt on"><span class="cst-ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21L12 4l4 17M9.5 14h5"/></svg></span><span><b>Direct working interest</b><span>Own a share of the asset and its costs.</span></span></span>
             <span class="cst-opt"><span class="cst-ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="9" r="2.4"/><circle cx="16" cy="9" r="2.4"/><path d="M3.5 18c0-2.4 2-3.8 4.5-3.8s4.5 1.4 4.5 3.8M12 18c0-2.4 1.6-3.8 4-3.8s4 1.4 4 3.8"/></svg></span><span><b>Pooled vehicle</b><span>Invest alongside other investors.</span></span></span>
             <span class="cst-opt"><span class="cst-ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="1.5"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2"/></svg></span><span><b>Corporate wrapper</b><span>Through a company or fund structure.</span></span></span>
           </span>
-        </div>
       </div>
       <div class="cnd-more">
         <button class="tmore" type="button" aria-expanded="false" aria-controls="c1">Learn more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button>
@@ -1683,14 +1677,16 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
         <p>Income type and what the return already contains.</p>
       </div></div>
       <div class="cop">
-        <img src="media/tax-review.jpg" alt="Printed tax documents and financial statements on a desk." loading="lazy" decoding="async">
+        <figure class="cop-img"><img src="media/tax-review.jpg" alt="Printed tax documents and financial statements on a desk." loading="lazy" decoding="async"></figure>
         <div class="cop-panel">
           <b>Income type</b>
-          <span class="cop-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5h6v2"/></svg> Employment income</span>
-          <span class="cop-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V11M10 19V6M16 19v-5M21 19H3"/></svg> Business income</span>
-          <span class="cop-row"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="2.6"/><path d="M5 6v12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V6"/><path d="M5 12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6"/></svg>_S Investment income</span>
-          <span class="cop-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11l8-6 8 6v9H4z"/><path d="M10 20v-5h4v5"/></svg> Rental income</span>
-          <span class="cop-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 13h6M9 17h4"/></svg> Other income</span>
+          <div class="cop-rows">
+            <span class="cop-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5h6v2"/></svg> Employment income</span>
+            <span class="cop-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V11M10 19V6M16 19v-5M21 19H3"/></svg> Business income</span>
+            <span class="cop-row"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="2.6"/><path d="M5 6v12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V6"/><path d="M5 12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6"/></svg>_S Investment income</span>
+            <span class="cop-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11l8-6 8 6v9H4z"/><path d="M10 20v-5h4v5"/></svg> Rental income</span>
+            <span class="cop-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 13h6M9 17h4"/></svg> Other income</span>
+          </div>
         </div>
         <div class="cop-note">
           <b>Your position matters</b>
