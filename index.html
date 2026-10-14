@@ -649,6 +649,43 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
 .stl-bar.risk b{color:#D9A08C}
 .stl-bar i{font-style:normal;font-size:12px;color:var(--ivory-2);line-height:1.5;flex:1 1 220px;min-width:0}
 .stx-note{font-size:12px;color:var(--steel);line-height:1.65;margin-top:14px;max-width:86ch}
+
+/* tax mechanisms mapped onto the parts of a well they attach to */
+.txw{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:26px;align-items:start;margin-top:22px}
+@media(max-width:860px){.txw{grid-template-columns:1fr;gap:18px}}
+.txw-fig{border:1px solid var(--line);border-radius:5px;background:linear-gradient(170deg,#132436,#0C1726 70%);
+  overflow:hidden;position:relative}
+.txw-fig svg{display:block;width:100%;height:auto}
+.txw-cap{font-family:var(--f-mono);font-size:8px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--steel-d);padding:9px 13px;border-top:1px solid var(--hair);background:var(--navy-2)}
+/* dim every layer except the selected one */
+.txw-fig g[data-g]{transition:opacity .3s ease}
+.txw[data-sel="i"] g[data-g]:not([data-g="i"]),
+.txw[data-sel="t"] g[data-g]:not([data-g="t"]),
+.txw[data-sel="d"] g[data-g]:not([data-g="d"]){opacity:.14}
+.hl{opacity:0;transition:opacity .3s ease}
+.txw[data-sel="i"] .hl-i,.txw[data-sel="t"] .hl-t,.txw[data-sel="d"] .hl-d{opacity:1}
+
+.txw-list{display:grid;gap:10px}
+.txm{border:1px solid var(--hair);border-radius:4px;background:var(--navy-2);text-align:left;
+  cursor:pointer;font:inherit;color:inherit;padding:0;display:block;width:100%;
+  transition:border-color .16s,background .16s}
+.txm:hover{border-color:var(--line)}
+.txm[aria-expanded="true"]{border-color:var(--gold);background:rgba(201,163,104,.08)}
+.txm:focus-visible{outline:2px solid var(--gold-lt);outline-offset:2px}
+.txm-top{display:grid;grid-template-columns:38px 1fr;gap:13px;padding:14px 15px;align-items:start}
+.txm-ic{width:38px;height:38px;border:1px solid var(--line);border-radius:3px;
+  background:rgba(201,163,104,.08);display:grid;place-content:center}
+.txm[aria-expanded="true"] .txm-ic{background:var(--gold)}
+.txm-ic svg{display:block}
+.txm[aria-expanded="true"] .txm-ic svg *{stroke:#0D1726}
+.txm-k{font-family:var(--f-mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:block}
+.txm-n{font-family:var(--f-disp);font-size:19px;line-height:1.2;color:var(--ivory);display:block;margin-top:3px}
+.txm-s{font-size:12.5px;color:var(--steel);line-height:1.5;display:block;margin-top:5px}
+.txm-where{font-family:var(--f-mono);font-size:8px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--gold-lt);display:block;margin-top:8px}
+.txm-more{border-top:1px solid var(--hair);padding:12px 15px;font-size:12.5px;color:var(--ivory-2);line-height:1.58}
+.txm-more[hidden]{display:none}
 </style>
 </head>
 <body>
@@ -875,36 +912,121 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
     </div>
     <div class="tx-rail"></div>
 
-    <div class="tx-cards">
-      <button class="txc" type="button" aria-expanded="false" aria-controls="txm1">
-        <span class="txc-top">
-          <span class="txc-k">Mechanism 01</span>
-          <span class="txc-n">Intangible costs</span>
-          <span class="txc-d">The spend that leaves nothing behind to sell: labor, fuel, drilling fluid, site preparation.</span>
-        </span>
-        <span class="txc-hint">Tap for detail</span>
-        <span class="txc-more" id="txm1" hidden>Attaches to the drilling work itself. Policy has long treated this category differently from equipment, because encouraging domestic drilling was a deliberate choice rather than an accident.</span>
-      </button>
+    <div class="txw" id="txw" data-sel="">
+      <figure class="txw-fig">
+        <svg viewBox="0 0 400 440" role="img" aria-label="Schematic well showing which part each cost mechanism attaches to">
+          <defs>
+            <linearGradient id="txSky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#1A2E45"/><stop offset="100%" stop-color="#101E30"/>
+            </linearGradient>
+            <linearGradient id="txRock" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#101C2B"/><stop offset="100%" stop-color="#0A1420"/>
+            </linearGradient>
+            <linearGradient id="txPay" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="rgba(201,163,104,.05)"/>
+              <stop offset="50%" stop-color="rgba(201,163,104,.22)"/>
+              <stop offset="100%" stop-color="rgba(201,163,104,.05)"/>
+            </linearGradient>
+          </defs>
 
-      <button class="txc" type="button" aria-expanded="false" aria-controls="txm2">
-        <span class="txc-top">
-          <span class="txc-k">Mechanism 02</span>
-          <span class="txc-n">Tangible costs</span>
-          <span class="txc-d">Equipment with salvage value: casing, wellhead, pumping units and surface hardware.</span>
-        </span>
-        <span class="txc-hint">Tap for detail</span>
-        <span class="txc-more" id="txm2" hidden>Attaches to physical assets that still exist after the work is done, so it is recovered over time rather than in one period. This is the category most often confused with the first.</span>
-      </button>
+          <rect x="0" y="0" width="400" height="104" fill="url(#txSky)"/>
+          <rect x="0" y="104" width="400" height="336" fill="url(#txRock)"/>
+          <g stroke="rgba(214,222,238,.05)" stroke-width="1">
+            <path d="M0 150 H400"/><path d="M0 196 H400"/><path d="M0 244 H400"/><path d="M0 296 H400"/>
+          </g>
+          <path d="M0 104 H400" stroke="rgba(201,163,104,.38)" stroke-width="1.2"/>
 
-      <button class="txc" type="button" aria-expanded="false" aria-controls="txm3">
-        <span class="txc-top">
-          <span class="txc-k">Mechanism 03</span>
-          <span class="txc-n">Depletion</span>
-          <span class="txc-d">An allowance recognizing that a reservoir is a finite resource being consumed as it produces.</span>
-        </span>
-        <span class="txc-hint">Tap for detail</span>
-        <span class="txc-more" id="txm3" hidden>Attaches to actual production rather than to spend, so it follows what the well does after it is drilled, not what was committed before.</span>
-      </button>
+          <!-- depletion: the reservoir being drawn down -->
+          <g data-g="d">
+            <rect x="0" y="344" width="400" height="46" fill="url(#txPay)"/>
+            <path d="M0 344 H400 M0 390 H400" stroke="rgba(201,163,104,.3)" stroke-width="1"/>
+            <g stroke="#C9A368" stroke-width="1.3" opacity=".75">
+              <path d="M150 352 v-8"/><path d="M190 352 v-8"/><path d="M230 352 v-8"/><path d="M270 352 v-8"/>
+              <path d="M150 382 v8"/><path d="M190 382 v8"/><path d="M230 382 v8"/><path d="M270 382 v8"/>
+            </g>
+            <g class="hl hl-d" stroke="#E2C68C" stroke-width="1.4" fill="none">
+              <path d="M168 368 q10 -9 20 0 t20 0 t20 0"/>
+              <path d="M228 368 q10 -9 20 0 t20 0"/>
+            </g>
+            <text x="12" y="338" font-family="IBM Plex Mono, monospace" font-size="8" letter-spacing="1.2" fill="#8694A6">RESERVOIR</text>
+          </g>
+
+          <!-- intangible: the cut itself, the spend that leaves nothing behind -->
+          <g data-g="i">
+            <path d="M118 104 V300 Q118 348 166 348 H330" stroke="rgba(214,222,238,.16)" stroke-width="11" fill="none" stroke-linecap="round"/>
+            <path d="M118 104 V300 Q118 348 166 348 H330" stroke="#C9A368" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <g class="hl hl-i" stroke="#E2C68C" stroke-width="1.2" opacity="0">
+              <path d="M104 150 h-14 M104 190 h-14 M104 230 h-14 M104 270 h-14"/>
+              <path d="M132 150 h14 M132 190 h14 M132 230 h14 M132 270 h14"/>
+              <path d="M200 362 v12 M240 362 v12 M280 362 v12"/>
+            </g>
+          </g>
+
+          <!-- tangible: hardware that stays in the ground -->
+          <g data-g="t">
+            <g stroke="#C9A368" stroke-width="1.3" fill="none" opacity=".9">
+              <path d="M92 104 L106 46 M144 104 L130 46 M106 46 H130"/>
+              <path d="M97 84 H139 M101 68 H135 M104 56 H132"/>
+            </g>
+            <rect x="106" y="98" width="24" height="8" fill="#C9A368" opacity=".8"/>
+            <g stroke="rgba(214,222,238,.42)" stroke-width="2">
+              <path d="M107 106 V176 M129 106 V176"/>
+              <path d="M111 106 V262 M125 106 V262"/>
+            </g>
+            <g class="hl hl-t" stroke="#E2C68C" stroke-width="1.5" fill="none" opacity="0">
+              <rect x="103" y="94" width="30" height="14" rx="1"/>
+              <path d="M107 176 h-8 M129 176 h8 M111 262 h-8 M125 262 h8"/>
+            </g>
+          </g>
+
+          <g font-family="IBM Plex Mono, monospace" font-size="7.5" letter-spacing="1.1" fill="#566475">
+            <text x="152" y="118">SURFACE</text>
+            <text x="340" y="352">LATERAL</text>
+          </g>
+        </svg>
+        <figcaption class="txw-cap">Select a mechanism to see the part of the well it attaches to</figcaption>
+      </figure>
+
+      <div class="txw-list">
+        <button class="txm" type="button" data-g="i" aria-expanded="false" aria-controls="txm1">
+          <span class="txm-top">
+            <span class="txm-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.5" stroke-linecap="round"><path d="M12 3v13"/><path d="M8.5 16.5L12 21l3.5-4.5z"/><path d="M6 6.5L9 8M18 6.5L15 8M5 11h2.5M19 11h-2.5"/></svg></span>
+            <span>
+              <span class="txm-k">Mechanism 01</span>
+              <span class="txm-n">Intangible costs</span>
+              <span class="txm-s">The spend that leaves nothing behind to sell: labor, fuel, drilling fluid, site preparation.</span>
+              <span class="txm-where">Attaches to the act of cutting the hole</span>
+            </span>
+          </span>
+          <span class="txm-more" id="txm1" hidden>Nothing in this category can be recovered and resold once the work is done. Policy has long treated it differently from equipment, because encouraging domestic drilling was a deliberate choice rather than an accident.</span>
+        </button>
+
+        <button class="txm" type="button" data-g="t" aria-expanded="false" aria-controls="txm2">
+          <span class="txm-top">
+            <span class="txm-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.5" stroke-linecap="round"><rect x="9" y="3" width="6" height="18" rx="1"/><path d="M9 8h6M9 13h6M9 18h6"/><path d="M6 3h12"/></svg></span>
+            <span>
+              <span class="txm-k">Mechanism 02</span>
+              <span class="txm-n">Tangible costs</span>
+              <span class="txm-s">Equipment with salvage value: casing, wellhead, pumping units and surface hardware.</span>
+              <span class="txm-where">Attaches to hardware that stays in the ground</span>
+            </span>
+          </span>
+          <span class="txm-more" id="txm2" hidden>These assets still exist after the work is finished, so the cost is recovered over time instead of in one period. This is the category most often confused with the first.</span>
+        </button>
+
+        <button class="txm" type="button" data-g="d" aria-expanded="false" aria-controls="txm3">
+          <span class="txm-top">
+            <span class="txm-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.5" stroke-linecap="round"><path d="M3 8h18M3 16h18"/><path d="M5 8v8M19 8v8"/><path d="M8 12.5q2-2 4 0t4 0"/></svg></span>
+            <span>
+              <span class="txm-k">Mechanism 03</span>
+              <span class="txm-n">Depletion</span>
+              <span class="txm-s">An allowance recognizing that a reservoir is a finite resource being consumed as it produces.</span>
+              <span class="txm-where">Attaches to the reservoir drawing down</span>
+            </span>
+          </span>
+          <span class="txm-more" id="txm3" hidden>This one follows actual production rather than spend, so it depends on what the well does after it is drilled, not on what was committed before.</span>
+        </button>
+      </div>
     </div>
 
     <div class="tx-rail"></div>
@@ -1649,6 +1771,29 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
         var m = document.getElementById(n.getAttribute('aria-controls'));
         if (m) m.hidden = false;
       }
+    });
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var wrap = document.getElementById('txw');
+  if (!wrap) return;
+  var cards = Array.prototype.slice.call(wrap.querySelectorAll('.txm'));
+  cards.forEach(function(c){
+    c.addEventListener('click', function(){
+      var open = c.getAttribute('aria-expanded') === 'true';
+      cards.forEach(function(o){
+        o.setAttribute('aria-expanded','false');
+        var m = document.getElementById(o.getAttribute('aria-controls'));
+        if (m) m.hidden = true;
+      });
+      if (open){ wrap.setAttribute('data-sel',''); return; }
+      c.setAttribute('aria-expanded','true');
+      var m = document.getElementById(c.getAttribute('aria-controls'));
+      if (m) m.hidden = false;
+      wrap.setAttribute('data-sel', c.getAttribute('data-g'));
     });
   });
 })();
