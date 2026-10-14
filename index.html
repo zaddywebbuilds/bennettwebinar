@@ -240,17 +240,21 @@ h2.sec{font-family:var(--f-disp);font-size:clamp(30px,4vw,46px);line-height:1.08
 .tagline{display:inline-block;margin-top:18px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--steel)}
 .tagline b{color:var(--gold-lt);font-weight:500}
 
-.host{display:grid;grid-template-columns:168px 1fr;gap:34px;align-items:start}
+.host{display:grid;grid-template-columns:184px minmax(0,1.5fr) minmax(0,.85fr);gap:36px;align-items:start}
+@media(max-width:1060px){.host{grid-template-columns:168px minmax(0,1fr)}
+  .host .figs{grid-column:1 / -1;flex-direction:row;border-left:0;border-top:1px solid var(--hair);padding-left:0;margin-top:4px}}
+@media(max-width:620px){.host{grid-template-columns:1fr;gap:20px}
+  .host .figs{flex-wrap:wrap}}
 @media(max-width:780px){.host{grid-template-columns:1fr;gap:28px}}
 .portrait{aspect-ratio:4/5;max-width:100%;border:1px solid var(--line);border-radius:3px;background:linear-gradient(150deg,rgba(201,163,104,.1),transparent 58%),linear-gradient(180deg,var(--panel),var(--graphite));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:20px;text-align:center}
 .portrait .mono{font-family:var(--f-disp);font-size:42px;color:var(--gold);line-height:1}
 .portrait .cap{font-family:var(--f-mono);font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:var(--steel);line-height:1.5}
 .host h2{font-family:var(--f-disp);font-size:35px;line-height:1.1;margin-bottom:6px}
 .host .role{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
-.host p{color:var(--ivory-2);font-size:15px;line-height:1.62;max-width:64ch}
+.host p{color:var(--ivory-2);font-size:15px;line-height:1.62;max-width:none}
 .host p + p{margin-top:9px}
-.figs{display:flex;flex-wrap:wrap;margin-top:20px;border-top:1px solid var(--hair)}
-.fig{flex:1 1 130px;min-width:0;padding:18px 18px 0 0}
+.figs{display:flex;flex-direction:column;border-left:1px solid var(--hair);padding-left:22px;margin-top:6px}
+.fig{flex:0 0 auto;min-width:0;padding:0 0 18px}
 .fig-n{font-family:var(--f-disp);font-size:32px;color:var(--gold-lt);line-height:1;font-variant-numeric:tabular-nums;display:block}
 .fig-l{font-family:var(--f-mono);font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:var(--steel);margin-top:8px;display:block;line-height:1.5}
 
@@ -377,7 +381,7 @@ body.js .reveal.in{opacity:1;transform:none}
   text-transform:uppercase;color:var(--steel);margin-top:14px}
 
 /* ── portrait ── */
-.portrait.has-img{padding:0;overflow:hidden;background:var(--panel);max-width:160px}
+.portrait.has-img{padding:0;overflow:hidden;background:var(--panel);max-width:184px}
 .portrait.has-img img{display:block;width:100%;height:100%;object-fit:cover;image-rendering:auto}
 
 /* ───────── REGISTRATION ───────── */
@@ -669,8 +673,8 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
 .tx-ic svg{display:block}
 .tx-chip:hover .tx-ic{background:rgba(201,163,104,.16)}
 
-.fig-src{flex:1 1 100%;font-family:var(--f-mono);font-size:8.5px;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--steel-d);padding-top:14px;line-height:1.6}
+.fig-src{flex:0 0 auto;font-family:var(--f-mono);font-size:8.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--steel-d);padding-top:12px;line-height:1.6;border-top:1px solid var(--hair)}
 .fig-src a{color:var(--steel);text-decoration:none;border-bottom:1px solid var(--hair)}
 .fig-src a:hover{color:var(--gold-lt)}
 .fmt-note{display:inline-flex;align-items:center;gap:8px;margin-top:14px;
@@ -1842,7 +1846,7 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
 <section><div class="wrap">
   <div class="sec-head"><p class="eyebrow">Presented by</p></div>
   <div class="host">
-    <figure class="portrait has-img" style="max-width:160px">
+    <figure class="portrait has-img" style="max-width:184px">
       <picture>
         <source srcset="media/bennett-portrait.webp" type="image/webp">
         <img src="media/bennett-portrait.jpg" width="160" height="160" loading="lazy" decoding="async"
@@ -1855,13 +1859,13 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
       <p>Bennett works in investor relations, acting as the bridge between accredited investors and oil and gas operators. He has helped place more than $30 million into private oil and gas deals, invests his own capital alongside his partners, and only brings forward opportunities he is willing to hold himself.</p>
       <p>The projects he works on are drilled by established operators: some large public names, others private teams most investors never encounter. These are non-operated working interests: investors participate as capital partners and do not manage property or operations.</p>
       <p>He does not sell courses or newsletters, and he is deliberate about who he works with. There is a qualification process, a minimum investment, and a willingness to say when something is not a fit.</p>
-      <div class="figs">
+    </div>
+    <div class="figs">
         <div class="fig"><span class="fig-n">250+</span><span class="fig-l">Investors worked with</span></div>
         <div class="fig"><span class="fig-n">$30M+</span><span class="fig-l">Placed into private deals</span></div>
         <div class="fig"><span class="fig-n">~90%</span><span class="fig-l">Choose to reinvest</span></div>
         <p class="fig-src">Figures as published by OilTaxPro on its <a href="https://oiltaxpro.com/1-1-suitability-call-801648" target="_blank" rel="noopener">suitability call page</a>. Quoted there as &ldquo;250+ Investors Worked With&rdquo;, &ldquo;more than $30 million into private oil and gas deals&rdquo; and &ldquo;almost 90% choose to reinvest&rdquo;.</p>
       </div>
-    </div>
   </div>
 </div></section>
 
