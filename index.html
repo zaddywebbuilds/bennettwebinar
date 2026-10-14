@@ -541,6 +541,34 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
 .kit-panel span.s{display:block;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:#8694A6;margin-top:3px}
 .kit-foot{font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:#8694A6;
   border-top:1px solid rgba(214,222,238,.09);padding-top:9px;margin-top:4px;line-height:1.6}
+
+/* inline automation preview */
+.auto-box{margin-top:26px;border:1px solid var(--line);border-radius:4px;background:var(--navy-2);overflow:hidden}
+.auto-head{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:15px 18px;border-bottom:1px solid var(--hair)}
+.auto-head h3{font-family:var(--f-disp);font-size:20px;line-height:1.2;flex:1 1 auto;min-width:0}
+.auto-tabs{display:flex;gap:6px;flex-wrap:wrap}
+.atab{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;
+  background:transparent;color:var(--steel);border:1px solid var(--hair);border-radius:2px;
+  padding:7px 12px;cursor:pointer;transition:background .16s,border-color .16s,color .16s}
+.atab:hover{color:var(--ivory-2);border-color:var(--line)}
+.atab[aria-selected="true"]{background:rgba(201,163,104,.11);border-color:var(--gold);color:var(--gold-lt)}
+.atab:focus-visible{outline:2px solid var(--gold-lt);outline-offset:2px}
+.auto-body{padding:18px}
+.achain{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,164px),1fr));gap:10px}
+.anode{border:1px solid var(--hair);border-radius:3px;padding:13px 14px;background:var(--graphite);
+  display:flex;flex-direction:column;gap:6px;min-width:0}
+.anode.crm{border-color:var(--line);background:rgba(201,163,104,.06)}
+.anode.stop{border-color:rgba(154,110,99,.4)}
+.awhen{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.anode.stop .awhen{color:#C98A6A}
+.anode b{font-family:var(--f-body);font-size:13px;font-weight:500;color:var(--ivory);line-height:1.35}
+.anode p{font-size:12px;color:var(--steel);line-height:1.5}
+.auto-foot{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;
+  padding:13px 18px;border-top:1px solid var(--hair);background:var(--graphite)}
+.auto-note{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--steel)}
+.auto-link{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--gold-lt);text-decoration:none;border:1px solid var(--line);border-radius:2px;padding:8px 13px;white-space:nowrap}
+.auto-link:hover{background:rgba(201,163,104,.1)}
 </style>
 </head>
 <body>
@@ -818,6 +846,23 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
     <div class="step is-existing"><span class="step-n">Existing</span><h3>Suitability call</h3><p>Qualified prospects route into your current booking process and CRM.</p></div>
   </div>
   <span class="tagline">Replaces nothing. The webinar layer is <b>additive</b> to the funnel already running.</span>
+
+  <div class="auto-box">
+    <div class="auto-head">
+      <h3>See what happens after registration</h3>
+      <div class="auto-tabs" role="tablist" aria-label="Registrant path">
+        <button class="atab" type="button" role="tab" data-p="att" aria-selected="true">Attends</button>
+        <button class="atab" type="button" role="tab" data-p="miss" aria-selected="false">Misses it</button>
+        <button class="atab" type="button" role="tab" data-p="book" aria-selected="false">Books a call</button>
+      </div>
+    </div>
+    <div class="auto-body"><div class="achain" id="achain"></div></div>
+    <div class="auto-foot">
+      <span class="auto-note">Illustrative logic. No CRM or email tool is connected.</span>
+      <a class="auto-link" href="automation/">Full sequence with draft copy &rarr;</a>
+    </div>
+  </div>
+
 </div></section>
 
 <!-- ═══ HOST ═══ -->
@@ -964,14 +1009,14 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
       <div id="panel-done" class="confirm" hidden>
         <div class="tick"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8FA67E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.2 5.2L20 7"/></svg></div>
         <h3 id="done-h">You&rsquo;re registered.</h3>
-        <p class="sub" id="done-p">A confirmation and calendar invitation are on the way.</p>
+        <p class="sub" id="done-p">Registration preview complete. In the live system this is where the confirmation and calendar invitation would be sent.</p>
         <dl class="detail">
           <div class="d-row"><dt>Session</dt><dd id="done-session">&middot;</dd></div>
           <div class="d-row"><dt>Your timezone</dt><dd id="done-local">&middot;</dd></div>
           <div class="d-row"><dt>Sent to</dt><dd id="done-email">&middot;</dd></div>
-          <div class="d-row"><dt>Reminders</dt><dd>24 hours &amp; 1 hour before</dd></div>
+          <div class="d-row"><dt>Would remind</dt><dd>24 hours &amp; 1 hour before</dd></div>
         </dl>
-        <p class="fineprint" style="text-align:left;margin-top:18px">Demonstration only. No email is sent, and no data is stored or transmitted.</p>
+        <p class="fineprint" style="text-align:left;margin-top:18px">Preview only. Nothing was sent, stored or transmitted.</p>
       </div>
     </div>
   </div>
@@ -1340,5 +1385,51 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
   <button class="kit-btn" id="kitBtn" type="button" aria-expanded="false" aria-controls="kitPanel"><span>Concept demo &middot; 4 parts</span><span class="car" aria-hidden="true">&#9652;</span></button>
 </div>
 <script>(function(){var k=document.getElementById("kit"),b=document.getElementById("kitBtn"),p=document.getElementById("kitPanel");function set(o){k.dataset.open=o?"true":"false";b.setAttribute("aria-expanded",o?"true":"false");p.hidden=!o;}b.addEventListener("click",function(e){e.stopPropagation();set(p.hidden);});document.addEventListener("click",function(){set(false);});p.addEventListener("click",function(e){e.stopPropagation();});document.addEventListener("keydown",function(e){if(e.key==="Escape")set(false);});})();</script>
+
+<script>
+(function(){
+  var chain = document.getElementById('achain');
+  if (!chain) return;
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.atab'));
+  var P = {
+    att: [
+      ['Instant','Registered','Attestation and consent stored against the new contact record.','crm'],
+      ['T-24h','Reminder','Agenda sent, so the wrong people can still opt out.',''],
+      ['T-1h','Join link','Final nudge, optional SMS.',''],
+      ['Live','Watched 70%+','Attendance and watch time written back to the record.','crm'],
+      ['+1h','Replay and framework','Diligence questions sent, suitability call offered once.',''],
+      ['+5d','Final note','One clearly final close, then the sequence ends.','']
+    ],
+    miss: [
+      ['Instant','Registered','Attestation and consent stored against the new contact record.','crm'],
+      ['T-24h','Reminder','Agenda sent, so the wrong people can still opt out.',''],
+      ['Live','No-show recorded','Zero watch time tags the contact and switches the branch.','crm'],
+      ['+1h','Replay anyway','No guilt. Full replay plus a pointer to the risk section.',''],
+      ['+2d','Next dates','Offered the following sessions if live suits better.',''],
+      ['+6d','Closes out','Replay stays open, contact moves to the quarterly list.','']
+    ],
+    book: [
+      ['On booking','All sequences stop','Every active nurture is cancelled the moment a call is booked.','stop'],
+      ['Instant','Call confirmed','Invitation sent, stage set to suitability booked in the CRM.','crm'],
+      ['T-24h','Reminder and exit','Easy reschedule offered, which raises show rate.',''],
+      ['After','Handed over','Qualification and documentation continue in your existing process.','crm']
+    ]
+  };
+  function esc(t){ return t.replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+  function render(k){
+    chain.innerHTML = P[k].map(function(n){
+      return '<div class="anode ' + n[3] + '"><span class="awhen">' + esc(n[0]) +
+             '</span><b>' + esc(n[1]) + '</b><p>' + esc(n[2]) + '</p></div>';
+    }).join('');
+  }
+  tabs.forEach(function(t){
+    t.addEventListener('click', function(){
+      tabs.forEach(function(o){ o.setAttribute('aria-selected', o === t ? 'true' : 'false'); });
+      render(t.getAttribute('data-p'));
+    });
+  });
+  render('att');
+})();
+</script>
 </body>
 </html>
