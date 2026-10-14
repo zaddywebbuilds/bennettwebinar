@@ -722,7 +722,9 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
 @media(max-width:620px){.mod-ic{width:32px;height:32px}.mod-ic svg{width:17px;height:17px}}
 
 /* each step renders the artifact it produces, not a description of it */
-.achain{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,178px),1fr));gap:12px;align-items:stretch}
+.achain{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:stretch}
+@media(max-width:900px){.achain{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.achain{grid-template-columns:1fr}}
 .anode{border:1px solid var(--hair);border-radius:4px;padding:0;background:var(--graphite);
   display:flex;flex-direction:column;min-width:0;overflow:hidden;position:relative}
 .anode.crm{border-color:var(--line)}
@@ -741,10 +743,10 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
 .uiq{border:1px solid var(--hair);border-radius:3px;background:var(--navy-2);overflow:hidden}
 .uiq-bar{display:flex;align-items:center;gap:6px;padding:6px 8px;background:var(--panel);border-bottom:1px solid var(--hair)}
 .uiq-ic{width:14px;height:14px;flex:0 0 auto;display:grid;place-content:center}
-.uiq-sub{font-size:9px;color:var(--ivory);line-height:1.3;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.uiq-in{padding:8px;display:flex;flex-direction:column;gap:5px}
+.uiq-sub{font-size:9.5px;color:var(--ivory);line-height:1.3;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.uiq-in{padding:9px 10px;display:flex;flex-direction:column;gap:6px}
 .uiq-ln{height:3px;border-radius:2px;background:rgba(214,222,238,.13)}
-.uiq-tx{font-size:9px;color:var(--steel);line-height:1.4}
+.uiq-tx{font-size:9.5px;color:var(--steel);line-height:1.4}
 .uiq-btn{font-family:var(--f-mono);font-size:7.5px;letter-spacing:.1em;text-transform:uppercase;
   background:var(--gold);color:#0D1726;border-radius:2px;padding:4px 7px;text-align:center;margin-top:1px}
 .uiq-row{display:flex;justify-content:space-between;gap:8px;font-family:var(--f-mono);font-size:8px;
