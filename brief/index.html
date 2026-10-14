@@ -6,17 +6,17 @@
 <title>Project Brief: OilTaxPro Webinar System</title>
 <meta name="description" content="The reasoning behind the OilTaxPro webinar demo, what the build includes, and what going live would involve.">
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#0E1B2B">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%230E1B2B'/%3E%3Cpath d='M16 5 L22 27 M16 5 L10 27 M12 20 H20' stroke='%23C9A368' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#0B0F16">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%230B0F16'/%3E%3Cpath d='M16 5 L22 27 M16 5 L10 27 M12 20 H20' stroke='%23C9A452' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 :root{
-  --graphite:#0E1B2B; --graphite-2:#0B1624; --navy:#15283E; --navy-2:#132436; --panel:#17293F;
+  --graphite:#0B0F16; --graphite-2:#050709; --navy:#141D28; --navy-2:#111922; --panel:#161E29;
   --ivory:#F5F2EB; --ivory-2:#C4CCD8; --steel:#8694A6; --steel-d:#566475;
-  --gold:#C9A368; --gold-lt:#E2C68C;
-  --line:rgba(201,163,104,.24); --hair:rgba(214,222,238,.09); --flag:#8FA67E;
+  --gold:#C9A452; --gold-lt:#F0C361;
+  --line:rgba(201,164,82,.24); --hair:rgba(214,222,238,.09); --flag:#8FA67E;
   --f-disp:'Instrument Serif',Georgia,serif;
   --f-body:'IBM Plex Sans',system-ui,sans-serif;
   --f-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
@@ -34,7 +34,7 @@ a{color:inherit}
 .eyebrow{font-family:var(--f-mono);font-size:10.5px;font-weight:500;letter-spacing:.19em;
   text-transform:uppercase;color:var(--gold);margin:0}
 
-.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(14,27,43,.9);
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(11,16,22,.9);
   backdrop-filter:blur(14px);border-bottom:1px solid var(--hair)}
 .nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:15px}
 .brand{font-family:var(--f-disp);font-size:23px;text-decoration:none}
@@ -99,24 +99,24 @@ h2.sec{font-family:var(--f-disp);font-size:clamp(25px,3.4vw,36px);line-height:1.
 .kit{position:fixed;left:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:90;
   font-family:var(--f-mono);max-width:calc(100vw - 28px)}
 .kit-btn{display:flex;align-items:center;gap:9px;font-family:var(--f-mono);font-size:9px;
-  letter-spacing:.13em;text-transform:uppercase;background:rgba(16,30,47,.95);
-  border:1px solid rgba(201,163,104,.24);color:#E2C68C;padding:8px 12px;border-radius:3px;
+  letter-spacing:.13em;text-transform:uppercase;background:rgba(12,18,24,.95);
+  border:1px solid rgba(201,164,82,.24);color:#F0C361;padding:8px 12px;border-radius:3px;
   backdrop-filter:blur(10px);cursor:pointer;transition:border-color .16s}
-.kit-btn:hover{border-color:rgba(201,163,104,.5)}
-.kit-btn:focus-visible{outline:2px solid #E2C68C;outline-offset:2px}
+.kit-btn:hover{border-color:rgba(201,164,82,.5)}
+.kit-btn:focus-visible{outline:2px solid #F0C361;outline-offset:2px}
 .kit-btn .car{transition:transform .2s;font-size:11px;line-height:1}
 .kit[data-open="true"] .kit-btn .car{transform:rotate(180deg)}
 .kit-panel{position:absolute;left:0;bottom:calc(100% + 8px);width:272px;max-width:calc(100vw - 28px);
-  background:rgba(13,25,39,.98);border:1px solid rgba(201,163,104,.24);border-radius:4px;
+  background:rgba(10,15,20,.98);border:1px solid rgba(201,164,82,.24);border-radius:4px;
   padding:13px;backdrop-filter:blur(14px);box-shadow:0 26px 54px -20px rgba(0,0,0,.95);
   max-height:70vh;overflow-y:auto}
 .kit-panel[hidden]{display:none}
 .kit-k{display:block;font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:#8694A6;margin-bottom:10px}
 .kit-panel a{display:block;text-decoration:none;border:1px solid rgba(214,222,238,.09);
   border-radius:3px;padding:9px 11px;margin-bottom:6px;transition:border-color .16s,background .16s}
-.kit-panel a:hover{border-color:rgba(201,163,104,.4);background:rgba(201,163,104,.07)}
-.kit-panel a[aria-current="page"]{border-color:rgba(201,163,104,.4);background:rgba(201,163,104,.1)}
-.kit-panel a.lead{border-color:rgba(201,163,104,.3)}
+.kit-panel a:hover{border-color:rgba(201,164,82,.4);background:rgba(201,164,82,.07)}
+.kit-panel a[aria-current="page"]{border-color:rgba(201,164,82,.4);background:rgba(201,164,82,.1)}
+.kit-panel a.lead{border-color:rgba(201,164,82,.3)}
 .kit-panel b{display:block;font-family:var(--f-body);font-size:12.5px;font-weight:500;color:#F5F2EB;letter-spacing:0}
 .kit-panel span.s{display:block;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:#8694A6;margin-top:3px}
 .kit-foot{font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:#8694A6;

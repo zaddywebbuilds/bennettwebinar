@@ -10,10 +10,10 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 :root{
-  --graphite:#0E1B2B; --graphite-2:#0B1624; --navy-2:#132436; --panel:#17293F;
+  --graphite:#0B0F16; --graphite-2:#050709; --navy-2:#111922; --panel:#161E29;
   --ivory:#F5F2EB; --ivory-2:#C4CCD8; --steel:#8694A6; --steel-d:#566475;
-  --gold:#C9A368; --gold-lt:#E2C68C;
-  --line:rgba(201,163,104,.24); --hair:rgba(214,222,238,.09);
+  --gold:#C9A452; --gold-lt:#F0C361;
+  --line:rgba(201,164,82,.24); --hair:rgba(214,222,238,.09);
   --flag:#8FA67E; --warn:#C98A6A; --stop:#9A6E63;
   --f-disp:'Instrument Serif',Georgia,serif;
   --f-body:'IBM Plex Sans',system-ui,sans-serif;
@@ -29,7 +29,7 @@ p{margin:0}
 @media(max-width:700px){.wrap{padding-inline:18px}}
 .eyebrow{font-family:var(--f-mono);font-size:11px;font-weight:500;letter-spacing:.19em;text-transform:uppercase;color:var(--gold);margin:0}
 
-.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(10,14,19,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--hair)}
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(6,8,10,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--hair)}
 .nav-in{display:flex;align-items:center;justify-content:space-between;gap:18px;padding-block:15px}
 .brand{font-family:var(--f-disp);font-size:23px;text-decoration:none}
 .brand i{font-style:italic;color:var(--gold)}
@@ -131,24 +131,24 @@ p{margin:0}
 .kit{position:fixed;left:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:90;
   font-family:var(--f-mono);max-width:calc(100vw - 28px)}
 .kit-btn{display:flex;align-items:center;gap:9px;font-family:var(--f-mono);font-size:9px;
-  letter-spacing:.13em;text-transform:uppercase;background:rgba(16,30,47,.95);
-  border:1px solid rgba(201,163,104,.24);color:#E2C68C;padding:8px 12px;border-radius:3px;
+  letter-spacing:.13em;text-transform:uppercase;background:rgba(12,18,24,.95);
+  border:1px solid rgba(201,164,82,.24);color:#F0C361;padding:8px 12px;border-radius:3px;
   backdrop-filter:blur(10px);cursor:pointer;transition:border-color .16s}
-.kit-btn:hover{border-color:rgba(201,163,104,.5)}
-.kit-btn:focus-visible{outline:2px solid #E2C68C;outline-offset:2px}
+.kit-btn:hover{border-color:rgba(201,164,82,.5)}
+.kit-btn:focus-visible{outline:2px solid #F0C361;outline-offset:2px}
 .kit-btn .car{transition:transform .2s;font-size:11px;line-height:1}
 .kit[data-open="true"] .kit-btn .car{transform:rotate(180deg)}
 .kit-panel{position:absolute;left:0;bottom:calc(100% + 8px);width:272px;max-width:calc(100vw - 28px);
-  background:rgba(13,25,39,.98);border:1px solid rgba(201,163,104,.24);border-radius:4px;
+  background:rgba(10,15,20,.98);border:1px solid rgba(201,164,82,.24);border-radius:4px;
   padding:13px;backdrop-filter:blur(14px);box-shadow:0 26px 54px -20px rgba(0,0,0,.95);
   max-height:70vh;overflow-y:auto}
 .kit-panel[hidden]{display:none}
 .kit-k{display:block;font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:#8694A6;margin-bottom:10px}
 .kit-panel a{display:block;text-decoration:none;border:1px solid rgba(214,222,238,.09);
   border-radius:3px;padding:9px 11px;margin-bottom:6px;transition:border-color .16s,background .16s}
-.kit-panel a:hover{border-color:rgba(201,163,104,.4);background:rgba(201,163,104,.07)}
-.kit-panel a[aria-current="page"]{border-color:rgba(201,163,104,.4);background:rgba(201,163,104,.1)}
-.kit-panel a.lead{border-color:rgba(201,163,104,.3)}
+.kit-panel a:hover{border-color:rgba(201,164,82,.4);background:rgba(201,164,82,.07)}
+.kit-panel a[aria-current="page"]{border-color:rgba(201,164,82,.4);background:rgba(201,164,82,.1)}
+.kit-panel a.lead{border-color:rgba(201,164,82,.3)}
 .kit-panel b{display:block;font-family:var(--f-body);font-size:12.5px;font-weight:500;color:#F5F2EB;letter-spacing:0}
 .kit-panel span.s{display:block;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:#8694A6;margin-top:3px}
 .kit-foot{font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:#8694A6;
