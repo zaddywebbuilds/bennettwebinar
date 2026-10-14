@@ -686,6 +686,40 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
   color:var(--gold-lt);display:block;margin-top:8px}
 .txm-more{border-top:1px solid var(--hair);padding:12px 15px;font-size:12.5px;color:var(--ivory-2);line-height:1.58}
 .txm-more[hidden]{display:none}
+
+/* condition cards: each gets a drawn marker in the same linework as the well */
+.tx-chip{display:grid;grid-template-columns:32px minmax(0,1fr);gap:11px;align-items:start;
+  transition:border-color .16s,background .16s}
+.tx-chip:hover{border-color:var(--line);background:var(--navy-2)}
+.tx-ic{width:32px;height:32px;border:1px solid var(--line);border-radius:3px;
+  background:rgba(201,163,104,.07);display:grid;place-content:center}
+.tx-ic svg{display:block}
+.tx-chip:hover .tx-ic{background:rgba(201,163,104,.16)}
+
+.fig-src{flex:1 1 100%;font-family:var(--f-mono);font-size:8.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--steel-d);padding-top:14px;line-height:1.6}
+.fig-src a{color:var(--steel);text-decoration:none;border-bottom:1px solid var(--hair)}
+.fig-src a:hover{color:var(--gold-lt)}
+.fmt-note{display:inline-flex;align-items:center;gap:8px;margin-top:14px;
+  font-family:var(--f-mono);font-size:9px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--steel);border:1px solid var(--hair);border-radius:2px;padding:7px 11px}
+.fmt-note::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold);flex:0 0 auto}
+.btn-cal{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-family:var(--f-mono);
+  font-size:10px;letter-spacing:.12em;text-transform:uppercase;background:transparent;
+  color:var(--gold-lt);border:1px solid var(--line);border-radius:2px;padding:10px 14px;cursor:pointer;
+  transition:background .16s}
+.btn-cal:hover{background:rgba(201,163,104,.1)}
+.btn-cal:focus-visible{outline:2px solid var(--gold-lt);outline-offset:2px}
+
+/* one drawn marker per webinar topic, same linework family as the well */
+.mod{grid-template-columns:52px 44px minmax(0,1fr)!important;gap:16px!important;align-items:start}
+@media(max-width:620px){.mod{grid-template-columns:34px 32px minmax(0,1fr)!important;gap:11px!important}}
+.mod-ic{width:44px;height:44px;border:1px solid var(--line);border-radius:3px;
+  background:rgba(201,163,104,.07);display:grid;place-content:center;margin-top:2px;
+  transition:background .16s}
+.mod:hover .mod-ic{background:rgba(201,163,104,.15)}
+.mod-ic svg{display:block}
+@media(max-width:620px){.mod-ic{width:32px;height:32px}.mod-ic svg{width:17px;height:17px}}
 </style>
 </head>
 <body>
@@ -703,7 +737,7 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
 <!-- ═══ HERO ═══ -->
 <header class="hero"><div class="wrap hero-in">
   <div>
-    <p class="kicker-line">Live &amp; on-demand webinar</p>
+    <p class="kicker-line">Live webinar with replay</p>
     <h1>How oil &amp; gas <i>tax structures</i> actually work.</h1>
     <p class="lede">Discover how sophisticated investors evaluate oil and gas opportunities: where the deductions come from, how timing affects them, and what the real risks are.</p>
 
@@ -873,23 +907,23 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
         </figure>
     </div>
     <div class="mods">
-        <article class="mod"><span class="mod-n">01</span><div>
+        <article class="mod"><span class="mod-n">01</span><span class="mod-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="6" width="8" height="12" rx="1"/><path d="M4.5 9.5h4M4.5 12.5h4M4.5 15.5h2"/><circle cx="18" cy="8.5" r="2"/><circle cx="15" cy="14.5" r="2"/><circle cx="21" cy="14.5" r="2"/><path d="M16.6 10.2l-1 2.4M19.4 10.2l1 2.4"/></svg></span><div>
           <h3>Why this asset class draws high-income capital</h3>
           <p>How non-operated working interests differ from royalties, funds and energy equities, and why the tax treatment of a direct working interest is why the structure exists.</p>
         </div></article>
-        <article class="mod"><span class="mod-n">02</span><div>
+        <article class="mod"><span class="mod-n">02</span><span class="mod-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v4M12 7H5v3M12 7h7v3M12 7v3"/><rect x="2" y="10" width="6" height="5" rx="1"/><rect x="9" y="10" width="6" height="5" rx="1"/><rect x="16" y="10" width="6" height="5" rx="1"/><path d="M5 18h14" stroke-dasharray="2 2"/></svg></span><div>
           <h3>Where the deductions come from</h3>
           <p>Intangible drilling costs, tangible costs, and depletion explained at the mechanism level: what each one is, what it attaches to, and why the headline percentages people quote at dinner parties are usually missing their conditions.</p>
         </div></article>
-        <article class="mod"><span class="mod-n">03</span><div>
+        <article class="mod"><span class="mod-n">03</span><span class="mod-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="14" rx="1.5"/><path d="M2.5 10h19M8 3v3.6M16 3v3.6"/><path d="M14.5 12v6" stroke-dasharray="2 2"/><circle cx="7.5" cy="14" r="1.3"/><path d="M18 14.5l1.6 1.6"/></svg></span><div>
           <h3>Why timing decides the outcome</h3>
           <p>How the placed-in-service and year-end calendar interacts with when capital is committed, and why the same investment made eight weeks apart can be treated very differently.</p>
         </div></article>
-        <article class="mod"><span class="mod-n">04</span><div>
+        <article class="mod"><span class="mod-n">04</span><span class="mod-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.2L21 19H3z"/><path d="M12 9.5v4.2M12 16.4h.01"/></svg></span><div>
           <h3>The risks, stated directly</h3>
           <p>Dry holes, commodity price exposure, illiquidity, operator quality, capital calls, and the difference between a potential tax benefit and a guaranteed one. This segment is the reason the session exists.</p>
         </div></article>
-        <article class="mod"><span class="mod-n">05</span><div>
+        <article class="mod"><span class="mod-n">05</span><span class="mod-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v8"/><path d="M14 3v4h4"/><path d="M6 3v14h6"/><circle cx="16.5" cy="17" r="3.4"/><path d="M19 19.5l2 2"/></svg></span><div>
           <h3>The questions to ask before you ever write a check</h3>
           <p>A short diligence framework you can take to any sponsor, including this one, plus how to raise the subject with your CPA so the conversation looks forward instead of picking over a closed year.</p>
         </div></article>
@@ -1033,10 +1067,10 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
     <div class="tx-gate">
       <span>Four conditions govern whether any of it reaches a given investor</span>
       <div class="tx-chips">
-        <div class="tx-chip"><b>Structure</b><i>Direct working interest, or a pooled or corporate wrapper</i></div>
-        <div class="tx-chip"><b>Participation</b><i>The nature of the investor's involvement</i></div>
-        <div class="tx-chip"><b>Timing</b><i>When capital is deployed against the drilling and tax calendar</i></div>
-        <div class="tx-chip"><b>Own position</b><i>Income type and what the return already contains</i></div>
+        <div class="tx-chip"><span class="tx-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="4.2" r="2"/><path d="M12 6.2v3.6M12 9.8H6.5v3M12 9.8h5.5v3"/><rect x="3.2" y="13.2" width="6.6" height="5.6" rx="1"/><rect x="14.2" y="13.2" width="6.6" height="5.6" rx="1"/></svg></span><span><b>Structure</b><i>Direct working interest, or a pooled or corporate wrapper</i></span></div>
+        <div class="tx-chip"><span class="tx-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5.8" cy="7.6" r="2.4"/><path d="M2.4 16.4c0-2.3 1.5-3.8 3.4-3.8s3.4 1.5 3.4 3.8"/><rect x="15" y="7.6" width="6.4" height="7.4" rx="1"/><path d="M11.2 11.3h3.2" stroke-dasharray="1.6 1.8"/><path d="M17 10.2h2.4M17 12.4h2.4"/></svg></span><span><b>Participation</b><i>The nature of the investor's involvement</i></span></div>
+        <div class="tx-chip"><span class="tx-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.2" width="18" height="15" rx="1.6"/><path d="M3 10h18M8 3.2v3.6M16 3.2v3.6"/><circle cx="8" cy="14.4" r="1.3"/><path d="M14.6 12.6v6" stroke-dasharray="2 2"/></svg></span><span><b>Timing</b><i>When capital is deployed against the drilling and tax calendar</i></span></div>
+        <div class="tx-chip"><span class="tx-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.2h7.6L18 7.6v13.2H6z"/><path d="M13.6 3.2v4.4H18"/><path d="M9 17.4v-2.6M12 17.4v-4.6M15 17.4v-1.6"/></svg></span><span><b>Own position</b><i>Income type and what the return already contains</i></span></div>
       </div>
     </div>
     <div class="tx-rail"></div>
@@ -1188,6 +1222,7 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
         <div class="fig"><span class="fig-n">250+</span><span class="fig-l">Investors worked with</span></div>
         <div class="fig"><span class="fig-n">$30M+</span><span class="fig-l">Placed into private deals</span></div>
         <div class="fig"><span class="fig-n">~90%</span><span class="fig-l">Choose to reinvest</span></div>
+        <p class="fig-src">Figures as published by OilTaxPro on its <a href="https://oiltaxpro.com/1-1-suitability-call-801648" target="_blank" rel="noopener">suitability call page</a>. Quoted there as &ldquo;250+ Investors Worked With&rdquo;, &ldquo;more than $30 million into private oil and gas deals&rdquo; and &ldquo;almost 90% choose to reinvest&rdquo;.</p>
       </div>
     </div>
   </div>
@@ -1255,6 +1290,7 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
         <h2 class="sec">Choose a session.</h2>
         <p>Both sessions cover identical material and include live Q&amp;A. A replay reaches everyone registered, whether or not you attend.</p>
       </div>
+      <p class="fmt-note">Proposed format. Live or evergreen both supported</p>
       <div class="sess-list" id="sessList">
         <div class="sess sel" data-v="Thursday, October 22, 2026 at 1:00 PM EDT" tabindex="0" role="radio" aria-checked="true">
           <span class="sess-r"></span>
@@ -1267,7 +1303,7 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
           <span class="sess-tag">Evening</span>
         </div>
       </div>
-      <p class="fineprint" style="text-align:left;margin-top:18px">Sample session data for demonstration. Format and dates are illustrative and support either a live or evergreen schedule.</p>
+      <p class="fineprint" style="text-align:left;margin-top:18px">Sample session data for demonstration. The build supports a live schedule, an evergreen on-demand schedule, or both running together. The format shown here is a proposal, not a decision.</p>
     </div>
 
     <div class="form-shell">
@@ -1318,7 +1354,8 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
           <div class="d-row"><dt>Sent to</dt><dd id="done-email">&middot;</dd></div>
           <div class="d-row"><dt>Would remind</dt><dd>24 hours &amp; 1 hour before</dd></div>
         </dl>
-        <p class="fineprint" style="text-align:left;margin-top:18px">Preview only. Nothing was sent, stored or transmitted.</p>
+        <button class="btn-cal" type="button" id="calBtn"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M12 13v5M9.5 15.5L12 18l2.5-2.5"/></svg>Add to calendar</button>
+        <p class="fineprint" style="text-align:left;margin-top:14px">Preview only. Nothing was sent, stored or transmitted. The calendar file above is generated in your browser and is real.</p>
       </div>
     </div>
   </div>
@@ -1332,7 +1369,7 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
     <details><summary>Does attending commit me to anything?</summary><p>No. Nothing is offered or sold on the session, and there is no obligation of any kind. Attendees who want to go further can request a suitability conversation afterwards; most will not, and that is a legitimate outcome.</p></details>
     <details><summary>Are oil and gas investments suitable for everyone?</summary><p>No. All investing carries risk, and these are private, illiquid, long-horizon investments that are unsuitable for many people regardless of income. Potential tax treatment depends on the specific structure and on your individual circumstances. The session covers these limits directly.</p></details>
     <details><summary>Will specific returns or tax savings be presented?</summary><p>No. No projections, guaranteed savings, or performance figures are presented. The session explains how structures are designed to work and what determines whether a benefit applies at all.</p></details>
-    <details><summary>Is it live or recorded?</summary><p>Each session includes live Q&amp;A. Registrants who cannot attend receive access to a replay.</p></details>
+    <details><summary>Is it live or recorded?</summary><p>As proposed here, each session runs live and includes live Q&amp;A, and everyone registered receives the replay whether or not they attend. An evergreen on-demand format is equally supported if preferred.</p></details>
     <details><summary>Why has my CPA never raised this?</summary><p>Most CPAs are engaged to report accurately on what already happened rather than to explore alternative structures ahead of time. Oil and gas sits where tax law, energy markets, and private investing overlap, which falls outside many practices&rsquo; scope.</p></details>
     <details><summary>What happens after the session?</summary><p>You receive the replay and a short summary. If you want to explore whether the strategy applies to your situation, you can request a one-to-one suitability call. There is no follow-up pressure either way.</p></details>
   </div>
@@ -1455,7 +1492,7 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
         {
           "@type": "Question",
           "name": "Is it live or recorded?",
-          "acceptedAnswer": {"@type": "Answer", "text": "Each session includes live Q&A. Registrants who cannot attend receive access to a replay."}
+          "acceptedAnswer": {"@type": "Answer", "text": "As proposed, each session runs live and includes live Q&A, and everyone registered receives the replay whether or not they attend. An evergreen on-demand format is equally supported."}
         },
         {
           "@type": "Question",
@@ -1795,6 +1832,51 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
       if (m) m.hidden = false;
       wrap.setAttribute('data-sel', c.getAttribute('data-g'));
     });
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var btn = document.getElementById('calBtn');
+  if (!btn) return;
+  var SESSIONS = {
+    'Thursday, October 22, 2026 at 1:00 PM EDT': {s:'20261022T170000Z', e:'20261022T180000Z'},
+    'Tuesday, October 27, 2026 at 7:00 PM EDT':  {s:'20261027T230000Z', e:'20261028T000000Z'}
+  };
+  function pad(n){ return (n<10?'0':'') + n; }
+  function stamp(){
+    var d = new Date();
+    return d.getUTCFullYear() + pad(d.getUTCMonth()+1) + pad(d.getUTCDate()) + 'T' +
+           pad(d.getUTCHours()) + pad(d.getUTCMinutes()) + pad(d.getUTCSeconds()) + 'Z';
+  }
+  btn.addEventListener('click', function(){
+    var sel = document.getElementById('f-session');
+    var label = sel ? sel.value : '';
+    var t = SESSIONS[label] || SESSIONS[Object.keys(SESSIONS)[0]];
+    var ics = [
+      'BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//OilTaxPro//Educational Session//EN',
+      'CALSCALE:GREGORIAN','METHOD:PUBLISH','BEGIN:VEVENT',
+      'UID:' + Date.now() + '@oiltaxpro.demo',
+      'DTSTAMP:' + stamp(),
+      'DTSTART:' + t.s,
+      'DTEND:' + t.e,
+      'SUMMARY:How Oil & Gas Tax Structures Actually Work',
+      'DESCRIPTION:A 60-minute educational session for accredited investors. Educational content only. Not financial\\, tax or investment advice. This calendar entry was generated by a concept demonstration.',
+      'LOCATION:Online',
+      'END:VEVENT','END:VCALENDAR'
+    ].join('\r\n');
+    try{
+      var blob = new Blob([ics], {type:'text/calendar;charset=utf-8'});
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url; a.download = 'oiltaxpro-session.ics';
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      setTimeout(function(){ URL.revokeObjectURL(url); }, 2000);
+      btn.lastChild.nodeValue = 'Calendar file downloaded';
+    }catch(e){
+      btn.lastChild.nodeValue = 'Calendar unavailable here';
+    }
   });
 })();
 </script>
