@@ -2824,5 +2824,38 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
   });
 })();
 </script>
+
+<script>
+/* Native lazy loading does not fire reliably in every engine, and a blank
+   image box is worse than an early request. Drive it from an observer, which
+   is reliable, and keep a failsafe so nothing can stay unloaded. */
+(function(){
+  var imgs = Array.prototype.slice.call(document.querySelectorAll('img[loading="lazy"]'));
+  if (!imgs.length) return;
+  function kick(img){
+    if (img.dataset.kicked) return;
+    img.dataset.kicked = '1';
+    img.loading = 'eager';
+    if (!img.complete || !img.naturalWidth) {
+      var pic = img.closest('picture');
+      if (pic) {
+        Array.prototype.forEach.call(pic.querySelectorAll('source'), function(sc){
+          if (sc.srcset) sc.srcset = sc.srcset;
+        });
+      }
+      img.src = img.src;
+    }
+  }
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting) { kick(e.target); io.unobserve(e.target); } });
+    }, {rootMargin: '1400px 0px'});
+    imgs.forEach(function(i){ io.observe(i); });
+  } else {
+    imgs.forEach(kick);
+  }
+  setTimeout(function(){ imgs.forEach(kick); }, 6000);
+})();
+</script>
 </body>
 </html>
