@@ -1795,12 +1795,12 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
   function lines(n){ var o=''; for(var i=0;i<n;i++){ o+='<span class="uiq-ln" style="width:'+(96-i*18)+'%"></span>'; } return o; }
   function mock(m){
     if (!m) return '';
-    if (m.t==='email') return '<div class="mk"><div class="uiq-bar"><span class="uiq-ic">'+I[m.ic||'mail']+'</span><span class="uiq-sub">'+m.subj+'</span></div><div class="uiq-in"><span class="uiq-tx">'+m.open+'</span>'+lines(m.n||2)+(m.btn?'<span class="uiq-btn">'+m.btn+'</span>':'')+'</div></div>';
-    if (m.t==='rec')   return '<div class="mk"><div class="uiq-bar"><span class="uiq-ic">'+I.db+'</span><span class="uiq-sub">'+m.subj+'</span></div><div class="uiq-in" style="gap:0">'+m.rows.map(function(r){return '<span class="uiq-row"><span>'+r[0]+'</span><span>'+r[1]+'</span></span>';}).join('')+'</div></div>';
-    if (m.t==='vid')   return '<div class="mk"><div class="uiq-vid">'+(m.live?'<span class="uiq-live">LIVE</span>':'')+'<span class="uiq-play">'+I.play+'</span></div><div class="uiq-prog"><span class="uiq-track"><i style="width:'+m.pct+'%"></i></span><span class="uiq-time">'+m.time+'</span></div></div>';
-    if (m.t==='ok')    return '<div class="mk"><div class="uiq-ok"><span class="uiq-okic">'+I.ok+'</span><span class="uiq-okt"><b>'+m.title+'</b><span>'+m.sub+'</span></span></div></div>';
+    if (m.t==='email') return '<div class="uiq"><div class="uiq-bar"><span class="uiq-ic">'+I[m.ic||'mail']+'</span><span class="uiq-sub">'+m.subj+'</span></div><div class="uiq-in"><span class="uiq-tx">'+m.open+'</span>'+lines(m.n||2)+(m.btn?'<span class="uiq-btn">'+m.btn+'</span>':'')+'</div></div>';
+    if (m.t==='rec')   return '<div class="uiq"><div class="uiq-bar"><span class="uiq-ic">'+I.db+'</span><span class="uiq-sub">'+m.subj+'</span></div><div class="uiq-in" style="gap:0">'+m.rows.map(function(r){return '<span class="uiq-row"><span>'+r[0]+'</span><span>'+r[1]+'</span></span>';}).join('')+'</div></div>';
+    if (m.t==='vid')   return '<div class="uiq"><div class="uiq-vid">'+(m.live?'<span class="uiq-live">LIVE</span>':'')+'<span class="uiq-play">'+I.play+'</span></div><div class="uiq-prog"><span class="uiq-track"><i style="width:'+m.pct+'%"></i></span><span class="uiq-time">'+m.time+'</span></div></div>';
+    if (m.t==='ok')    return '<div class="uiq"><div class="uiq-ok"><span class="uiq-okic">'+I.ok+'</span><span class="uiq-okt"><b>'+m.title+'</b><span>'+m.sub+'</span></span></div></div>';
     if (m.t==='stop')  return '<div class="uiq">'+m.items.map(function(x){return '<span class="uiq-x">'+I.stop+'<span>'+x+'</span></span>';}).join('')+'</div>';
-    if (m.t==='cal')   return '<div class="mk"><div class="uiq-bar"><span class="uiq-ic">'+I.cal+'</span><span class="uiq-sub">'+m.subj+'</span></div><div class="uiq-in"><span class="uiq-tx">'+m.open+'</span><span class="uiq-btn">'+m.btn+'</span></div></div>';
+    if (m.t==='cal')   return '<div class="uiq"><div class="uiq-bar"><span class="uiq-ic">'+I.cal+'</span><span class="uiq-sub">'+m.subj+'</span></div><div class="uiq-in"><span class="uiq-tx">'+m.open+'</span><span class="uiq-btn">'+m.btn+'</span></div></div>';
     return '';
   }
 
