@@ -1221,6 +1221,30 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
   .dil-lead{position:static;margin:0 0 10px;max-width:none}.dil-lead p{text-shadow:none;font-size:13.5px}
   .dil-band::after{background:linear-gradient(to top,rgba(8,16,27,.82),rgba(8,16,27,.1) 70%)}}
 @media(max-width:560px){.dil-band img{height:150px}}
+
+/* the journey scrolls, so say so: edge fades, snap points and controls */
+.achain-outer{position:relative}
+.achain-outer::before,.achain-outer::after{content:'';position:absolute;top:0;bottom:12px;width:46px;
+  pointer-events:none;z-index:3;opacity:0;transition:opacity .25s}
+.achain-outer::before{left:0;background:linear-gradient(90deg,var(--graphite),rgba(14,27,43,0))}
+.achain-outer::after{right:0;background:linear-gradient(270deg,var(--graphite),rgba(14,27,43,0))}
+.achain-outer[data-l="1"]::before{opacity:1}
+.achain-outer[data-r="1"]::after{opacity:1}
+.achain-wrap{scroll-snap-type:x proximity;scroll-behavior:smooth}
+.anode{scroll-snap-align:start}
+.achain-nav{display:flex;align-items:center;gap:7px}
+.anav{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:var(--navy-2);
+  color:var(--gold-lt);display:grid;place-content:center;cursor:pointer;padding:0;
+  transition:background .16s,opacity .16s}
+.anav:hover:not(:disabled){background:rgba(201,163,104,.14)}
+.anav:disabled{opacity:.3;cursor:default}
+.anav:focus-visible{outline:2px solid var(--gold-lt);outline-offset:2px}
+.aprog{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.1em;color:var(--steel);
+  min-width:52px;text-align:center}
+@media(prefers-reduced-motion:reduce){.achain-wrap{scroll-behavior:auto}}
+/* trim the dead band under shorter cards */
+.an-ui{flex:0 1 auto}
+.an-foot{margin-top:auto}
 </style>
 </head>
 <body>
@@ -1831,9 +1855,16 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
     </div>
   </div>
 
-  <div class="achain-wrap"><div class="achain" id="achain"></div></div>
+  <div class="achain-outer" id="achainOuter">
+    <div class="achain-wrap" id="achainWrap"><div class="achain" id="achain"></div></div>
+  </div>
 
   <div class="auto-foot">
+    <div class="achain-nav">
+      <button class="anav" type="button" id="aPrev" aria-label="Previous steps"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <span class="aprog" id="aProg">1 / 6</span>
+      <button class="anav" type="button" id="aNext" aria-label="More steps"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+    </div>
     <span class="auto-note"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8694A6" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6h.01"/></svg>Illustrative logic. No CRM or email tool is connected. This is a visual demonstration of the proposed sequence.</span>
     <a class="auto-link" href="automation/">View full sequence with draft copy &rarr;</a>
   </div>
@@ -2606,9 +2637,43 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
   }
   var ARROW = '<div class="aarrow"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div>';
 
+  var wrap  = document.getElementById('achainWrap');
+  var outer = document.getElementById('achainOuter');
+  var prev  = document.getElementById('aPrev');
+  var next  = document.getElementById('aNext');
+  var prog  = document.getElementById('aProg');
+  var count = 0;
+
+  function step(){
+    var n = chain.querySelector('.anode');
+    return n ? n.getBoundingClientRect().width + 22 : 300;
+  }
+  function sync(){
+    if (!wrap) return;
+    var max = wrap.scrollWidth - wrap.clientWidth;
+    var x = wrap.scrollLeft;
+    outer.setAttribute('data-l', x > 4 ? '1' : '0');
+    outer.setAttribute('data-r', x < max - 4 ? '1' : '0');
+    if (prev) prev.disabled = x <= 4;
+    if (next) next.disabled = x >= max - 4;
+    if (prog && count) {
+      var per = Math.max(1, Math.round(wrap.clientWidth / step()));
+      var first = Math.min(count, Math.round(x / step()) + 1);
+      prog.textContent = first + ' to ' + Math.min(count, first + per - 1) + ' of ' + count;
+    }
+  }
+  if (wrap) {
+    wrap.addEventListener('scroll', function(){ requestAnimationFrame(sync); }, {passive:true});
+    window.addEventListener('resize', sync, {passive:true});
+  }
+  if (prev) prev.addEventListener('click', function(){ wrap.scrollLeft -= step(); });
+  if (next) next.addEventListener('click', function(){ wrap.scrollLeft += step(); });
+
   function render(k){
     chain.innerHTML = P[k].map(card).join(ARROW);
-    chain.parentNode.scrollLeft = 0;
+    count = P[k].length;
+    if (wrap) wrap.scrollLeft = 0;
+    requestAnimationFrame(sync);
   }
   tabs.forEach(function(t){
     t.addEventListener('click', function(){
