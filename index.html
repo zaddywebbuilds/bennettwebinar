@@ -881,6 +881,118 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
   padding:10px 15px;white-space:nowrap;transition:background .16s}
 .auto-link:hover{background:rgba(201,163,104,.1)}
 @media(max-width:620px){.anode{width:260px;flex-basis:260px}}
+
+/* ───────── tax considerations ───────── */
+.tax-sec{border-top:1px solid var(--hair);background:
+  radial-gradient(900px 400px at 78% 0%, rgba(201,163,104,.07), transparent 66%), var(--graphite)}
+.tax-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:30px;align-items:start;margin-bottom:24px}
+@media(max-width:1020px){.tax-head{grid-template-columns:1fr;gap:18px}}
+.tax-head h2{font-family:var(--f-disp);font-size:clamp(28px,3.8vw,44px);line-height:1.06;margin:12px 0 10px}
+.tax-head p{color:var(--ivory-2);font-size:15px;max-width:56ch;line-height:1.6}
+.tax-ov{display:grid;grid-template-columns:auto 1fr;gap:13px;align-items:start;max-width:390px;
+  border:1px solid var(--line);border-radius:5px;background:var(--navy-2);padding:14px 16px}
+.tax-ov-ic{width:34px;height:34px;border:1px solid var(--line);border-radius:4px;
+  background:rgba(201,163,104,.08);display:grid;place-content:center}
+.tax-ov b{display:block;font-size:12.5px;font-weight:500;color:var(--gold-lt);line-height:1.3}
+.tax-ov span{display:block;font-size:11.5px;color:var(--steel);line-height:1.5;margin-top:4px}
+
+.tax-top{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.tax-bot{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:16px}
+@media(max-width:1100px){.tax-top{grid-template-columns:1fr 1fr}.tax-bot{grid-template-columns:1fr 1fr}}
+@media(max-width:680px){.tax-top,.tax-bot{grid-template-columns:1fr}}
+
+.tcard{border:1px solid var(--hair);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;
+  background:linear-gradient(180deg,var(--navy-2),var(--graphite-2));transition:border-color .18s}
+.tcard:hover{border-color:var(--line)}
+.tcard-h{padding:15px 17px 0;display:flex;align-items:center;gap:10px}
+.tbadge{width:26px;height:26px;flex:0 0 auto;border-radius:5px;border:1px solid var(--line);
+  background:rgba(201,163,104,.08);display:grid;place-content:center;
+  font-family:var(--f-mono);font-size:9.5px;color:var(--gold-lt)}
+.tkind{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold)}
+.tcard h3{font-family:var(--f-disp);font-size:clamp(20px,2.3vw,27px);line-height:1.12;color:var(--ivory);padding:11px 17px 0}
+.tcard-d{font-size:12.5px;color:var(--steel);line-height:1.6;padding:8px 17px 14px;max-width:46ch}
+.tcard-v{padding:0 17px;flex:1 1 auto}
+.tcard-f{padding:14px 17px 16px}
+.tmore{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:9.5px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--gold-lt);background:transparent;
+  border:1px solid var(--line);border-radius:3px;padding:9px 14px;cursor:pointer;font-weight:500;
+  transition:background .16s}
+.tmore:hover{background:rgba(201,163,104,.1)}
+.tmore:focus-visible{outline:2px solid var(--gold-lt);outline-offset:2px}
+.tmore svg{transition:transform .18s}
+.tmore[aria-expanded="true"] svg{transform:rotate(90deg)}
+.tnote{font-size:12.5px;color:var(--ivory-2);line-height:1.6;border-top:1px solid var(--hair);
+  margin-top:13px;padding-top:12px}
+.tnote[hidden]{display:none}
+
+/* annotated visual */
+.tfig{position:relative;border-radius:5px;overflow:hidden;border:1px solid var(--hair);background:var(--graphite)}
+.tfig img{display:block;width:100%;height:230px;object-fit:cover}
+.tfig.tall img{height:252px;object-position:center 46%}
+.tfig::after{content:'';position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to top,rgba(7,16,27,.55),transparent 55%)}
+.cal{position:absolute;z-index:2;display:flex;align-items:center;gap:7px;
+  left:var(--x);top:var(--y);transform:translate(-50%,-50%);pointer-events:none}
+.cal.r{flex-direction:row-reverse}
+.cal-ic{width:28px;height:28px;flex:0 0 auto;border-radius:50%;border:1px solid var(--gold);
+  background:rgba(10,20,32,.86);backdrop-filter:blur(3px);display:grid;place-content:center}
+.cal-t{font-size:10px;line-height:1.3;color:#F2EFE6;max-width:104px;
+  background:rgba(8,16,26,.82);border:1px solid rgba(201,163,104,.28);border-radius:3px;
+  padding:5px 7px;backdrop-filter:blur(3px)}
+.cal.r .cal-t{text-align:right}
+/* vertical rail of labels, for the cutaway */
+.crail{position:absolute;right:9px;top:14px;bottom:14px;z-index:2;display:flex;flex-direction:column;
+  justify-content:space-around;gap:5px;padding-left:15px;border-left:1px solid rgba(201,163,104,.35)}
+.crail span{position:relative;font-size:9.5px;line-height:1.3;color:#F2EFE6;max-width:104px;
+  background:rgba(8,16,26,.82);border:1px solid rgba(201,163,104,.28);border-radius:3px;padding:5px 7px}
+.crail span::before{content:'';position:absolute;left:-19px;top:50%;width:7px;height:7px;border-radius:50%;
+  background:var(--gold);transform:translateY(-50%)}
+/* on small screens the overlay is unreadable, so the labels become a list */
+.clist{display:none;flex-wrap:wrap;gap:6px;margin-top:9px}
+.clist span{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;color:var(--ivory-2);
+  border:1px solid var(--hair);border-radius:3px;padding:5px 8px}
+.clist span::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold);flex:0 0 auto}
+@media(max-width:860px){
+  .cal,.crail{display:none}
+  .clist{display:flex}
+  .tfig img,.tfig.tall img{height:200px}
+}
+
+/* small diagram cards */
+.tdia{padding:4px 0 2px}
+.tbranch{display:grid;grid-template-columns:auto auto 1fr;gap:10px;align-items:center}
+.tnode{border:1px solid var(--line);border-radius:4px;background:rgba(201,163,104,.07);
+  padding:10px;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+.tnode b{font-size:10.5px;color:var(--ivory);font-weight:500;line-height:1.25}
+.tsplit{display:grid;gap:8px}
+.tleaf{border:1px solid var(--hair);border-radius:4px;background:var(--graphite);padding:8px 10px;
+  display:flex;align-items:center;gap:8px;font-size:10.5px;color:var(--ivory-2);line-height:1.25}
+.tflow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:6px;align-items:start}
+.tstep{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;min-width:0}
+.tstep .ic{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);
+  background:rgba(201,163,104,.07);display:grid;place-content:center}
+.tstep b{font-size:10.5px;color:var(--ivory);font-weight:500;line-height:1.25}
+.tstep span{font-size:9.5px;color:var(--steel);line-height:1.3}
+.tarr{color:var(--gold);padding-top:14px}
+.ttime{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;text-align:center}
+.ttime .ic{width:30px;height:30px;margin:0 auto;border-radius:4px;border:1px solid var(--line);
+  background:rgba(201,163,104,.07);display:grid;place-content:center}
+.ttime b{display:block;font-size:9.5px;color:var(--ivory-2);line-height:1.3;margin-top:7px}
+.trail{position:relative;height:3px;border-radius:2px;margin:11px 0 7px;
+  background:linear-gradient(90deg,var(--gold),rgba(201,163,104,.25))}
+.trail i{position:absolute;top:50%;width:7px;height:7px;border-radius:50%;background:var(--gold-lt);
+  transform:translate(-50%,-50%)}
+.tqs{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;text-align:center}
+.tqs span{font-family:var(--f-mono);font-size:9px;letter-spacing:.08em;color:var(--steel)}
+.tprof{display:grid;grid-template-columns:auto 1fr;gap:11px;align-items:start}
+.t1040{width:62px;flex:0 0 auto;border:1px solid var(--hair);border-radius:3px;background:var(--panel);
+  padding:7px 6px;position:relative}
+.t1040 b{display:block;font-family:var(--f-mono);font-size:11px;color:var(--ivory);margin-bottom:5px}
+.t1040 i{display:block;height:2.5px;border-radius:2px;background:rgba(214,222,238,.16);margin-bottom:3.5px}
+.tlist{display:grid;gap:5px}
+.tlist span{display:flex;align-items:center;gap:7px;font-size:10.5px;color:var(--ivory-2);
+  border:1px solid var(--hair);border-radius:3px;padding:6px 8px;background:var(--graphite)}
+.tdisc{font-size:12px;color:var(--steel);line-height:1.65;margin-top:18px;max-width:92ch}
 </style>
 </head>
 <body>
@@ -1093,152 +1205,254 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
 </div></section>
 
 <!-- ═══ TAX CONSIDERATIONS ═══ -->
-<section><div class="wrap">
-  <div class="sec-head row">
-    <div><p class="eyebrow">Tax considerations</p>
-    <h2 class="sec" style="margin-top:12px">Why this belongs in a conversation with <i>your CPA</i>.</h2></div>
-    <p>Direct working interests are treated differently from most investments because the costs of drilling a well behave differently from buying an asset. Three separate mechanisms are involved, and each one carries its own conditions.</p>
+<section class="tax-sec"><div class="wrap">
+  <div class="tax-head">
+    <div>
+      <p class="eyebrow">Tax considerations</p>
+      <h2>How oil &amp; gas investments affect your taxes</h2>
+      <p>Understanding the mechanisms, and the conditions attached to each, is what lets you judge whether any of this is relevant to your own position.</p>
+    </div>
+    <div class="tax-ov">
+      <span class="tax-ov-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.6"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h4"/></svg></span>
+      <span><b>Educational overview</b><span>Tax treatment depends on your individual circumstances and the specific investment structure. Nothing here is tax advice.</span></span>
+    </div>
   </div>
 
-  <div class="taxd reveal">
-    <div class="tx-cap">
-      <span>Starting point</span>
-      <b>Capital deployed into a direct working interest</b>
-    </div>
-    <div class="tx-rail"></div>
-
-    <div class="txw" id="txw" data-sel="">
-      <figure class="txw-fig">
-        <svg viewBox="0 0 400 440" role="img" aria-label="Schematic well showing which part each cost mechanism attaches to">
-          <defs>
-            <linearGradient id="txSky" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#1A2E45"/><stop offset="100%" stop-color="#101E30"/>
-            </linearGradient>
-            <linearGradient id="txRock" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#101C2B"/><stop offset="100%" stop-color="#0A1420"/>
-            </linearGradient>
-            <linearGradient id="txPay" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stop-color="rgba(201,163,104,.05)"/>
-              <stop offset="50%" stop-color="rgba(201,163,104,.22)"/>
-              <stop offset="100%" stop-color="rgba(201,163,104,.05)"/>
-            </linearGradient>
-          </defs>
-
-          <rect x="0" y="0" width="400" height="104" fill="url(#txSky)"/>
-          <rect x="0" y="104" width="400" height="336" fill="url(#txRock)"/>
-          <g stroke="rgba(214,222,238,.05)" stroke-width="1">
-            <path d="M0 150 H400"/><path d="M0 196 H400"/><path d="M0 244 H400"/><path d="M0 296 H400"/>
-          </g>
-          <path d="M0 104 H400" stroke="rgba(201,163,104,.38)" stroke-width="1.2"/>
-
-          <!-- depletion: the reservoir being drawn down -->
-          <g data-g="d">
-            <rect x="0" y="344" width="400" height="46" fill="url(#txPay)"/>
-            <path d="M0 344 H400 M0 390 H400" stroke="rgba(201,163,104,.3)" stroke-width="1"/>
-            <g stroke="#C9A368" stroke-width="1.3" opacity=".75">
-              <path d="M150 352 v-8"/><path d="M190 352 v-8"/><path d="M230 352 v-8"/><path d="M270 352 v-8"/>
-              <path d="M150 382 v8"/><path d="M190 382 v8"/><path d="M230 382 v8"/><path d="M270 382 v8"/>
-            </g>
-            <g class="hl hl-d" stroke="#E2C68C" stroke-width="1.4" fill="none">
-              <path d="M168 368 q10 -9 20 0 t20 0 t20 0"/>
-              <path d="M228 368 q10 -9 20 0 t20 0"/>
-            </g>
-            <text x="12" y="338" font-family="IBM Plex Mono, monospace" font-size="8" letter-spacing="1.2" fill="#8694A6">RESERVOIR</text>
-          </g>
-
-          <!-- intangible: the cut itself, the spend that leaves nothing behind -->
-          <g data-g="i">
-            <path d="M118 104 V300 Q118 348 166 348 H330" stroke="rgba(214,222,238,.16)" stroke-width="11" fill="none" stroke-linecap="round"/>
-            <path d="M118 104 V300 Q118 348 166 348 H330" stroke="#C9A368" stroke-width="2" fill="none" stroke-linecap="round"/>
-            <g class="hl hl-i" stroke="#E2C68C" stroke-width="1.2" opacity="0">
-              <path d="M104 150 h-14 M104 190 h-14 M104 230 h-14 M104 270 h-14"/>
-              <path d="M132 150 h14 M132 190 h14 M132 230 h14 M132 270 h14"/>
-              <path d="M200 362 v12 M240 362 v12 M280 362 v12"/>
-            </g>
-          </g>
-
-          <!-- tangible: hardware that stays in the ground -->
-          <g data-g="t">
-            <g stroke="#C9A368" stroke-width="1.3" fill="none" opacity=".9">
-              <path d="M92 104 L106 46 M144 104 L130 46 M106 46 H130"/>
-              <path d="M97 84 H139 M101 68 H135 M104 56 H132"/>
-            </g>
-            <rect x="106" y="98" width="24" height="8" fill="#C9A368" opacity=".8"/>
-            <g stroke="rgba(214,222,238,.42)" stroke-width="2">
-              <path d="M107 106 V176 M129 106 V176"/>
-              <path d="M111 106 V262 M125 106 V262"/>
-            </g>
-            <g class="hl hl-t" stroke="#E2C68C" stroke-width="1.5" fill="none" opacity="0">
-              <rect x="103" y="94" width="30" height="14" rx="1"/>
-              <path d="M107 176 h-8 M129 176 h8 M111 262 h-8 M125 262 h8"/>
-            </g>
-          </g>
-
-          <g font-family="IBM Plex Mono, monospace" font-size="7.5" letter-spacing="1.1" fill="#566475">
-            <text x="152" y="118">SURFACE</text>
-            <text x="340" y="352">LATERAL</text>
-          </g>
-        </svg>
-        <figcaption class="txw-cap">Select a mechanism to see the part of the well it attaches to</figcaption>
-      </figure>
-
-      <div class="txw-list">
-        <button class="txm" type="button" data-g="i" aria-expanded="false" aria-controls="txm1">
-          <span class="txm-top">
-            <span class="txm-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.5" stroke-linecap="round"><path d="M12 3v13"/><path d="M8.5 16.5L12 21l3.5-4.5z"/><path d="M6 6.5L9 8M18 6.5L15 8M5 11h2.5M19 11h-2.5"/></svg></span>
-            <span>
-              <span class="txm-k">Mechanism 01</span>
-              <span class="txm-n">Intangible costs</span>
-              <span class="txm-s">The spend that leaves nothing behind to sell: labor, fuel, drilling fluid, site preparation.</span>
-              <span class="txm-where">Attaches to the act of cutting the hole</span>
-            </span>
-          </span>
-          <span class="txm-more" id="txm1" hidden>Nothing in this category can be recovered and resold once the work is done. Policy has long treated it differently from equipment, because encouraging domestic drilling was a deliberate choice rather than an accident.</span>
-        </button>
-
-        <button class="txm" type="button" data-g="t" aria-expanded="false" aria-controls="txm2">
-          <span class="txm-top">
-            <span class="txm-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.5" stroke-linecap="round"><rect x="9" y="3" width="6" height="18" rx="1"/><path d="M9 8h6M9 13h6M9 18h6"/><path d="M6 3h12"/></svg></span>
-            <span>
-              <span class="txm-k">Mechanism 02</span>
-              <span class="txm-n">Tangible costs</span>
-              <span class="txm-s">Equipment with salvage value: casing, wellhead, pumping units and surface hardware.</span>
-              <span class="txm-where">Attaches to hardware that stays in the ground</span>
-            </span>
-          </span>
-          <span class="txm-more" id="txm2" hidden>These assets still exist after the work is finished, so the cost is recovered over time instead of in one period. This is the category most often confused with the first.</span>
-        </button>
-
-        <button class="txm" type="button" data-g="d" aria-expanded="false" aria-controls="txm3">
-          <span class="txm-top">
-            <span class="txm-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.5" stroke-linecap="round"><path d="M3 8h18M3 16h18"/><path d="M5 8v8M19 8v8"/><path d="M8 12.5q2-2 4 0t4 0"/></svg></span>
-            <span>
-              <span class="txm-k">Mechanism 03</span>
-              <span class="txm-n">Depletion</span>
-              <span class="txm-s">An allowance recognizing that a reservoir is a finite resource being consumed as it produces.</span>
-              <span class="txm-where">Attaches to the reservoir drawing down</span>
-            </span>
-          </span>
-          <span class="txm-more" id="txm3" hidden>This one follows actual production rather than spend, so it depends on what the well does after it is drilled, not on what was committed before.</span>
-        </button>
+  <div class="tax-top">
+    <!-- 01 -->
+    <article class="tcard">
+      <div class="tcard-h"><span class="tbadge">01</span><span class="tkind">Intangible drilling costs</span></div>
+      <h3>Intangible drilling costs</h3>
+      <p class="tcard-d">Spend tied to the drilling work itself, which leaves nothing behind to sell: labor, fuel, drilling fluid and site preparation.</p>
+      <div class="tcard-v">
+        <figure class="tfig">
+          <img src="media/field-operations.jpg" width="1672" height="941" loading="lazy" decoding="async"
+               alt="Aerial view of an active drilling site showing the rig, crew facilities, fluid pits and access roads.">
+          <span class="cal" style="--x:49%;--y:20%"><span class="cal-ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.6"><path d="M8 21L12 4l4 17M9.5 14h5"/></svg></span><span class="cal-t">Rig operations and labor</span></span>
+          <span class="cal r" style="--x:84%;--y:40%"><span class="cal-ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.6"><rect x="4" y="4" width="10" height="16" rx="1.5"/><path d="M14 9h3.5v7a2 2 0 0 0 2 2"/></svg></span><span class="cal-t">Fuel and utilities</span></span>
+          <span class="cal" style="--x:17%;--y:53%"><span class="cal-ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.6"><path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z"/></svg></span><span class="cal-t">Drilling fluid and materials</span></span>
+          <span class="cal" style="--x:33%;--y:80%"><span class="cal-ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.6"><path d="M3 18h18M5 18v-5l4-3 4 3v5M15 18v-8l4 2v6"/></svg></span><span class="cal-t">Site preparation</span></span>
+        </figure>
+        <span class="clist"><span>Rig operations and labor</span><span>Fuel and utilities</span><span>Drilling fluid and materials</span><span>Site preparation</span></span>
       </div>
-    </div>
-
-    <div class="tx-rail"></div>
-    <div class="tx-gate">
-      <span>Four conditions govern whether any of it reaches a given investor</span>
-      <div class="tx-chips">
-        <div class="tx-chip"><span class="tx-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="4.2" r="2"/><path d="M12 6.2v3.6M12 9.8H6.5v3M12 9.8h5.5v3"/><rect x="3.2" y="13.2" width="6.6" height="5.6" rx="1"/><rect x="14.2" y="13.2" width="6.6" height="5.6" rx="1"/></svg></span><span><b>Structure</b><i>Direct working interest, or a pooled or corporate wrapper</i></span></div>
-        <div class="tx-chip"><span class="tx-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5.8" cy="7.6" r="2.4"/><path d="M2.4 16.4c0-2.3 1.5-3.8 3.4-3.8s3.4 1.5 3.4 3.8"/><rect x="15" y="7.6" width="6.4" height="7.4" rx="1"/><path d="M11.2 11.3h3.2" stroke-dasharray="1.6 1.8"/><path d="M17 10.2h2.4M17 12.4h2.4"/></svg></span><span><b>Participation</b><i>The nature of the investor's involvement</i></span></div>
-        <div class="tx-chip"><span class="tx-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.2" width="18" height="15" rx="1.6"/><path d="M3 10h18M8 3.2v3.6M16 3.2v3.6"/><circle cx="8" cy="14.4" r="1.3"/><path d="M14.6 12.6v6" stroke-dasharray="2 2"/></svg></span><span><b>Timing</b><i>When capital is deployed against the drilling and tax calendar</i></span></div>
-        <div class="tx-chip"><span class="tx-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.2h7.6L18 7.6v13.2H6z"/><path d="M13.6 3.2v4.4H18"/><path d="M9 17.4v-2.6M12 17.4v-4.6M15 17.4v-1.6"/></svg></span><span><b>Own position</b><i>Income type and what the return already contains</i></span></div>
+      <div class="tcard-f">
+        <button class="tmore" type="button" aria-expanded="false" aria-controls="tn1">Learn more <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 5l7 7-7 7"/></svg></button>
+        <p class="tnote" id="tn1" hidden>Nothing in this category can be recovered and resold once the work is done. Policy has long treated it differently from equipment, because encouraging domestic drilling was a deliberate choice rather than an accident.</p>
       </div>
-    </div>
-    <div class="tx-rail"></div>
-    <p class="tx-out">Two investors in the same well can face <b>different outcomes</b>. That is why no figure appears anywhere on this page.</p>
+    </article>
+
+    <!-- 02 -->
+    <article class="tcard">
+      <div class="tcard-h"><span class="tbadge">02</span><span class="tkind">Tangible drilling costs</span></div>
+      <h3>Tangible drilling costs</h3>
+      <p class="tcard-d">Physical assets that remain with the well: casing, wellhead, surface piping and production equipment. Recovered over time.</p>
+      <div class="tcard-v">
+        <figure class="tfig">
+          <svg viewBox="0 0 420 230" role="img" aria-label="Wellhead, casing and surface production equipment" style="display:block;width:100%;height:230px">
+            <defs>
+              <linearGradient id="eqSky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#16293E"/><stop offset="100%" stop-color="#0B1724"/>
+              </linearGradient>
+              <linearGradient id="steel" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#5A6778"/><stop offset="45%" stop-color="#AEBAC9"/>
+                <stop offset="100%" stop-color="#485565"/>
+              </linearGradient>
+              <linearGradient id="steel2" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#4A5765"/><stop offset="50%" stop-color="#8E9BAB"/>
+                <stop offset="100%" stop-color="#3C4857"/>
+              </linearGradient>
+            </defs>
+            <rect width="420" height="230" fill="url(#eqSky)"/>
+            <path d="M0 182 H420" stroke="rgba(201,163,104,.28)" stroke-width="1"/>
+            <rect x="0" y="182" width="420" height="48" fill="rgba(6,14,23,.55)"/>
+
+            <!-- casing and tubing stack -->
+            <g>
+              <g fill="url(#steel)" stroke="#2C3845" stroke-width=".8">
+                <rect x="24" y="150" width="86" height="15" rx="2"/>
+                <rect x="34" y="134" width="86" height="15" rx="2"/>
+                <rect x="24" y="118" width="86" height="15" rx="2"/>
+              </g>
+              <g fill="#1B2736" stroke="#6E7C8C" stroke-width=".9">
+                <ellipse cx="24" cy="157.5" rx="4.5" ry="7.5"/>
+                <ellipse cx="34" cy="141.5" rx="4.5" ry="7.5"/>
+                <ellipse cx="24" cy="125.5" rx="4.5" ry="7.5"/>
+              </g>
+            </g>
+
+            <!-- wellhead / christmas tree -->
+            <g transform="translate(196 0)">
+              <rect x="-34" y="170" width="68" height="12" rx="2" fill="#2A3746"/>
+              <rect x="-7" y="70" width="14" height="104" fill="url(#steel2)"/>
+              <g fill="url(#steel)" stroke="#2C3845" stroke-width=".8">
+                <rect x="-20" y="150" width="40" height="9" rx="1.5"/>
+                <rect x="-20" y="124" width="40" height="9" rx="1.5"/>
+                <rect x="-20" y="98" width="40" height="9" rx="1.5"/>
+                <rect x="-16" y="62" width="32" height="10" rx="1.5"/>
+              </g>
+              <g fill="#B0514A">
+                <circle cx="-27" cy="112" r="7"/><circle cx="27" cy="112" r="7"/>
+                <circle cx="-27" cy="86" r="7"/><circle cx="27" cy="86" r="7"/>
+              </g>
+              <g stroke="url(#steel2)" stroke-width="7" stroke-linecap="round">
+                <path d="M-20 112h-7M20 112h7M-20 86h-7M20 86h7"/>
+              </g>
+              <rect x="-5" y="48" width="10" height="16" rx="1.5" fill="url(#steel)"/>
+            </g>
+
+            <!-- surface piping -->
+            <g stroke="url(#steel2)" stroke-width="6" fill="none" stroke-linecap="round">
+              <path d="M226 160 H300 Q312 160 312 150 V126"/>
+              <path d="M226 142 H286"/>
+            </g>
+
+            <!-- tanks -->
+            <g transform="translate(316 0)">
+              <g fill="#39434F" stroke="#5C6878" stroke-width=".9">
+                <rect x="0" y="118" width="34" height="56" rx="2"/>
+                <rect x="40" y="128" width="30" height="46" rx="2"/>
+              </g>
+              <g stroke="rgba(214,222,238,.22)" stroke-width=".8">
+                <path d="M0 134 H34 M0 152 H34 M40 144 H70 M40 160 H70"/>
+              </g>
+              <ellipse cx="17" cy="118" rx="17" ry="4.5" fill="#4A5765"/>
+              <ellipse cx="55" cy="128" rx="15" ry="4" fill="#4A5765"/>
+            </g>
+
+            <!-- pump jack -->
+            <g transform="translate(120 0)" stroke="#8E9BAB" stroke-width="2.4" fill="none" stroke-linecap="round">
+              <path d="M8 174 L20 132 L32 174"/>
+              <path d="M2 128 L44 120"/>
+              <circle cx="20" cy="132" r="3.4" fill="#3C4857"/>
+              <path d="M44 120 V140" stroke-width="2"/>
+              <path d="M2 128 L-2 140" stroke-width="2"/>
+            </g>
+          </svg>
+          <span class="cal" style="--x:26%;--y:44%"><span class="cal-ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.6"><ellipse cx="7" cy="8" rx="3" ry="4"/><path d="M7 4h10a4 4 0 0 1 0 8H7"/></svg></span><span class="cal-t">Casing and tubing</span></span>
+          <span class="cal r" style="--x:80%;--y:28%"><span class="cal-ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.6"><path d="M4 18V8l6-3 6 3v10"/><path d="M4 18h16M10 18v-5h4v5"/></svg></span><span class="cal-t">Surface equipment</span></span>
+          <span class="cal" style="--x:47%;--y:72%"><span class="cal-ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.6"><path d="M12 3v18M7 7h10M7 13h10"/><circle cx="12" cy="10" r="2"/></svg></span><span class="cal-t">Wellhead components</span></span>
+          <span class="cal r" style="--x:88%;--y:66%"><span class="cal-ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.6"><rect x="4" y="8" width="7" height="12" rx="1"/><rect x="13" y="11" width="7" height="9" rx="1"/></svg></span><span class="cal-t">Production equipment</span></span>
+        </figure>
+        <span class="clist"><span>Casing and tubing</span><span>Wellhead components</span><span>Surface equipment</span><span>Production equipment</span></span>
+      </div>
+      <div class="tcard-f">
+        <button class="tmore" type="button" aria-expanded="false" aria-controls="tn2">Learn more <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 5l7 7-7 7"/></svg></button>
+        <p class="tnote" id="tn2" hidden>These assets still exist after the work is finished, so the cost is recovered over time instead of in one period. This is the category most often confused with the first.</p>
+      </div>
+    </article>
+
+    <!-- 03 -->
+    <article class="tcard">
+      <div class="tcard-h"><span class="tbadge">03</span><span class="tkind">Depletion</span></div>
+      <h3>Depletion</h3>
+      <p class="tcard-d">An allowance recognizing that a reservoir is a finite resource being consumed as it produces. It follows production, not spend.</p>
+      <div class="tcard-v">
+        <figure class="tfig tall">
+          <img src="media/well-crosssection.jpg" width="1672" height="942" loading="lazy" decoding="async"
+               alt="Cutaway of a horizontal well showing surface facilities, the vertical wellbore, layered rock and the target formation.">
+          <span class="crail">
+            <span>Surface facility</span>
+            <span>Wellbore</span>
+            <span>Reservoir rock</span>
+            <span>Hydrocarbon zone</span>
+          </span>
+        </figure>
+        <span class="clist"><span>Surface facility</span><span>Wellbore</span><span>Reservoir rock</span><span>Hydrocarbon zone</span></span>
+      </div>
+      <div class="tcard-f">
+        <button class="tmore" type="button" aria-expanded="false" aria-controls="tn3">Learn more <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 5l7 7-7 7"/></svg></button>
+        <p class="tnote" id="tn3" hidden>This one follows actual production rather than spend, so it depends on what the well does after it is drilled, not on what was committed before.</p>
+      </div>
+    </article>
   </div>
 
-  <p class="fineprint" style="text-align:left;margin-top:22px;max-width:84ch">Simplified illustration of how the categories relate. It is not tax advice and not a representation of any specific investment. No deduction, tax treatment, or outcome is promised or implied. Consult your own CPA, tax adviser and legal counsel before making any decision.</p>
+  <div class="tax-bot">
+    <!-- 04 -->
+    <article class="tcard">
+      <div class="tcard-h"><span class="tbadge">04</span><span class="tkind">Structure</span></div>
+      <h3>Investment structure</h3>
+      <p class="tcard-d">Participation can be a direct working interest or a pooled or corporate wrapper, each treated differently.</p>
+      <div class="tcard-v tdia">
+        <div class="tbranch">
+          <span class="tnode"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.5"><ellipse cx="12" cy="6" rx="7" ry="2.6"/><path d="M5 6v12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V6"/><path d="M5 12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6"/></svg><b>Investor capital</b></span>
+          <span class="tarr"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
+          <span class="tsplit">
+            <span class="tleaf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.5"><path d="M8 21L12 4l4 17M9.5 14h5"/></svg>Direct working interest</span>
+            <span class="tleaf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8694A6" stroke-width="1.5"><circle cx="8" cy="9" r="2.4"/><circle cx="16" cy="9" r="2.4"/><path d="M3.5 18c0-2.4 2-3.8 4.5-3.8s4.5 1.4 4.5 3.8M12 18c0-2.4 1.6-3.8 4-3.8s4 1.4 4 3.8"/></svg>Pooled or corporate</span>
+          </span>
+        </div>
+      </div>
+      <div class="tcard-f">
+        <button class="tmore" type="button" aria-expanded="false" aria-controls="tn4">Explore <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 5l7 7-7 7"/></svg></button>
+        <p class="tnote" id="tn4" hidden>Direct ownership is the reason the tax attributes of the drilling activity can reach an investor at all, instead of stopping at a corporate entity.</p>
+      </div>
+    </article>
+
+    <!-- 05 -->
+    <article class="tcard">
+      <div class="tcard-h"><span class="tbadge">05</span><span class="tkind">Participation</span></div>
+      <h3>Your level of involvement</h3>
+      <p class="tcard-d">How an investor participates varies by structure, and that in turn affects treatment.</p>
+      <div class="tcard-v tdia">
+        <div class="tflow">
+          <span class="tstep"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.5"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c0-3.6 3.1-5.6 7-5.6s7 2 7 5.6"/></svg></span><b>Investor</b><span>Provides capital</span></span>
+          <span class="tarr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
+          <span class="tstep"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.5"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 13h6M9 17h4"/></svg></span><b>Structure</b><span>Holds interest</span></span>
+          <span class="tarr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
+          <span class="tstep"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.5"><path d="M8 21L12 4l4 17M9.5 14h5"/></svg></span><b>Operator</b><span>Runs the well</span></span>
+        </div>
+      </div>
+      <div class="tcard-f">
+        <button class="tmore" type="button" aria-expanded="false" aria-controls="tn5">Learn more <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 5l7 7-7 7"/></svg></button>
+        <p class="tnote" id="tn5" hidden>Investors in a non-operated working interest are capital partners. They do not manage property or operations, and the operator carries the day to day decisions.</p>
+      </div>
+    </article>
+
+    <!-- 06 -->
+    <article class="tcard">
+      <div class="tcard-h"><span class="tbadge">06</span><span class="tkind">Timing</span></div>
+      <h3>Capital deployment and tax year</h3>
+      <p class="tcard-d">When capital is committed relative to drilling and the tax year is frequently the whole question.</p>
+      <div class="tcard-v tdia">
+        <div class="ttime">
+          <span><span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.5"><ellipse cx="12" cy="6" rx="7" ry="2.6"/><path d="M5 6v12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V6"/></svg></span><b>Capital committed</b></span>
+          <span><span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.5"><path d="M8 21L12 4l4 17M9.5 14h5"/></svg></span><b>Drilling</b></span>
+          <span><span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.5"><path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z"/></svg></span><b>Production</b></span>
+          <span><span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.5"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><b>Tax year ends</b></span>
+        </div>
+        <div class="trail"><i style="left:12.5%"></i><i style="left:37.5%"></i><i style="left:62.5%"></i><i style="left:87.5%"></i></div>
+        <div class="tqs"><span>Q1</span><span>Q2 to Q3</span><span>Q4</span><span>Dec 31</span></div>
+      </div>
+      <div class="tcard-f">
+        <button class="tmore" type="button" aria-expanded="false" aria-controls="tn6">See timeline <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 5l7 7-7 7"/></svg></button>
+        <p class="tnote" id="tn6" hidden>Drilling runs on permits, rigs and crews, not on anyone's tax year. The same decision made eight weeks apart can land very differently. Dates alone do not determine treatment.</p>
+      </div>
+    </article>
+
+    <!-- 07 -->
+    <article class="tcard">
+      <div class="tcard-h"><span class="tbadge">07</span><span class="tkind">Own position</span></div>
+      <h3>Your financial profile</h3>
+      <p class="tcard-d">Income type, horizon and what a return already contains all affect the outcome.</p>
+      <div class="tcard-v tdia">
+        <div class="tprof">
+          <span class="t1040"><b>1040</b><i style="width:100%"></i><i style="width:80%"></i><i style="width:92%"></i><i style="width:64%"></i><i style="width:86%"></i><i style="width:72%"></i></span>
+          <span class="tlist">
+            <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.5"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v9M9.5 10h5M9.5 14h5"/></svg>Income type</span>
+            <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.5"><path d="M4 19V11M10 19V6M16 19v-5M21 19H3"/></svg>Tax bracket</span>
+            <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.5"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5.5l3.5 2"/></svg>Investment horizon</span>
+            <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.5"><path d="M12 3l8 3v6c0 4.5-3.2 7.8-8 9-4.8-1.2-8-4.5-8-9V6z"/></svg>Risk tolerance</span>
+          </span>
+        </div>
+      </div>
+      <div class="tcard-f">
+        <button class="tmore" type="button" aria-expanded="false" aria-controls="tn7">Review <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 5l7 7-7 7"/></svg></button>
+        <p class="tnote" id="tn7" hidden>Two investors in the same well can face different outcomes depending on income type and what their return already contains. That is why no figure appears anywhere on this page.</p>
+      </div>
+    </article>
+  </div>
+
+  <p class="tdisc">Simplified illustrations of how the categories relate. They are not tax advice and not a representation of any specific investment. No deduction, tax treatment, or outcome is promised or implied. The equipment and cutaway visuals are illustrative and do not depict OilTaxPro assets. Consult your own CPA, tax adviser and legal counsel before making any decision.</p>
 </div></section>
 
 <!-- ═══ INVESTMENT STRUCTURES & DRILLING OPERATIONS ═══ -->
@@ -2262,6 +2476,20 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
     }catch(e){
       btn.lastChild.nodeValue = 'Calendar unavailable here';
     }
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var btns = Array.prototype.slice.call(document.querySelectorAll('.tmore'));
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){
+      var open = b.getAttribute('aria-expanded') === 'true';
+      var n = document.getElementById(b.getAttribute('aria-controls'));
+      b.setAttribute('aria-expanded', open ? 'false' : 'true');
+      if (n) n.hidden = open;
+    });
   });
 })();
 </script>
