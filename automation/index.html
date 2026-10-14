@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Webinar Automation Sequence</title>
-<meta name="description" content="Interactive follow-up automation for the OilTaxPro educational webinar, branching by attendance behaviour.">
+<meta name="description" content="Interactive follow-up automation for the OilTaxPro educational webinar, branching by attendance behavior.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -125,9 +125,32 @@ p{margin:0}
 .disc-in{padding-block:36px;display:grid;gap:13px}
 .disc p{font-size:12.5px;color:var(--steel);line-height:1.7;max-width:96ch}
 .foot{border-top:1px solid var(--hair);padding-block:22px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-family:var(--f-mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--steel)}
-.demo-tag{position:fixed;left:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:50;font-family:var(--f-mono);font-size:9px;letter-spacing:.13em;text-transform:uppercase;background:rgba(13,19,27,.93);border:1px solid var(--line);color:var(--gold-lt);padding:7px 11px;border-radius:2px;backdrop-filter:blur(8px)}
-@media(max-width:620px){.demo-tag{font-size:8px;padding:6px 9px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* demo kit: makes all three deliverables reachable from any page */
+.kit{position:fixed;left:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:90;
+  font-family:var(--f-mono);max-width:calc(100vw - 28px)}
+.kit-btn{display:flex;align-items:center;gap:9px;font-family:var(--f-mono);font-size:9px;
+  letter-spacing:.13em;text-transform:uppercase;background:rgba(16,30,47,.95);
+  border:1px solid rgba(201,163,104,.24);color:#E2C68C;padding:8px 12px;border-radius:3px;
+  backdrop-filter:blur(10px);cursor:pointer;transition:border-color .16s}
+.kit-btn:hover{border-color:rgba(201,163,104,.5)}
+.kit-btn:focus-visible{outline:2px solid #E2C68C;outline-offset:2px}
+.kit-btn .car{transition:transform .2s;font-size:11px;line-height:1}
+.kit[data-open="true"] .kit-btn .car{transform:rotate(180deg)}
+.kit-panel{position:absolute;left:0;bottom:calc(100% + 8px);width:268px;max-width:calc(100vw - 28px);
+  background:rgba(13,25,39,.98);border:1px solid rgba(201,163,104,.24);border-radius:4px;
+  padding:13px;backdrop-filter:blur(14px);box-shadow:0 26px 54px -20px rgba(0,0,0,.95)}
+.kit-panel[hidden]{display:none}
+.kit-k{display:block;font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:#8694A6;margin-bottom:10px}
+.kit-panel a{display:block;text-decoration:none;border:1px solid rgba(214,222,238,.09);
+  border-radius:3px;padding:9px 11px;margin-bottom:6px;transition:border-color .16s,background .16s}
+.kit-panel a:hover{border-color:rgba(201,163,104,.4);background:rgba(201,163,104,.07)}
+.kit-panel a[aria-current="page"]{border-color:rgba(201,163,104,.4);background:rgba(201,163,104,.1)}
+.kit-panel b{display:block;font-family:var(--f-body);font-size:12.5px;font-weight:500;color:#F5F2EB;letter-spacing:0}
+.kit-panel span{display:block;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:#8694A6;margin-top:3px}
+.kit-foot{font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:#8694A6;
+  border-top:1px solid rgba(214,222,238,.09);padding-top:9px;margin-top:4px;line-height:1.6}
 </style>
 </head>
 <body>
@@ -190,7 +213,7 @@ p{margin:0}
           <p class="from">From: Bennett Walsh &middot; OilTaxPro</p>
           <p>Hi {{first_name}},</p>
           <p>We&rsquo;re on tomorrow at {{session_time}}. Here&rsquo;s the running order so you know whether it&rsquo;s worth your hour:</p>
-          <p>Why this asset class attracts high-income capital &middot; where the deductions actually come from &middot; why timing decides the outcome &middot; the risks, stated directly &middot; the questions to ask any sponsor before you write a cheque.</p>
+          <p>Why this asset class attracts high-income capital &middot; where the deductions actually come from &middot; why timing decides the outcome &middot; the risks, stated directly &middot; the questions to ask any sponsor before you write a check.</p>
           <p>That fourth section is the one most presentations skip. It&rsquo;s the reason this session exists.</p>
           <p class="sig">Bennett</p>
         </div>
@@ -470,14 +493,13 @@ p{margin:0}
 <div class="disc"><div class="wrap disc-in">
   <p class="eyebrow">Important disclosures</p>
   <p>The messages shown here are proposed draft copy for a concept demonstration. They are educational in nature and do not constitute financial, tax, legal, or investment advice, nor an offer to sell or a solicitation of an offer to buy any security or interest. No specific outcome, tax treatment, deduction, or return is promised or implied.</p>
-  <p>Placeholders in double braces represent merge fields that would be populated by the sending system. No email platform, CRM, or webinar platform is connected to this page, no sequence is live, and no message is sent. Timings, tags, and field names are illustrative and would be finalised against the tooling already in use. All copy is subject to review and approval before any live use.</p>
+  <p>Placeholders in double braces represent merge fields that would be populated by the sending system. No email platform, CRM, or webinar platform is connected to this page, no sequence is live, and no message is sent. Timings, tags, and field names are illustrative and would be finalized against the tooling already in use. All copy is subject to review and approval before any live use.</p>
   <div class="foot">
     <span>OilTaxPro &middot; Automation sequence</span>
     <span>Concept demonstration &middot; no live integration</span>
   </div>
 </div></div>
 
-<span class="demo-tag">Concept demo &middot; built for Bennett Walsh</span>
 
 <script>
 (function(){
@@ -506,5 +528,16 @@ p{margin:0}
   show('attended');
 })();
 </script>
+<div class="kit" id="kit" data-open="false">
+  <div class="kit-panel" id="kitPanel" hidden>
+    <span class="kit-k">Concept demo for Bennett Walsh</span>
+    <a href="../"><b>Landing page</b><span>Registration + funnel fit</span></a>
+    <a href="../slides/"><b>Webinar deck</b><span>21 slides, presenter notes</span></a>
+    <a href="../automation/" aria-current="page"><b>Automation sequence</b><span>Follow-up by attendance</span></a>
+    <p class="kit-foot">Sample data throughout. Nothing is sent or stored.</p>
+  </div>
+  <button class="kit-btn" id="kitBtn" type="button" aria-expanded="false" aria-controls="kitPanel"><span>Concept demo &middot; 3 parts</span><span class="car" aria-hidden="true">&#9652;</span></button>
+</div>
+<script>(function(){var k=document.getElementById("kit"),b=document.getElementById("kitBtn"),p=document.getElementById("kitPanel");function set(o){k.dataset.open=o?"true":"false";b.setAttribute("aria-expanded",o?"true":"false");p.hidden=!o;}b.addEventListener("click",function(e){e.stopPropagation();set(p.hidden);});document.addEventListener("click",function(){set(false);});p.addEventListener("click",function(e){e.stopPropagation();});document.addEventListener("keydown",function(e){if(e.key==="Escape")set(false);});})();</script>
 </body>
 </html>

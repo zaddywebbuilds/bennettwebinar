@@ -448,8 +448,6 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
 .disc-in{padding-block:30px;display:grid;gap:12px}
 .disc p{font-size:12.5px;color:var(--steel);line-height:1.7;max-width:96ch}
 .foot{border-top:1px solid var(--hair);padding-block:22px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-family:var(--f-mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--steel)}
-.demo-tag{position:fixed;left:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:70;font-family:var(--f-mono);font-size:9px;letter-spacing:.13em;text-transform:uppercase;background:rgba(16,30,47,.93);border:1px solid var(--line);color:var(--gold-lt);padding:7px 11px;border-radius:2px;backdrop-filter:blur(8px)}
-@media(max-width:620px){.demo-tag{font-size:8px;padding:6px 9px}}
 
 /* ───────── MOBILE FIT ───────── */
 @media(max-width:700px){
@@ -503,8 +501,7 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
   .hot-pop p{font-size:13px}
   .xsec-wrap{display:flex;flex-direction:column}
 
-  .demo-tag{font-size:7.5px;padding:5px 8px;left:10px;opacity:.78}
-}
+  }
 
 @media(max-width:620px){
   .final-ov h2{font-size:clamp(21px,6.2vw,28px)}
@@ -517,6 +514,31 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
   .stageT{transform:none!important}
   body.js .reveal{opacity:1!important;transform:none!important}
 }
+
+/* demo kit: makes all three deliverables reachable from any page */
+.kit{position:fixed;left:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:90;
+  font-family:var(--f-mono);max-width:calc(100vw - 28px)}
+.kit-btn{display:flex;align-items:center;gap:9px;font-family:var(--f-mono);font-size:9px;
+  letter-spacing:.13em;text-transform:uppercase;background:rgba(16,30,47,.95);
+  border:1px solid rgba(201,163,104,.24);color:#E2C68C;padding:8px 12px;border-radius:3px;
+  backdrop-filter:blur(10px);cursor:pointer;transition:border-color .16s}
+.kit-btn:hover{border-color:rgba(201,163,104,.5)}
+.kit-btn:focus-visible{outline:2px solid #E2C68C;outline-offset:2px}
+.kit-btn .car{transition:transform .2s;font-size:11px;line-height:1}
+.kit[data-open="true"] .kit-btn .car{transform:rotate(180deg)}
+.kit-panel{position:absolute;left:0;bottom:calc(100% + 8px);width:268px;max-width:calc(100vw - 28px);
+  background:rgba(13,25,39,.98);border:1px solid rgba(201,163,104,.24);border-radius:4px;
+  padding:13px;backdrop-filter:blur(14px);box-shadow:0 26px 54px -20px rgba(0,0,0,.95)}
+.kit-panel[hidden]{display:none}
+.kit-k{display:block;font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:#8694A6;margin-bottom:10px}
+.kit-panel a{display:block;text-decoration:none;border:1px solid rgba(214,222,238,.09);
+  border-radius:3px;padding:9px 11px;margin-bottom:6px;transition:border-color .16s,background .16s}
+.kit-panel a:hover{border-color:rgba(201,163,104,.4);background:rgba(201,163,104,.07)}
+.kit-panel a[aria-current="page"]{border-color:rgba(201,163,104,.4);background:rgba(201,163,104,.1)}
+.kit-panel b{display:block;font-family:var(--f-body);font-size:12.5px;font-weight:500;color:#F5F2EB;letter-spacing:0}
+.kit-panel span{display:block;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:#8694A6;margin-top:3px}
+.kit-foot{font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:#8694A6;
+  border-top:1px solid rgba(214,222,238,.09);padding-top:9px;margin-top:4px;line-height:1.6}
 </style>
 </head>
 <body>
@@ -574,14 +596,14 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
         <div class="videocard">
           <video id="heroVid" src="media/session-loop.mp4" poster="media/session-poster.jpg"
                  autoplay muted loop playsinline preload="metadata"
-                 aria-label="Preview visualisation of an educational session"></video>
+                 aria-label="Preview visualization of an educational session"></video>
           <div class="vc-meta">
             <span class="vc-slide">
               <span class="vc-k">Section 02 &middot; Mechanisms</span>
               <span class="vc-h">Where the deductions <i>come from</i></span>
             </span>
             <span class="vc-tags">
-              <span class="vc-tag">Preview visualisation</span>
+              <span class="vc-tag">Preview visualization</span>
               <span class="vc-tag r">Educational &middot; no offer</span>
             </span>
           </div>
@@ -638,7 +660,7 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
             <img src="media/field-panorama.jpg" width="1672" height="941" loading="lazy" decoding="async"
                  alt="Wide aerial landscape of a developed oilfield at golden hour: an active drilling rig in the foreground with tank batteries and service roads, and further rigs and pump jacks spread across the plain to the horizon.">
           </picture>
-          <figcaption class="pan-note">Illustrative: multi-pad field development. Programmes are usually drilled across several wells and pads, not one.</figcaption>
+          <figcaption class="pan-note">Illustrative: multi-pad field development. Programs are usually drilled across several wells and pads, not one.</figcaption>
         </figure>
     </div>
     <div class="mods">
@@ -719,7 +741,7 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
     <button class="hot" type="button" style="left:28.5%;top:50%" aria-expanded="false" aria-controls="pop2" aria-label="Vertical wellbore"></button>
     <div class="hot-pop" id="pop2" hidden style="left:28.5%;top:50%">
       <b>Vertical wellbore</b>
-      <p>The bore is drilled straight down through shallow formations. Successive casing strings are run and cemented in place to isolate groundwater and stabilise the hole before drilling continues.</p>
+      <p>The bore is drilled straight down through shallow formations. Successive casing strings are run and cemented in place to isolate groundwater and stabilize the hole before drilling continues.</p>
     </div>
 
     <button class="hot" type="button" style="left:31%;top:73%" aria-expanded="false" aria-controls="pop3" aria-label="Build section"></button>
@@ -790,7 +812,7 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
     <div class="step"><span class="step-n">New 01</span><h3>Reserve a seat</h3><p>Accreditation attestation and consent captured at registration.</p></div>
     <div class="step"><span class="step-n">New 02</span><h3>Reminders</h3><p>Confirmation, calendar invite, 24-hour and 1-hour reminders.</p></div>
     <div class="step"><span class="step-n">New 03</span><h3>Educational session</h3><p>Structures, timing, risks. No offer presented.</p></div>
-    <div class="step"><span class="step-n">New 04</span><h3>Follow-up by behaviour</h3><p>Attended, partial, and no-show each receive a different sequence.</p></div>
+    <div class="step"><span class="step-n">New 04</span><h3>Follow-up by behavior</h3><p>Attended, partial, and no-show each receive a different sequence.</p></div>
     <div class="step is-existing"><span class="step-n">Existing</span><h3>Suitability call</h3><p>Qualified prospects route into your current booking process and CRM.</p></div>
   </div>
   <span class="tagline">Replaces nothing. The webinar layer is <b>additive</b> to the funnel already running.</span>
@@ -989,15 +1011,14 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
   <p class="eyebrow">Important disclosures</p>
   <p>This session and this page are educational in nature and do not constitute financial, tax, legal, or investment advice, nor an offer to sell or a solicitation of an offer to buy any security or interest. No specific outcome, tax treatment, deduction, or return is promised or implied.</p>
   <p>Oil and gas investments involve substantial risk, including the risk of total loss of capital. They are illiquid, long-horizon, and speculative, and they are not suitable for all investors. Availability may be limited to verified accredited investors. Any potential tax treatment depends on the specific investment structure, the timing of capital deployment, and your individual circumstances. Consult your own CPA, tax adviser, and legal counsel before making any decision.</p>
-  <p>All oilfield imagery on this page consists of illustrative representations of drilling and production infrastructure. It does not depict projects owned, operated, or offered by OilTaxPro, and is included to explain the subject matter, not to represent any specific asset or programme.</p>
-  <p>Figures shown describe past activity as published by OilTaxPro and are not a prediction or guarantee of future results. The hero footage is a synthetic preview visualisation generated for layout purposes; it is not a recording of any actual session and would be replaced with the client&rsquo;s own approved footage before any live use. Session dates, times, the player interface, and all registration functionality on this page are sample data for demonstration purposes; no information entered is stored, transmitted, or used.</p>
+  <p>All oilfield imagery on this page consists of illustrative representations of drilling and production infrastructure. It does not depict projects owned, operated, or offered by OilTaxPro, and is included to explain the subject matter, not to represent any specific asset or program.</p>
+  <p>Figures shown describe past activity as published by OilTaxPro and are not a prediction or guarantee of future results. The hero footage is a synthetic preview visualization generated for layout purposes; it is not a recording of any actual session and would be replaced with the client&rsquo;s own approved footage before any live use. Session dates, times, the player interface, and all registration functionality on this page are sample data for demonstration purposes; no information entered is stored, transmitted, or used.</p>
   <div class="foot">
     <span>OilTaxPro &middot; Educational session</span>
     <span>Concept demonstration &middot; not an active registration page</span>
   </div>
 </div></div>
 
-<span class="demo-tag">Concept demo &middot; built for Bennett Walsh</span>
 
 <script type="application/ld+json">
 {
@@ -1305,5 +1326,16 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
   });
 })();
 </script>
+<div class="kit" id="kit" data-open="false">
+  <div class="kit-panel" id="kitPanel" hidden>
+    <span class="kit-k">Concept demo for Bennett Walsh</span>
+    <a href="" aria-current="page"><b>Landing page</b><span>Registration + funnel fit</span></a>
+    <a href="slides/"><b>Webinar deck</b><span>21 slides, presenter notes</span></a>
+    <a href="automation/"><b>Automation sequence</b><span>Follow-up by attendance</span></a>
+    <p class="kit-foot">Sample data throughout. Nothing is sent or stored.</p>
+  </div>
+  <button class="kit-btn" id="kitBtn" type="button" aria-expanded="false" aria-controls="kitPanel"><span>Concept demo &middot; 3 parts</span><span class="car" aria-hidden="true">&#9652;</span></button>
+</div>
+<script>(function(){var k=document.getElementById("kit"),b=document.getElementById("kitBtn"),p=document.getElementById("kitPanel");function set(o){k.dataset.open=o?"true":"false";b.setAttribute("aria-expanded",o?"true":"false");p.hidden=!o;}b.addEventListener("click",function(e){e.stopPropagation();set(p.hidden);});document.addEventListener("click",function(){set(false);});p.addEventListener("click",function(e){e.stopPropagation();});document.addEventListener("keydown",function(e){if(e.key==="Escape")set(false);});})();</script>
 </body>
 </html>
