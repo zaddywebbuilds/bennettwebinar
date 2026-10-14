@@ -542,33 +542,6 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
 .kit-foot{font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:#8694A6;
   border-top:1px solid rgba(214,222,238,.09);padding-top:9px;margin-top:4px;line-height:1.6}
 
-/* inline automation preview */
-.auto-box{margin-top:26px;border:1px solid var(--line);border-radius:4px;background:var(--navy-2);overflow:hidden}
-.auto-head{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:15px 18px;border-bottom:1px solid var(--hair)}
-.auto-head h3{font-family:var(--f-disp);font-size:20px;line-height:1.2;flex:1 1 auto;min-width:0}
-.auto-tabs{display:flex;gap:6px;flex-wrap:wrap}
-.atab{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;
-  background:transparent;color:var(--steel);border:1px solid var(--hair);border-radius:2px;
-  padding:7px 12px;cursor:pointer;transition:background .16s,border-color .16s,color .16s}
-.atab:hover{color:var(--ivory-2);border-color:var(--line)}
-.atab[aria-selected="true"]{background:rgba(201,163,104,.11);border-color:var(--gold);color:var(--gold-lt)}
-.atab:focus-visible{outline:2px solid var(--gold-lt);outline-offset:2px}
-.auto-body{padding:18px}
-.achain{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,164px),1fr));gap:10px}
-.anode{border:1px solid var(--hair);border-radius:3px;padding:13px 14px;background:var(--graphite);
-  display:flex;flex-direction:column;gap:6px;min-width:0}
-.anode.crm{border-color:var(--line);background:rgba(201,163,104,.06)}
-.anode.stop{border-color:rgba(154,110,99,.4)}
-.awhen{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
-.anode.stop .awhen{color:#C98A6A}
-.anode b{font-family:var(--f-body);font-size:13px;font-weight:500;color:var(--ivory);line-height:1.35}
-.anode p{font-size:12px;color:var(--steel);line-height:1.5}
-.auto-foot{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;
-  padding:13px 18px;border-top:1px solid var(--hair);background:var(--graphite)}
-.auto-note{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--steel)}
-.auto-link{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--gold-lt);text-decoration:none;border:1px solid var(--line);border-radius:2px;padding:8px 13px;white-space:nowrap}
-.auto-link:hover{background:rgba(201,163,104,.1)}
 
 /* tax mechanism diagram: three cost categories, then the conditions that gate them */
 .taxd{margin-top:28px}
@@ -721,23 +694,6 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
 .mod-ic svg{display:block}
 @media(max-width:620px){.mod-ic{width:32px;height:32px}.mod-ic svg{width:17px;height:17px}}
 
-/* each step renders the artifact it produces, not a description of it */
-.achain{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:stretch}
-@media(max-width:900px){.achain{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:560px){.achain{grid-template-columns:1fr}}
-.anode{border:1px solid var(--hair);border-radius:4px;padding:0;background:var(--graphite);
-  display:flex;flex-direction:column;min-width:0;overflow:hidden;position:relative}
-.anode.crm{border-color:var(--line)}
-.anode.stop{border-color:rgba(201,138,106,.45)}
-.an-head{padding:12px 13px 10px;display:flex;flex-direction:column;gap:5px;border-bottom:1px solid var(--hair)}
-.an-num{position:absolute;top:0;right:0;font-family:var(--f-mono);font-size:8px;letter-spacing:.1em;
-  color:var(--steel-d);background:var(--navy-2);border-left:1px solid var(--hair);
-  border-bottom:1px solid var(--hair);border-radius:0 0 0 4px;padding:3px 7px}
-.awhen{font-family:var(--f-mono);font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
-.anode.stop .awhen{color:#D9A08C}
-.anode b{font-family:var(--f-body);font-size:13px;font-weight:500;color:var(--ivory);line-height:1.3}
-.an-body{padding:11px 13px;display:flex;flex-direction:column;gap:9px;flex:1 1 auto}
-.an-desc{font-size:11.5px;color:var(--steel);line-height:1.5;margin-top:auto}
 
 /* miniature interfaces */
 .uiq{border:1px solid var(--hair);border-radius:3px;background:var(--navy-2);overflow:hidden}
@@ -810,6 +766,120 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
 .dil-bar{flex:1 1 90px;min-width:70px;height:3px;border-radius:2px;background:rgba(214,222,238,.12);overflow:hidden}
 .dil-bar i{display:block;height:100%;background:var(--gold);border-radius:2px}
 .dil-lbl{font-family:var(--f-mono);font-size:7.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--steel-d)}
+
+/* ───────── automation demo ───────── */
+.auto-sec{border-top:1px solid var(--hair);background:
+  radial-gradient(1100px 440px at 20% 0%, rgba(201,163,104,.07), transparent 68%), var(--graphite)}
+.auto-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:30px;align-items:start;margin-bottom:26px}
+@media(max-width:1000px){.auto-head{grid-template-columns:1fr;gap:20px}}
+.auto-head h2{font-family:var(--f-disp);font-size:clamp(27px,3.5vw,40px);line-height:1.08;margin:12px 0 10px}
+.auto-head p{color:var(--ivory-2);font-size:15px;max-width:58ch;line-height:1.6}
+.auto-tabs{display:flex;gap:8px;flex-wrap:wrap}
+.atab{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:center;text-align:left;
+  background:var(--navy-2);border:1px solid var(--hair);border-radius:4px;padding:11px 15px;
+  cursor:pointer;font:inherit;color:inherit;transition:border-color .18s,background .18s,box-shadow .18s}
+.atab:hover{border-color:var(--line)}
+.atab[aria-selected="true"]{border-color:var(--gold);background:rgba(201,163,104,.1);
+  box-shadow:0 0 0 1px rgba(201,163,104,.25),0 10px 30px -14px rgba(201,163,104,.5)}
+.atab:focus-visible{outline:2px solid var(--gold-lt);outline-offset:2px}
+.atab-ic{width:26px;height:26px;display:grid;place-content:center;color:var(--steel)}
+.atab[aria-selected="true"] .atab-ic{color:var(--gold-lt)}
+.atab b{display:block;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ivory);font-weight:500}
+.atab[aria-selected="true"] b{color:var(--gold-lt)}
+.atab i{display:block;font-style:normal;font-size:11px;color:var(--steel);margin-top:3px}
+
+.achain-wrap{overflow-x:auto;overflow-y:hidden;padding-bottom:12px;
+  scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+.achain-wrap::-webkit-scrollbar{height:7px}
+.achain-wrap::-webkit-scrollbar-thumb{background:var(--line);border-radius:4px}
+.achain{display:flex;gap:0;align-items:stretch;min-width:min-content}
+.acol{display:flex;align-items:stretch}
+.aarrow{display:flex;align-items:center;padding:0 9px;color:var(--gold);flex:0 0 auto}
+
+.anode{width:286px;flex:0 0 286px;border:1px solid var(--hair);border-radius:6px;
+  background:linear-gradient(180deg,var(--navy-2),var(--graphite-2));display:flex;flex-direction:column;
+  overflow:hidden;transition:border-color .18s}
+.anode:hover{border-color:var(--line)}
+.an-top{display:flex;align-items:center;gap:11px;padding:15px 16px 0}
+.an-badge{width:28px;height:28px;flex:0 0 auto;border-radius:50%;border:1px solid var(--line);
+  display:grid;place-content:center;font-family:var(--f-mono);font-size:10px;color:var(--gold-lt);
+  background:rgba(201,163,104,.08)}
+.an-when{font-family:var(--f-mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold)}
+.an-ttl{font-family:var(--f-disp);font-size:22px;line-height:1.15;color:var(--ivory);padding:10px 16px 0}
+.an-desc{font-size:12.5px;color:var(--steel);line-height:1.55;padding:7px 16px 14px}
+.an-ui{padding:0 16px 14px;flex:1 1 auto}
+.an-foot{display:flex;align-items:center;gap:10px;padding:11px 16px;border-top:1px solid var(--hair);
+  background:rgba(143,166,126,.07)}
+.an-fic{width:22px;height:22px;flex:0 0 auto;border-radius:50%;background:rgba(143,166,126,.16);
+  border:1px solid rgba(143,166,126,.5);display:grid;place-content:center}
+.an-ft b{display:block;font-size:11.5px;font-weight:500;color:#AFC79C;line-height:1.3}
+.an-ft span{display:block;font-size:10.5px;color:var(--steel);margin-top:2px}
+
+/* miniature interfaces */
+.ui{border:1px solid var(--hair);border-radius:4px;background:var(--graphite);overflow:hidden}
+.ui-bar{display:flex;align-items:center;gap:7px;padding:8px 10px;background:var(--panel);
+  border-bottom:1px solid var(--hair)}
+.ui-bar b{font-size:10.5px;color:var(--ivory);font-weight:500}
+.ui-bar .tag{margin-left:auto;font-family:var(--f-mono);font-size:8.5px;color:var(--steel)}
+.ui-in{padding:10px;display:flex;flex-direction:column;gap:7px}
+.ui-meta{font-size:9.5px;color:var(--steel);line-height:1.5}
+.ui-subj{font-size:12px;color:var(--ivory);font-weight:500;line-height:1.35}
+.ui-tx{font-size:10.5px;color:var(--ivory-2);line-height:1.55}
+.ui-btn{display:block;text-align:center;font-family:var(--f-mono);font-size:9px;letter-spacing:.1em;
+  text-transform:uppercase;background:var(--gold);color:#0D1726;border-radius:3px;padding:8px}
+.ui-btn.alt{background:transparent;border:1px solid var(--hair);color:var(--ivory-2)}
+.ui-btn.join{background:#3C6FB8;color:#fff}
+.ui-lbl{font-family:var(--f-mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--steel-d)}
+.ui-fld{border:1px solid var(--hair);border-radius:3px;padding:7px 9px;font-size:10.5px;color:var(--ivory);
+  background:var(--navy-2);display:flex;align-items:center;justify-content:space-between;gap:8px}
+.ui-fld.ph{color:var(--steel-d)}
+.ui-ck{display:flex;gap:8px;align-items:flex-start}
+.ui-ckb{width:13px;height:13px;flex:0 0 auto;border-radius:2px;background:var(--gold);
+  display:grid;place-content:center;margin-top:1px}
+.ui-ck span{font-size:9.5px;color:var(--ivory-2);line-height:1.45}
+.ui-row{display:flex;align-items:center;gap:8px;font-size:10px;color:var(--ivory-2)}
+.ui-row svg{flex:0 0 auto}
+.ui-prov{display:flex;align-items:center;gap:8px;padding:6px 0;border-top:1px solid var(--hair);font-size:10px;color:var(--ivory-2)}
+.ui-pic{width:16px;height:16px;border-radius:3px;border:1px solid var(--hair);display:grid;place-content:center;
+  font-family:var(--f-mono);font-size:7px;color:var(--steel);flex:0 0 auto}
+.ui-thumb{position:relative;border-radius:3px;overflow:hidden;border:1px solid var(--hair)}
+.ui-thumb img{display:block;width:100%;height:78px;object-fit:cover}
+.ui-thumb figcaption{position:absolute;left:0;right:0;bottom:0;padding:14px 8px 6px;font-size:9.5px;color:#fff;
+  background:linear-gradient(to top,rgba(5,10,16,.92),transparent)}
+.ui-play{position:absolute;inset:0;display:grid;place-content:center}
+.ui-play span{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.9);display:grid;place-content:center}
+.ui-vid{position:relative}
+.ui-vid img{display:block;width:100%;height:96px;object-fit:cover;object-position:center 30%}
+.ui-live{position:absolute;top:7px;left:7px;font-family:var(--f-mono);font-size:7.5px;letter-spacing:.1em;
+  background:#C0514B;color:#fff;border-radius:2px;padding:2px 6px}
+.ui-ctrl{display:flex;align-items:center;gap:8px;padding:7px 9px;background:#0B1119;border-top:1px solid var(--hair)}
+.ui-track{flex:1 1 auto;height:3px;border-radius:2px;background:rgba(214,222,238,.16);overflow:hidden}
+.ui-track i{display:block;height:100%;background:var(--gold)}
+.ui-time{font-family:var(--f-mono);font-size:8.5px;color:var(--steel);white-space:nowrap}
+.ui-eng{display:flex;align-items:center;gap:11px;padding:10px;border-top:1px solid var(--hair)}
+.ui-ring{width:42px;height:42px;flex:0 0 auto;position:relative;display:grid;place-content:center}
+.ui-ring svg{position:absolute;inset:0;transform:rotate(-90deg)}
+.ui-ring b{font-family:var(--f-mono);font-size:10px;color:var(--gold-lt)}
+.ui-engt b{display:block;font-size:11.5px;color:var(--ivory);font-weight:500}
+.ui-engt span{display:block;font-size:9.5px;color:var(--steel);line-height:1.45;margin-top:2px}
+.ui-chk{display:flex;align-items:center;gap:7px;padding:5px 10px;font-size:10px;color:var(--ivory-2)}
+.ui-chk:first-of-type{padding-top:9px}
+.ui-chk:last-child{padding-bottom:10px}
+.ui-chk svg{flex:0 0 auto}
+.ui-card{display:flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:3px;
+  background:rgba(201,163,104,.07);padding:9px}
+.ui-card b{display:block;font-size:10.5px;color:var(--ivory);font-weight:500;line-height:1.3}
+.ui-card span{display:block;font-size:9.5px;color:var(--steel);margin-top:2px}
+
+.auto-foot{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;
+  margin-top:16px;padding-top:15px;border-top:1px solid var(--hair)}
+.auto-note{display:flex;align-items:center;gap:9px;font-size:11.5px;color:var(--steel);line-height:1.5}
+.auto-link{font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--gold-lt);text-decoration:none;border:1px solid var(--line);border-radius:3px;
+  padding:10px 15px;white-space:nowrap;transition:background .16s}
+.auto-link:hover{background:rgba(201,163,104,.1)}
+@media(max-width:620px){.anode{width:260px;flex-basis:260px}}
 </style>
 </head>
 <body>
@@ -1273,21 +1343,37 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
   </div>
   <span class="tagline">Replaces nothing. The webinar layer is <b>additive</b> to the funnel already running.</span>
 
-  <div class="auto-box">
-    <div class="auto-head">
-      <h3>See what happens after registration</h3>
-      <div class="auto-tabs" role="tablist" aria-label="Registrant path">
-        <button class="atab" type="button" role="tab" data-p="att" aria-selected="true">Attends</button>
-        <button class="atab" type="button" role="tab" data-p="miss" aria-selected="false">Misses it</button>
-        <button class="atab" type="button" role="tab" data-p="book" aria-selected="false">Books a call</button>
-      </div>
+<section class="auto-sec"><div class="wrap">
+  <div class="auto-head">
+    <div>
+      <p class="eyebrow">Automation demo</p>
+      <h2>See what happens after registration</h2>
+      <p>Explore how each registrant moves through the proposed automated experience. Select a scenario to see the full journey and the messages they receive.</p>
     </div>
-    <div class="auto-body"><div class="achain" id="achain"></div></div>
-    <div class="auto-foot">
-      <span class="auto-note">Illustrative logic. No CRM or email tool is connected.</span>
-      <a class="auto-link" href="automation/">Full sequence with draft copy &rarr;</a>
+    <div class="auto-tabs" role="tablist" aria-label="Registrant scenario">
+      <button class="atab" type="button" role="tab" data-p="att" aria-selected="true">
+        <span class="atab-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3.2"/><path d="M3 19c0-3.3 2.7-5.4 6-5.4s6 2.1 6 5.4"/><circle cx="17.5" cy="9" r="2.4"/><path d="M16 14.2c3 .3 5 2.3 5 4.8"/></svg></span>
+        <span><b>Attends</b><i>Watches 70%+</i></span>
+      </button>
+      <button class="atab" type="button" role="tab" data-p="miss" aria-selected="false">
+        <span class="atab-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg></span>
+        <span><b>Misses it</b><i>No-show flow</i></span>
+      </button>
+      <button class="atab" type="button" role="tab" data-p="book" aria-selected="false">
+        <span class="atab-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="M9 15.5l2 2 4-4"/></svg></span>
+        <span><b>Books a call</b><i>Conversion flow</i></span>
+      </button>
     </div>
   </div>
+
+  <div class="achain-wrap"><div class="achain" id="achain"></div></div>
+
+  <div class="auto-foot">
+    <span class="auto-note"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8694A6" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6h.01"/></svg>Illustrative logic. No CRM or email tool is connected. This is a visual demonstration of the proposed sequence.</span>
+    <a class="auto-link" href="automation/">View full sequence with draft copy &rarr;</a>
+  </div>
+</div></section>
+
 
 </div></section>
 
@@ -1881,76 +1967,183 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
   if (!chain) return;
   var tabs = Array.prototype.slice.call(document.querySelectorAll('.atab'));
 
-  var I = {
-    mail:'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.8"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>',
-    sms:'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.8"><path d="M21 12a8 8 0 1 1-3.2-6.4"/><path d="M21 4v5h-5"/></svg>',
-    db:'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.8"><ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v13c0 1.7 3.6 3 8 3s8-1.3 8-3v-13"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>',
-    cal:'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>',
-    stop:'<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#C98A6A" stroke-width="2"><path d="M5 5l14 14M19 5L5 19"/></svg>',
-    ok:'<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#8FA67E" stroke-width="2.6" stroke-linecap="round"><path d="M4 12.5l5.2 5.2L20 7"/></svg>',
-    play:'<svg width="8" height="8" viewBox="0 0 10 10"><path d="M2 1L9 5 2 9z" fill="#0D1726"/></svg>'
+  var S = {
+    mail:'<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.7"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>',
+    cal:'<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.7"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>',
+    clock:'<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.5l3.4 2"/></svg>',
+    pin:'<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#C9A368" stroke-width="1.8"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>',
+    cam:'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><rect x="2.5" y="6" width="13" height="12" rx="2"/><path d="M15.5 10.5l6-3.2v9.4l-6-3.2z"/></svg>',
+    tick:'<svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#0D1726" stroke-width="3.4" stroke-linecap="round"><path d="M4 12.5l5.2 5.2L20 7"/></svg>',
+    gtick:'<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8FA67E" stroke-width="2.6" stroke-linecap="round"><path d="M4 12.5l5.2 5.2L20 7"/></svg>',
+    send:'<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8FA67E" stroke-width="1.9" stroke-linejoin="round"><path d="M21 3L10.5 14M21 3l-6.8 18-3.7-7.5L3 10z"/></svg>',
+    play:'<svg width="11" height="11" viewBox="0 0 12 12"><path d="M3 1.5L10 6 3 10.5z" fill="#0D1726"/></svg>',
+    pause:'<svg width="9" height="9" viewBox="0 0 12 12"><rect x="2" y="1.5" width="2.6" height="9" fill="#C4CCD8"/><rect x="7.4" y="1.5" width="2.6" height="9" fill="#C4CCD8"/></svg>'
   };
-  function lines(n){ var o=''; for(var i=0;i<n;i++){ o+='<span class="uiq-ln" style="width:'+(96-i*18)+'%"></span>'; } return o; }
-  function mock(m){
-    if (!m) return '';
-    if (m.t==='email') return '<div class="uiq"><div class="uiq-bar"><span class="uiq-ic">'+I[m.ic||'mail']+'</span><span class="uiq-sub">'+m.subj+'</span></div><div class="uiq-in"><span class="uiq-tx">'+m.open+'</span>'+lines(m.n||2)+(m.btn?'<span class="uiq-btn">'+m.btn+'</span>':'')+'</div></div>';
-    if (m.t==='rec')   return '<div class="uiq"><div class="uiq-bar"><span class="uiq-ic">'+I.db+'</span><span class="uiq-sub">'+m.subj+'</span></div><div class="uiq-in" style="gap:0">'+m.rows.map(function(r){return '<span class="uiq-row"><span>'+r[0]+'</span><span>'+r[1]+'</span></span>';}).join('')+'</div></div>';
-    if (m.t==='vid')   return '<div class="uiq"><div class="uiq-vid">'+(m.live?'<span class="uiq-live">LIVE</span>':'')+'<span class="uiq-play">'+I.play+'</span></div><div class="uiq-prog"><span class="uiq-track"><i style="width:'+m.pct+'%"></i></span><span class="uiq-time">'+m.time+'</span></div></div>';
-    if (m.t==='ok')    return '<div class="uiq"><div class="uiq-ok"><span class="uiq-okic">'+I.ok+'</span><span class="uiq-okt"><b>'+m.title+'</b><span>'+m.sub+'</span></span></div></div>';
-    if (m.t==='stop')  return '<div class="uiq">'+m.items.map(function(x){return '<span class="uiq-x">'+I.stop+'<span>'+x+'</span></span>';}).join('')+'</div>';
-    if (m.t==='cal')   return '<div class="uiq"><div class="uiq-bar"><span class="uiq-ic">'+I.cal+'</span><span class="uiq-sub">'+m.subj+'</span></div><div class="uiq-in"><span class="uiq-tx">'+m.open+'</span><span class="uiq-btn">'+m.btn+'</span></div></div>';
+
+  function esc(t){ return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+
+  function ring(pct){
+    var r = 17, c = 2 * Math.PI * r;
+    return '<span class="ui-ring"><svg viewBox="0 0 42 42">' +
+      '<circle cx="21" cy="21" r="' + r + '" fill="none" stroke="rgba(214,222,238,.14)" stroke-width="3"/>' +
+      '<circle cx="21" cy="21" r="' + r + '" fill="none" stroke="#C9A368" stroke-width="3" stroke-linecap="round" ' +
+      'stroke-dasharray="' + c.toFixed(1) + '" stroke-dashoffset="' + (c * (1 - pct / 100)).toFixed(1) + '"/>' +
+      '</svg><b>' + pct + '%</b></span>';
+  }
+
+  function inbox(u){
+    return '<span class="ui-bar">' + S.mail + '<b>Inbox</b><span class="tag">' + esc(u.tag) + '</span></span>' +
+      '<span class="ui-in">' +
+        '<span class="ui-meta">From: OilTaxPro<br>To: ' + esc(u.to) + '</span>' +
+        '<span class="ui-subj">' + esc(u.subj) + '</span>' +
+        (u.thumb ? '<span class="ui-thumb"><img src="' + u.thumb + '" alt="" loading="lazy" decoding="async">' +
+          (u.playable ? '<span class="ui-play"><span>' + S.play + '</span></span>' : '') +
+          '<figcaption>' + esc(u.cap) + '</figcaption></span>' : '') +
+        (u.card ? '<span class="ui-card">' + S.cal + '<span><b>' + esc(u.card[0]) + '</b><span>' + esc(u.card[1]) + '</span></span></span>' : '') +
+        '<span class="ui-tx">' + esc(u.body) + '</span>' +
+        '<span class="ui-btn">' + esc(u.btn) + '</span>' +
+      '</span>';
+  }
+
+  function form(u){
+    return '<span class="ui-bar">' + S.cal + '<b>Reserve Your Seat</b></span>' +
+      '<span class="ui-in">' +
+        '<span class="ui-lbl">First name</span><span class="ui-fld">' + esc(u.name) + '</span>' +
+        '<span class="ui-lbl">Email address</span><span class="ui-fld">' + esc(u.email) + '</span>' +
+        '<span class="ui-lbl">Select a session</span><span class="ui-fld">' + esc(u.session) + '<span class="ui-lbl">&#9662;</span></span>' +
+        '<span class="ui-ck"><span class="ui-ckb">' + S.tick + '</span><span>I confirm I am an accredited investor, or expect to qualify.</span></span>' +
+        '<span class="ui-ck"><span class="ui-ckb">' + S.tick + '</span><span>I agree to receive session reminders.</span></span>' +
+        '<span class="ui-btn">Register now</span>' +
+      '</span>';
+  }
+
+  function invite(u){
+    return '<span class="ui-bar">' + S.cal + '<b>Calendar invite</b><span class="tag">' + esc(u.tag) + '</span></span>' +
+      '<span class="ui-in">' +
+        '<span class="ui-subj">' + esc(u.title) + '</span>' +
+        '<span class="ui-row">' + S.cal + esc(u.date) + '</span>' +
+        '<span class="ui-row">' + S.clock + esc(u.time) + '</span>' +
+        '<span class="ui-row">' + S.pin + esc(u.place) + '</span>' +
+        '<span class="ui-btn join">' + S.cam + ' &nbsp;Join webinar</span>' +
+        '<span class="ui-btn alt">Add to calendar</span>' +
+        '<span class="ui-prov"><span class="ui-pic">O</span>Outlook</span>' +
+        '<span class="ui-prov"><span class="ui-pic">G</span>Google Calendar</span>' +
+        '<span class="ui-prov"><span class="ui-pic">A</span>Apple Calendar</span>' +
+      '</span>';
+  }
+
+  function player(u){
+    return '<span class="ui-vid"><img src="' + u.poster + '" alt="" loading="lazy" decoding="async">' +
+        (u.live ? '<span class="ui-live">LIVE</span>' : '') + '</span>' +
+      '<span class="ui-ctrl">' + S.pause + '<span class="ui-track"><i style="width:' + u.pct + '%"></i></span>' +
+        '<span class="ui-time">' + esc(u.time) + '</span></span>' +
+      '<span class="ui-eng">' + ring(u.pct) +
+        '<span class="ui-engt"><b>' + esc(u.label) + '</b><span>' + esc(u.sub) + '</span></span></span>' +
+      u.checks.map(function(c){ return '<span class="ui-chk">' + S.gtick + esc(c) + '</span>'; }).join('');
+  }
+
+  function render_ui(u){
+    if (u.t === 'form')   return '<span class="ui">' + form(u) + '</span>';
+    if (u.t === 'email')  return '<span class="ui">' + inbox(u) + '</span>';
+    if (u.t === 'invite') return '<span class="ui">' + invite(u) + '</span>';
+    if (u.t === 'player') return '<span class="ui">' + player(u) + '</span>';
     return '';
   }
 
+  var ME = 'michael@example.com';
   var P = {
     att: [
-      {w:'Instant', t:'Registered', k:'crm', d:'Attestation and consent stored against the new record.',
-       m:{t:'rec', subj:'contact.created', rows:[['accredited','true'],['consent','true'],['session','22 Oct']]}},
-      {w:'T-24h', t:'Reminder', d:'Agenda sent, so the wrong people can still opt out.',
-       m:{t:'email', subj:'Tomorrow: what we will cover', open:'Hi {{first_name}},', n:3}},
-      {w:'T-1h', t:'Join link', d:'Final nudge, optional SMS.',
-       m:{t:'email', ic:'sms', subj:'Starting in an hour', open:'Your link is below.', n:1, btn:'Join session'}},
-      {w:'Live', t:'Watched 70%+', k:'crm', d:'Attendance and watch time written back.',
-       m:{t:'vid', live:1, pct:74, time:'44:12 / 60:00'}},
-      {w:'+1h', t:'Replay and framework', d:'Diligence questions sent, call offered once.',
-       m:{t:'email', subj:'The replay, and the eight questions', open:'Thanks for staying to the end.', n:2, btn:'Request a call'}},
-      {w:'+5d', t:'Final note', d:'One clearly final close, then it ends.',
-       m:{t:'email', subj:'Closing the loop', open:'Last note on this one.', n:2}}
+      {n:'01', w:'Instant', ttl:'Registered', d:'Attestation and consent stored against the new contact record.',
+       ui:{t:'form', name:'Michael', email:ME, session:'Thu, 22 Oct, 1:00 PM EDT'},
+       f:['ok','Registration complete','Contact record created in CRM']},
+      {n:'02', w:'T-24h', ttl:'Reminder', d:'Agenda sent, so the right people can still attend.',
+       ui:{t:'email', tag:'-24h', to:ME, subj:'Your session is tomorrow', thumb:'media/field-operations.webp',
+           cap:'Tomorrow: what we will cover', body:'Hi Michael, a quick reminder about tomorrow. Here is what you will learn.', btn:'View agenda'},
+       f:['sent','Reminder sent','24 hours before session']},
+      {n:'03', w:'T-1h', ttl:'Join link', d:'Final nudge with direct access to the session.',
+       ui:{t:'invite', tag:'-1h', title:'Oil &amp; Gas Tax Structures', date:'Thu, 22 October 2026',
+           time:'1:00 PM to 2:00 PM EDT', place:'Online webinar'},
+       f:['sent','Join link sent','1 hour before session']},
+      {n:'04', w:'Live', ttl:'Watched 70%+', d:'Attendance and watch time written back to the record.',
+       ui:{t:'player', live:1, poster:'media/session-poster.jpg', pct:73, time:'42:17 / 58:00',
+           label:'High engagement', sub:'Watched 73% of session duration',
+           checks:['Attendance recorded in CRM','Watch time: 42 minutes','Tagged as highly engaged','Moved to follow-up sequence']},
+       f:['ok','Attendance recorded','Branch set to attended']},
+      {n:'05', w:'+1h', ttl:'Replay and framework', d:'Diligence questions sent, suitability call offered once.',
+       ui:{t:'email', tag:'+1h', to:ME, subj:'Replay, plus the eight questions', thumb:'media/field-panorama.webp',
+           playable:1, cap:'Watch the full replay &middot; 1h 02m',
+           body:'Hi Michael, here is the replay along with the diligence questions we discussed.', btn:'Watch replay'},
+       f:['sent','Replay email sent','1 hour after session']},
+      {n:'06', w:'+5d', ttl:'Final note', d:'One clear final close, then the sequence ends.',
+       ui:{t:'email', tag:'+5d', to:ME, subj:'Closing the loop', card:['Schedule a suitability call','15 to 30 minutes'],
+           body:'If you would like to work out whether this applies to your situation, you can book a time.', btn:'Book a call'},
+       f:['ok','Final email sent','Sequence complete']}
     ],
     miss: [
-      {w:'Instant', t:'Registered', k:'crm', d:'Attestation and consent stored against the new record.',
-       m:{t:'rec', subj:'contact.created', rows:[['accredited','true'],['consent','true'],['session','22 Oct']]}},
-      {w:'T-24h', t:'Reminder', d:'Agenda sent, so the wrong people can still opt out.',
-       m:{t:'email', subj:'Tomorrow: what we will cover', open:'Hi {{first_name}},', n:3}},
-      {w:'Live', t:'No-show recorded', k:'crm', d:'Zero watch time switches the branch.',
-       m:{t:'rec', subj:'attendance.recorded', rows:[['watch_pct','0'],['status','no_show'],['branch','switched']]}},
-      {w:'+1h', t:'Replay anyway', d:'No guilt, plus a pointer to the risk section.',
-       m:{t:'email', subj:'Missed you. Here it is anyway', open:'No problem at all.', n:2, btn:'Watch replay'}},
-      {w:'+2d', t:'Next dates', d:'Offered the following sessions if live suits better.',
-       m:{t:'cal', subj:'Next two sessions', open:'Thu 22 Oct and Tue 27 Oct', btn:'Reserve a seat'}},
-      {w:'+6d', t:'Closes out', d:'Replay stays open, contact moves to quarterly.',
-       m:{t:'email', subj:'Closing the loop', open:'I will stop here.', n:2}}
+      {n:'01', w:'Instant', ttl:'Registered', d:'Attestation and consent stored against the new contact record.',
+       ui:{t:'form', name:'Michael', email:ME, session:'Thu, 22 Oct, 1:00 PM EDT'},
+       f:['ok','Registration complete','Contact record created in CRM']},
+      {n:'02', w:'T-24h', ttl:'Reminder', d:'Agenda sent, so the right people can still attend.',
+       ui:{t:'email', tag:'-24h', to:ME, subj:'Your session is tomorrow', thumb:'media/field-operations.webp',
+           cap:'Tomorrow: what we will cover', body:'Hi Michael, a quick reminder about tomorrow.', btn:'View agenda'},
+       f:['sent','Reminder sent','24 hours before session']},
+      {n:'03', w:'Live', ttl:'No-show recorded', d:'Zero watch time tags the contact and switches the branch.',
+       ui:{t:'player', live:0, poster:'media/session-poster.jpg', pct:0, time:'00:00 / 58:00',
+           label:'Did not attend', sub:'No watch time recorded for this contact',
+           checks:['Status set to no-show','Attended sequence suppressed','No-show branch activated']},
+       f:['ok','Branch switched','Follow-up adjusted automatically']},
+      {n:'04', w:'+1h', ttl:'Replay anyway', d:'No guilt, plus a pointer to the risk section.',
+       ui:{t:'email', tag:'+1h', to:ME, subj:'Missed you. Here it is anyway', thumb:'media/field-panorama.webp',
+           playable:1, cap:'Full replay &middot; 1h 02m',
+           body:'Hi Michael, no problem at all. If an hour is unrealistic, start at the risk section.', btn:'Watch replay'},
+       f:['sent','Replay email sent','1 hour after session']},
+      {n:'05', w:'+2d', ttl:'Next dates', d:'Offered the following sessions if live suits better.',
+       ui:{t:'invite', tag:'+2d', title:'Next available sessions', date:'Tue, 27 October 2026',
+           time:'7:00 PM to 8:00 PM EDT', place:'Online webinar'},
+       f:['sent','Re-offer sent','Re-enters sequence on registration']},
+      {n:'06', w:'+6d', ttl:'Closes out', d:'Replay stays open, contact moves to the quarterly list.',
+       ui:{t:'email', tag:'+6d', to:ME, subj:'Closing the loop', body:'I will stop here so I am not cluttering your inbox. The replay stays open.', btn:'Watch replay'},
+       f:['ok','Sequence complete','Moved to quarterly list']}
     ],
     book: [
-      {w:'On booking', t:'All sequences stop', k:'stop', d:'Every active nurture is cancelled at once.',
-       m:{t:'stop', items:['Attended sequence','Partial sequence','No-show sequence']}},
-      {w:'Instant', t:'Call confirmed', k:'crm', d:'Invitation sent, stage set in the CRM.',
-       m:{t:'ok', title:'Suitability call booked', sub:'Stage updated, owner assigned'}},
-      {w:'T-24h', t:'Reminder and exit', d:'Easy reschedule offered, which raises show rate.',
-       m:{t:'email', subj:'Tomorrow, and a way out', open:'Reschedule or cancel, no explanation needed.', n:1, btn:'Reschedule'}},
-      {w:'After', t:'Handed over', k:'crm', d:'Continues in the process you already run.',
-       m:{t:'rec', subj:'stage.updated', rows:[['stage','handed_over'],['automation','complete']]}}
+      {n:'01', w:'On booking', ttl:'All sequences stop', d:'Every active nurture is cancelled the moment a call is booked.',
+       ui:{t:'player', live:0, poster:'media/final-band.webp', pct:100, time:'Suppression applied',
+           label:'Nurture cancelled', sub:'No further marketing email will send',
+           checks:['Attended sequence cancelled','Partial sequence cancelled','No-show sequence cancelled']},
+       f:['ok','Suppression applied','Highest priority rule in the system']},
+      {n:'02', w:'Instant', ttl:'Call confirmed', d:'Invitation sent, stage set to suitability booked.',
+       ui:{t:'invite', tag:'now', title:'Suitability call with Bennett', date:'Mon, 26 October 2026',
+           time:'11:00 AM to 11:30 AM EDT', place:'Phone or video'},
+       f:['ok','Call confirmed','Owner assigned in CRM']},
+      {n:'03', w:'T-24h', ttl:'Reminder and exit', d:'Easy reschedule offered, which raises show rate.',
+       ui:{t:'email', tag:'-24h', to:ME, subj:'Tomorrow, and a way out',
+           card:['Reschedule or cancel','No explanation needed'],
+           body:'Speaking tomorrow. If something has come up, move it or cancel it, no explanation needed.', btn:'Reschedule'},
+       f:['sent','Reminder sent','24 hours before call']},
+      {n:'04', w:'After', ttl:'Handed over', d:'Qualification and documentation continue in your existing process.',
+       ui:{t:'email', tag:'done', to:ME, subj:'Thanks for your time',
+           card:['Handed to your process','Automation layer ends here'],
+           body:'Everything past this point happens with a person, in the process you already run.', btn:'View record'},
+       f:['ok','Automation complete','Handed to existing CRM process']}
     ]
   };
 
+  function card(n){
+    var fic = n.f[0] === 'sent' ? S.send : S.gtick;
+    return '<div class="acol"><div class="anode">' +
+      '<span class="an-top"><span class="an-badge">' + n.n + '</span><span class="an-when">' + esc(n.w) + '</span></span>' +
+      '<span class="an-ttl">' + esc(n.ttl) + '</span>' +
+      '<span class="an-desc">' + esc(n.d) + '</span>' +
+      '<span class="an-ui">' + render_ui(n.ui) + '</span>' +
+      '<span class="an-foot"><span class="an-fic">' + fic + '</span>' +
+        '<span class="an-ft"><b>' + esc(n.f[1]) + '</b><span>' + esc(n.f[2]) + '</span></span></span>' +
+    '</div></div>';
+  }
+  var ARROW = '<div class="aarrow"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div>';
+
   function render(k){
-    chain.innerHTML = P[k].map(function(n, i){
-      return '<div class="anode ' + (n.k || '') + '">' +
-        '<span class="an-num">' + ('0' + (i+1)) + '</span>' +
-        '<span class="an-head"><span class="awhen">' + n.w + '</span><b>' + n.t + '</b></span>' +
-        '<span class="an-body">' + mock(n.m) + '<span class="an-desc">' + n.d + '</span></span>' +
-      '</div>';
-    }).join('');
+    chain.innerHTML = P[k].map(card).join(ARROW);
+    chain.parentNode.scrollLeft = 0;
   }
   tabs.forEach(function(t){
     t.addEventListener('click', function(){
