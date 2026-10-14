@@ -1245,6 +1245,18 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
 /* trim the dead band under shorter cards */
 .an-ui{flex:0 1 auto}
 .an-foot{margin-top:auto}
+
+/* the demo status has to be readable before anyone types into the form */
+.demo-flag{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;
+  border:1px solid rgba(201,138,106,.45);border-radius:4px;background:rgba(201,138,106,.09);
+  padding:11px 13px;margin-bottom:16px}
+.demo-flag svg{flex:0 0 auto;margin-top:1px}
+.demo-flag b{display:block;font-family:var(--f-mono);font-size:9px;letter-spacing:.14em;
+  text-transform:uppercase;color:#D9A08C;margin-bottom:4px}
+.demo-flag span{display:block;font-size:11.5px;color:var(--ivory-2);line-height:1.5}
+.sess-demo{font-family:var(--f-mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;
+  color:#D9A08C;border:1px solid rgba(201,138,106,.4);border-radius:2px;padding:3px 7px;
+  align-self:flex-start;margin-top:6px;display:inline-block}
 </style>
 </head>
 <body>
@@ -2017,7 +2029,7 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
             <span class="sess-meta">
               <span class="sess-pill">Live</span>
               <span class="sess-pill">Replay included</span>
-              <span class="sess-pill">Midday</span>
+              <span class="sess-pill">Midday</span><span class="sess-demo">Sample date</span>
             </span>
           </span>
         </div>
@@ -2030,7 +2042,7 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
             <span class="sess-meta">
               <span class="sess-pill">Live</span>
               <span class="sess-pill">Replay included</span>
-              <span class="sess-pill">Evening</span>
+              <span class="sess-pill">Evening</span><span class="sess-demo">Sample date</span>
             </span>
           </span>
         </div>
@@ -2040,6 +2052,10 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
 
     <div class="form-shell">
       <div id="panel-form">
+        <div class="demo-flag">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#D9A08C" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5M12 16.4h.01"/></svg>
+          <span><b>Concept demonstration</b><span>No session is scheduled and no seat is reserved. Submitting this form shows the confirmation state only. Nothing is sent, stored or transmitted.</span></span>
+        </div>
         <h3>Reserve your seat</h3>
         <p class="sub">You will receive a confirmation and calendar invitation by email.</p>
         <form id="reg" novalidate>
@@ -2071,7 +2087,7 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
             <span>I agree to receive session reminders and related educational email about this event.</span>
           </label>
           <span class="err" id="e-consent" hidden>Consent is required to send your session reminders.</span>
-          <button type="submit" class="btn-submit">Reserve my seat</button>
+          <button type="submit" class="btn-submit">Preview the confirmation</button>
         </form>
         <p class="fineprint">Educational content only. Not financial, tax, or investment advice.</p>
       </div>
@@ -2449,7 +2465,7 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
     <span class="kit-k">Concept demo for Bennett Walsh</span>
     <a href="brief/" class="lead"><b>Start here: project brief</b><span class="s">Why it is built this way</span></a>
     <a href="" aria-current="page"><b>Landing page</b><span class="s">Registration + funnel fit</span></a>
-    <a href="slides/"><b>Webinar deck</b><span class="s">21 slides, presenter notes</span></a>
+    <a href="slides/"><b>Webinar deck</b><span class="s">22 slides, presenter notes</span></a>
     <a href="automation/"><b>Automation sequence</b><span class="s">Follow-up by attendance</span></a>
     <p class="kit-foot">Sample data throughout. Nothing is sent or stored.</p>
   </div>
