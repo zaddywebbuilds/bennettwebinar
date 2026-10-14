@@ -127,7 +127,7 @@ p{margin:0}
 .foot{border-top:1px solid var(--hair);padding-block:22px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-family:var(--f-mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--steel)}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 
-/* demo kit: makes all three deliverables reachable from any page */
+
 .kit{position:fixed;left:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:90;
   font-family:var(--f-mono);max-width:calc(100vw - 28px)}
 .kit-btn{display:flex;align-items:center;gap:9px;font-family:var(--f-mono);font-size:9px;
@@ -138,17 +138,19 @@ p{margin:0}
 .kit-btn:focus-visible{outline:2px solid #E2C68C;outline-offset:2px}
 .kit-btn .car{transition:transform .2s;font-size:11px;line-height:1}
 .kit[data-open="true"] .kit-btn .car{transform:rotate(180deg)}
-.kit-panel{position:absolute;left:0;bottom:calc(100% + 8px);width:268px;max-width:calc(100vw - 28px);
+.kit-panel{position:absolute;left:0;bottom:calc(100% + 8px);width:272px;max-width:calc(100vw - 28px);
   background:rgba(13,25,39,.98);border:1px solid rgba(201,163,104,.24);border-radius:4px;
-  padding:13px;backdrop-filter:blur(14px);box-shadow:0 26px 54px -20px rgba(0,0,0,.95)}
+  padding:13px;backdrop-filter:blur(14px);box-shadow:0 26px 54px -20px rgba(0,0,0,.95);
+  max-height:70vh;overflow-y:auto}
 .kit-panel[hidden]{display:none}
 .kit-k{display:block;font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:#8694A6;margin-bottom:10px}
 .kit-panel a{display:block;text-decoration:none;border:1px solid rgba(214,222,238,.09);
   border-radius:3px;padding:9px 11px;margin-bottom:6px;transition:border-color .16s,background .16s}
 .kit-panel a:hover{border-color:rgba(201,163,104,.4);background:rgba(201,163,104,.07)}
 .kit-panel a[aria-current="page"]{border-color:rgba(201,163,104,.4);background:rgba(201,163,104,.1)}
+.kit-panel a.lead{border-color:rgba(201,163,104,.3)}
 .kit-panel b{display:block;font-family:var(--f-body);font-size:12.5px;font-weight:500;color:#F5F2EB;letter-spacing:0}
-.kit-panel span{display:block;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:#8694A6;margin-top:3px}
+.kit-panel span.s{display:block;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:#8694A6;margin-top:3px}
 .kit-foot{font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:#8694A6;
   border-top:1px solid rgba(214,222,238,.09);padding-top:9px;margin-top:4px;line-height:1.6}
 </style>
@@ -531,12 +533,13 @@ p{margin:0}
 <div class="kit" id="kit" data-open="false">
   <div class="kit-panel" id="kitPanel" hidden>
     <span class="kit-k">Concept demo for Bennett Walsh</span>
-    <a href="../"><b>Landing page</b><span>Registration + funnel fit</span></a>
-    <a href="../slides/"><b>Webinar deck</b><span>21 slides, presenter notes</span></a>
-    <a href="../automation/" aria-current="page"><b>Automation sequence</b><span>Follow-up by attendance</span></a>
+    <a href="../brief/" class="lead"><b>Start here: project brief</b><span class="s">Why it is built this way</span></a>
+    <a href="../"><b>Landing page</b><span class="s">Registration + funnel fit</span></a>
+    <a href="../slides/"><b>Webinar deck</b><span class="s">21 slides, presenter notes</span></a>
+    <a href="../automation/" aria-current="page"><b>Automation sequence</b><span class="s">Follow-up by attendance</span></a>
     <p class="kit-foot">Sample data throughout. Nothing is sent or stored.</p>
   </div>
-  <button class="kit-btn" id="kitBtn" type="button" aria-expanded="false" aria-controls="kitPanel"><span>Concept demo &middot; 3 parts</span><span class="car" aria-hidden="true">&#9652;</span></button>
+  <button class="kit-btn" id="kitBtn" type="button" aria-expanded="false" aria-controls="kitPanel"><span>Concept demo &middot; 4 parts</span><span class="car" aria-hidden="true">&#9652;</span></button>
 </div>
 <script>(function(){var k=document.getElementById("kit"),b=document.getElementById("kitBtn"),p=document.getElementById("kitPanel");function set(o){k.dataset.open=o?"true":"false";b.setAttribute("aria-expanded",o?"true":"false");p.hidden=!o;}b.addEventListener("click",function(e){e.stopPropagation();set(p.hidden);});document.addEventListener("click",function(){set(false);});p.addEventListener("click",function(e){e.stopPropagation();});document.addEventListener("keydown",function(e){if(e.key==="Escape")set(false);});})();</script>
 </body>

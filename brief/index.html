@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Project Brief: OilTaxPro Webinar System</title>
+<meta name="description" content="The reasoning behind the OilTaxPro webinar demo, what the build includes, and what going live would involve.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0E1B2B">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%230E1B2B'/%3E%3Cpath d='M16 5 L22 27 M16 5 L10 27 M12 20 H20' stroke='%23C9A368' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --graphite:#0E1B2B; --graphite-2:#0B1624; --navy:#15283E; --navy-2:#132436; --panel:#17293F;
+  --ivory:#F5F2EB; --ivory-2:#C4CCD8; --steel:#8694A6; --steel-d:#566475;
+  --gold:#C9A368; --gold-lt:#E2C68C;
+  --line:rgba(201,163,104,.24); --hair:rgba(214,222,238,.09); --flag:#8FA67E;
+  --f-disp:'Instrument Serif',Georgia,serif;
+  --f-body:'IBM Plex Sans',system-ui,sans-serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{max-width:100%;overflow-x:clip}
+body{margin:0;background:var(--graphite);color:var(--ivory);font-family:var(--f-body);
+  font-size:16px;font-weight:300;line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3{margin:0;font-weight:400;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+.wrap{max-width:1020px;margin:0 auto;padding-inline:30px}
+@media(max-width:700px){.wrap{padding-inline:18px}}
+.eyebrow{font-family:var(--f-mono);font-size:10.5px;font-weight:500;letter-spacing:.19em;
+  text-transform:uppercase;color:var(--gold);margin:0}
+
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(14,27,43,.9);
+  backdrop-filter:blur(14px);border-bottom:1px solid var(--hair)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:15px}
+.brand{font-family:var(--f-disp);font-size:23px;text-decoration:none}
+.brand i{font-style:italic;color:var(--gold)}
+.back{font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--steel);text-decoration:none;border:1px solid var(--hair);border-radius:2px;padding:8px 13px;white-space:nowrap}
+.back:hover{color:var(--gold-lt);border-color:var(--line)}
+
+.head{padding-block:56px 34px}
+.head h1{font-family:var(--f-disp);font-size:clamp(33px,5vw,54px);line-height:1.05;
+  letter-spacing:-.012em;margin:13px 0 18px}
+.head h1 i{font-style:italic;color:var(--gold-lt)}
+.head p{color:var(--ivory-2);max-width:62ch;font-size:16.5px}
+.head p + p{margin-top:12px}
+
+section{padding-block:46px;border-top:1px solid var(--hair)}
+@media(max-width:700px){section{padding-block:34px}}
+h2.sec{font-family:var(--f-disp);font-size:clamp(25px,3.4vw,36px);line-height:1.1;margin:12px 0 8px}
+.sec-lede{color:var(--ivory-2);font-size:15.5px;max-width:64ch;margin-bottom:28px}
+
+.dec{display:grid;border-top:1px solid var(--hair)}
+.row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.12fr);gap:34px;
+  padding-block:22px;border-bottom:1px solid var(--hair);align-items:start}
+@media(max-width:820px){.row{grid-template-columns:1fr;gap:14px}}
+.quote{border-left:2px solid var(--gold);padding:3px 0 3px 15px}
+.quote p{font-family:var(--f-disp);font-size:17px;line-height:1.4;color:var(--ivory)}
+.quote span{display:block;font-family:var(--f-mono);font-size:8.5px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--steel);margin-top:9px}
+.dec-b h3{font-family:var(--f-body);font-size:15px;font-weight:500;color:var(--gold-lt);margin-bottom:7px}
+.dec-b p{font-size:14.5px;color:var(--ivory-2);line-height:1.62}
+
+.parts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:1px;
+  background:var(--hair);border:1px solid var(--hair);border-radius:4px;overflow:hidden}
+.part{background:var(--navy-2);padding:22px 20px;text-decoration:none;display:flex;
+  flex-direction:column;gap:8px;min-width:0;transition:background .16s}
+.part:hover{background:var(--panel)}
+.part-k{font-family:var(--f-mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.part b{font-family:var(--f-disp);font-size:21px;font-weight:400;line-height:1.2}
+.part p{font-size:13.5px;color:var(--steel);line-height:1.55}
+.part em{font-style:normal;font-family:var(--f-mono);font-size:9px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--gold-lt);margin-top:auto;padding-top:9px}
+
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+@media(max-width:820px){.cols{grid-template-columns:1fr;gap:28px}}
+.lst{display:grid;gap:12px;margin-top:16px}
+.lst div{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
+.lst i{font-style:normal;font-family:var(--f-mono);font-size:9px;color:var(--gold);padding-top:4px}
+.lst span{font-size:14.5px;color:var(--ivory-2);line-height:1.6}
+.lst b{color:var(--ivory);font-weight:500}
+.col-k{font-family:var(--f-mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold)}
+
+.close{padding-block:52px 60px;border-top:1px solid var(--line);background:var(--graphite-2)}
+.close h2{font-family:var(--f-disp);font-size:clamp(26px,3.6vw,38px);line-height:1.1;max-width:22ch;margin-bottom:14px}
+.close p{color:var(--ivory-2);max-width:56ch}
+.close p + p{margin-top:11px}
+.sign{font-family:var(--f-mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--steel);margin-top:26px;border-top:1px solid var(--hair);padding-top:16px}
+.disc{font-size:12px;color:var(--steel);line-height:1.7;max-width:92ch;
+  border-top:1px solid var(--hair);padding-block:24px;margin-top:22px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+.kit{position:fixed;left:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:90;
+  font-family:var(--f-mono);max-width:calc(100vw - 28px)}
+.kit-btn{display:flex;align-items:center;gap:9px;font-family:var(--f-mono);font-size:9px;
+  letter-spacing:.13em;text-transform:uppercase;background:rgba(16,30,47,.95);
+  border:1px solid rgba(201,163,104,.24);color:#E2C68C;padding:8px 12px;border-radius:3px;
+  backdrop-filter:blur(10px);cursor:pointer;transition:border-color .16s}
+.kit-btn:hover{border-color:rgba(201,163,104,.5)}
+.kit-btn:focus-visible{outline:2px solid #E2C68C;outline-offset:2px}
+.kit-btn .car{transition:transform .2s;font-size:11px;line-height:1}
+.kit[data-open="true"] .kit-btn .car{transform:rotate(180deg)}
+.kit-panel{position:absolute;left:0;bottom:calc(100% + 8px);width:272px;max-width:calc(100vw - 28px);
+  background:rgba(13,25,39,.98);border:1px solid rgba(201,163,104,.24);border-radius:4px;
+  padding:13px;backdrop-filter:blur(14px);box-shadow:0 26px 54px -20px rgba(0,0,0,.95);
+  max-height:70vh;overflow-y:auto}
+.kit-panel[hidden]{display:none}
+.kit-k{display:block;font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:#8694A6;margin-bottom:10px}
+.kit-panel a{display:block;text-decoration:none;border:1px solid rgba(214,222,238,.09);
+  border-radius:3px;padding:9px 11px;margin-bottom:6px;transition:border-color .16s,background .16s}
+.kit-panel a:hover{border-color:rgba(201,163,104,.4);background:rgba(201,163,104,.07)}
+.kit-panel a[aria-current="page"]{border-color:rgba(201,163,104,.4);background:rgba(201,163,104,.1)}
+.kit-panel a.lead{border-color:rgba(201,163,104,.3)}
+.kit-panel b{display:block;font-family:var(--f-body);font-size:12.5px;font-weight:500;color:#F5F2EB;letter-spacing:0}
+.kit-panel span.s{display:block;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:#8694A6;margin-top:3px}
+.kit-foot{font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:#8694A6;
+  border-top:1px solid rgba(214,222,238,.09);padding-top:9px;margin-top:4px;line-height:1.6}
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="wrap nav-in">
+  <a class="brand" href="../">Oil<i>Tax</i>Pro</a>
+  <a class="back" href="../">&larr; Back to the demo</a>
+</div></nav>
+
+<main>
+<header class="head"><div class="wrap">
+  <p class="eyebrow">Project brief</p>
+  <h1>Why it is built <i>this way</i>.</h1>
+  <p>Before designing anything I read through oiltaxpro.com properly, including the suitability page. Almost every decision in this demo traces back to something already stated there.</p>
+  <p>This page lists those decisions, what the build covers, and what going live would actually involve.</p>
+</div></header>
+
+<section><div class="wrap">
+  <p class="eyebrow">Decisions</p>
+  <h2 class="sec">Six choices, and what drove each one.</h2>
+  <p class="sec-lede">Left column is your own copy. Right column is what the demo does about it.</p>
+
+  <div class="dec">
+    <div class="row">
+      <div class="quote">
+        <p>&ldquo;A flashy pitch in your inbox, complete with a 24-hour countdown. There&rsquo;s always a webinar, too, promising all the secrets of the rich.&rdquo;</p>
+        <span>oiltaxpro.com</span>
+      </div>
+      <div class="dec-b">
+        <h3>No countdown, no seat counter, no manufactured scarcity</h3>
+        <p>There is no timer anywhere in the build and no invented number of remaining places. The only deadline referenced is the year-end calendar, which is real, and it is explained as a mechanism instead of used as pressure.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="quote">
+        <p>&ldquo;This Is Not a Fit If: You are seeking guarantees, projections, or specific outcomes.&rdquo;</p>
+        <span>oiltaxpro.com</span>
+      </div>
+      <div class="dec-b">
+        <h3>No dollar figures and no projections</h3>
+        <p>No headline promises a saving. The page sells the explanation, not an outcome. Every reference to tax treatment is written as conditional on structure, timing and the individual, which is both accurate and consistent with how you already talk.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="quote">
+        <p>&ldquo;Not Everyone Qualifies, And That&rsquo;s By Design.&rdquo;</p>
+        <span>oiltaxpro.com</span>
+      </div>
+      <div class="dec-b">
+        <h3>Qualification sits inside the registration</h3>
+        <p>Registration captures an accreditation attestation and a separate consent before anything else. Your fit and not-a-fit criteria appear on the page close to verbatim, so people rule themselves out before taking a seat instead of on your call.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="quote">
+        <p>&ldquo;Nobody really tells you where those numbers come from... No one talks about what happens if the timing falls apart.&rdquo;</p>
+        <span>oiltaxpro.com</span>
+      </div>
+      <div class="dec-b">
+        <h3>Risk is a module, not fine print</h3>
+        <p>Section four of the webinar is the risks, stated directly, and the page says that section is the reason the session exists. Dry holes, price exposure, illiquidity, operator quality and capital calls are all named instead of softened.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="quote">
+        <p>&ldquo;Designed to sit next to your CPA, not replace them.&rdquo;</p>
+        <span>oiltaxpro.com</span>
+      </div>
+      <div class="dec-b">
+        <h3>The CPA is an ally in the copy, never a competitor</h3>
+        <p>The tax section and the deck both frame the session as giving attendees better questions to bring their own adviser. That lowers the defensiveness of anyone who already has one, which is most of your audience.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="quote">
+        <p>Current funnel: ads, contact form, VSL, then a suitability call.</p>
+        <span>From your note</span>
+      </div>
+      <div class="dec-b">
+        <h3>The webinar is additive and replaces nothing</h3>
+        <p>Your campaigns and your booking process stay as they are. The webinar sits between initial interest and the suitability call, so people arrive at that call already understanding the structures and the risks. The funnel diagram on the landing page marks which steps are existing and which are new.</p>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <p class="eyebrow">What is built</p>
+  <h2 class="sec">Three working pieces, not a mockup.</h2>
+  <p class="sec-lede">Everything below is live and clickable. Registration validates and confirms, the deck runs with presenter notes, and the automation flow switches by attendance path.</p>
+  <div class="parts">
+    <a class="part" href="../">
+      <span class="part-k">Part one</span>
+      <b>Landing page</b>
+      <p>Registration with accreditation attestation and consent, session selection, confirmation state, the educational sections and the funnel fit diagram.</p>
+      <em>Open &rarr;</em>
+    </a>
+    <a class="part" href="../slides/">
+      <span class="part-k">Part two</span>
+      <b>Webinar deck</b>
+      <p>Twenty-one slides covering structures, where deductions come from, timing, risk and a diligence framework. Presenter notes on every slide, press N.</p>
+      <em>Open &rarr;</em>
+    </a>
+    <a class="part" href="../automation/">
+      <span class="part-k">Part three</span>
+      <b>Automation sequence</b>
+      <p>Draft messages for before and after the session, branching on whether someone attended, left early, missed it or booked. Includes the suppression rules.</p>
+      <em>Open &rarr;</em>
+    </a>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <p class="eyebrow">Going live</p>
+  <h2 class="sec">What it would take from here.</h2>
+  <div class="cols">
+    <div>
+      <p class="col-k">What I would do</p>
+      <div class="lst">
+        <div><i>01</i><span><b>Connect registration</b> to your webinar platform and push registrants into the CRM you already use, with the attestation and consent stored against each record.</span></div>
+        <div><i>02</i><span><b>Build the sequence</b> in your existing email tool, wired to attendance data so the branches fire correctly, with booking suppression as the first rule.</span></div>
+        <div><i>03</i><span><b>Swap the placeholders</b> for your own footage and photography, and set the real session schedule.</span></div>
+        <div><i>04</i><span><b>Move it to your domain</b>, enable indexing, and hand over the files so nothing is locked to me.</span></div>
+      </div>
+    </div>
+    <div>
+      <p class="col-k">What I would need from you</p>
+      <div class="lst">
+        <div><i>01</i><span><b>Tool access or names.</b> Which webinar platform, CRM and email tool you run, so the integration is scoped against what exists instead of guessed.</span></div>
+        <div><i>02</i><span><b>A headshot and session footage.</b> The portrait in the demo is a low-resolution reference, and the hero footage is a placeholder visualization, not a recording.</span></div>
+        <div><i>03</i><span><b>Format and dates.</b> Whether you want live, evergreen, or both. The build supports either.</span></div>
+        <div><i>04</i><span><b>Your approval on copy.</b> I have written everything conservatively, with no projections or guarantees, but the disclosures and claims should be reviewed on your side before anything runs.</span></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+</main>
+
+<div class="close"><div class="wrap">
+  <p class="eyebrow">Next step</p>
+  <h2>Tell me which parts you want, and I will scope those.</h2>
+  <p>You mentioned you would not need everything. That is fine. The three pieces work independently, and the landing page on its own is a usable project.</p>
+  <p>If it is easier to talk it through, a short call works. If you would rather keep it in writing, reply with the parts that interest you and what you already have running, and I will come back with scope and a number.</p>
+  <p class="sign">Prepared for Bennett Walsh &middot; OilTaxPro</p>
+
+  <p class="disc">This brief and the linked demo are a concept proposal. They are illustrative and do not constitute financial, tax, legal or investment advice, nor an offer of any security or interest. No tax outcome, deduction or return is promised or implied. Figures quoted are taken from material published on oiltaxpro.com. Oilfield imagery is illustrative and does not depict OilTaxPro assets. The hero footage is a synthetic preview visualization used for layout only and is not a recording of any session. All registration functionality uses sample data, and nothing is stored, sent or transmitted.</p>
+</div></div>
+
+<div class="kit" id="kit" data-open="false">
+  <div class="kit-panel" id="kitPanel" hidden>
+    <span class="kit-k">Concept demo for Bennett Walsh</span>
+    <a href="../brief/" aria-current="page"><b>Start here: project brief</b><span class="s">Why it is built this way</span></a>
+    <a href="../"><b>Landing page</b><span class="s">Registration + funnel fit</span></a>
+    <a href="../slides/"><b>Webinar deck</b><span class="s">21 slides, presenter notes</span></a>
+    <a href="../automation/"><b>Automation sequence</b><span class="s">Follow-up by attendance</span></a>
+    <p class="kit-foot">Sample data throughout. Nothing is sent or stored.</p>
+  </div>
+  <button class="kit-btn" id="kitBtn" type="button" aria-expanded="false" aria-controls="kitPanel"><span>Concept demo &middot; 4 parts</span><span class="car" aria-hidden="true">&#9652;</span></button>
+</div>
+<script>(function(){var k=document.getElementById("kit"),b=document.getElementById("kitBtn"),p=document.getElementById("kitPanel");function set(o){k.dataset.open=o?"true":"false";b.setAttribute("aria-expanded",o?"true":"false");p.hidden=!o;}b.addEventListener("click",function(e){e.stopPropagation();set(p.hidden);});document.addEventListener("click",function(){set(false);});p.addEventListener("click",function(e){e.stopPropagation();});document.addEventListener("keydown",function(e){if(e.key==="Escape")set(false);});})();</script>
+</body>
+</html>
