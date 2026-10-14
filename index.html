@@ -774,6 +774,42 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
 .uiq-chip{display:inline-flex;align-items:center;gap:4px;font-family:var(--f-mono);font-size:7.5px;
   letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line);border-radius:2px;
   padding:3px 6px;color:var(--gold-lt)}
+
+/* session cards carry a real date block and what the seat includes */
+.sess{align-items:stretch;gap:14px;padding:14px 15px}
+.sess-cal{width:54px;flex:0 0 auto;border:1px solid var(--hair);border-radius:3px;overflow:hidden;
+  background:var(--graphite);text-align:center}
+.sess.sel .sess-cal{border-color:var(--line)}
+.sess-cal .m{display:block;font-family:var(--f-mono);font-size:8px;letter-spacing:.14em;
+  text-transform:uppercase;color:#0D1726;background:var(--gold);padding:3px 0}
+.sess.sel .sess-cal .m{background:var(--gold-lt)}
+.sess-cal .d{display:block;font-family:var(--f-disp);font-size:22px;line-height:1;color:var(--ivory);padding:6px 0 2px}
+.sess-cal .w{display:block;font-family:var(--f-mono);font-size:7px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--steel);padding-bottom:5px}
+.sess-meta{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
+.sess-pill{font-family:var(--f-mono);font-size:7.5px;letter-spacing:.09em;text-transform:uppercase;
+  border:1px solid var(--hair);border-radius:2px;padding:3px 6px;color:var(--steel)}
+.sess.sel .sess-pill{border-color:var(--line);color:var(--gold-lt)}
+.sess-top{display:flex;align-items:center;gap:9px}
+
+/* diligence: each question shows the record it would be answered from */
+.dil{display:grid;gap:10px;margin-top:18px;border-top:1px solid var(--hair);padding-top:18px}
+.dil-row{border:1px solid var(--hair);border-radius:4px;background:var(--navy-2);overflow:hidden;
+  transition:border-color .16s}
+.dil-row:hover{border-color:var(--line)}
+.dil-head{display:grid;grid-template-columns:auto 1fr;gap:11px;padding:12px 13px 10px;align-items:start}
+.dil-k{font-family:var(--f-mono);font-size:9px;color:var(--gold);padding-top:3px}
+.dil-head b{display:block;font-size:13.5px;font-weight:500;color:var(--ivory);line-height:1.3}
+.dil-head span{display:block;font-size:13px;color:var(--ivory-2);line-height:1.55;margin-top:3px}
+.dil-mini{border-top:1px solid var(--hair);background:var(--graphite);padding:9px 13px;
+  display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.dil-tag{font-family:var(--f-mono);font-size:7.5px;letter-spacing:.09em;text-transform:uppercase;
+  border:1px solid var(--hair);border-radius:2px;padding:3px 7px;color:var(--steel)}
+.dil-tag.g{border-color:var(--line);color:var(--gold-lt)}
+.dil-tag.r{border-color:rgba(201,138,106,.4);color:#D9A08C}
+.dil-bar{flex:1 1 90px;min-width:70px;height:3px;border-radius:2px;background:rgba(214,222,238,.12);overflow:hidden}
+.dil-bar i{display:block;height:100%;background:var(--gold);border-radius:2px}
+.dil-lbl{font-family:var(--f-mono);font-size:7.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--steel-d)}
 </style>
 </head>
 <body>
@@ -1298,11 +1334,55 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
       <h2>The operator is the <i>largest variable</i>.</h2>
       <p class="body">Who drills the well matters more than almost anything else in the outcome. A capable operator on an ordinary prospect generally beats a weak operator on a strong one, so diligence starts with people and track record, not projections.</p>
       <p class="body">The session covers what to ask, what good answers sound like, and which answers should end the conversation.</p>
-      <div class="mini">
-        <div><i>01</i><span><b>Track record.</b> What has this operator drilled, where, and what actually happened to those wells?</span></div>
-        <div><i>02</i><span><b>Alignment.</b> Does the sponsor invest their own capital on the same terms as yours?</span></div>
-        <div><i>03</i><span><b>Obligations.</b> What is owed beyond the initial contribution, and under what circumstances?</span></div>
-        <div><i>04</i><span><b>Downside.</b> What happens to your capital if the well underperforms? Total loss is a real outcome.</span></div>
+      <div class="dil">
+        <div class="dil-row">
+          <div class="dil-head"><span class="dil-k">01</span><span>
+            <b>Track record</b>
+            <span>What has this operator drilled, where, and what actually happened to those wells?</span>
+          </span></div>
+          <div class="dil-mini">
+            <span class="dil-lbl">Ask for</span>
+            <span class="dil-tag g">Well list by county</span>
+            <span class="dil-tag g">Spud to first production</span>
+            <span class="dil-tag">Wells that disappointed</span>
+          </div>
+        </div>
+        <div class="dil-row">
+          <div class="dil-head"><span class="dil-k">02</span><span>
+            <b>Alignment</b>
+            <span>Does the sponsor invest their own capital on the same terms as yours?</span>
+          </span></div>
+          <div class="dil-mini">
+            <span class="dil-lbl">Same terms</span>
+            <span class="dil-bar"><i style="width:100%"></i></span>
+            <span class="dil-tag g">Sponsor capital in</span>
+            <span class="dil-tag">Fee stack disclosed</span>
+          </div>
+        </div>
+        <div class="dil-row">
+          <div class="dil-head"><span class="dil-k">03</span><span>
+            <b>Obligations</b>
+            <span>What is owed beyond the initial contribution, and under what circumstances?</span>
+          </span></div>
+          <div class="dil-mini">
+            <span class="dil-lbl">Beyond day one</span>
+            <span class="dil-tag">Capital calls</span>
+            <span class="dil-tag">Cost overruns</span>
+            <span class="dil-tag">Plugging liability</span>
+          </div>
+        </div>
+        <div class="dil-row">
+          <div class="dil-head"><span class="dil-k">04</span><span>
+            <b>Downside</b>
+            <span>What happens to your capital if the well underperforms? Total loss is a real outcome.</span>
+          </span></div>
+          <div class="dil-mini">
+            <span class="dil-lbl">Range of outcomes</span>
+            <span class="dil-tag">Produces</span>
+            <span class="dil-tag">Underperforms</span>
+            <span class="dil-tag r">Total loss</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1348,13 +1428,29 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
       <div class="sess-list" id="sessList">
         <div class="sess sel" data-v="Thursday, October 22, 2026 at 1:00 PM EDT" tabindex="0" role="radio" aria-checked="true">
           <span class="sess-r"></span>
-          <span class="sess-d"><b>Thursday, 22 October</b><span>1:00 PM EDT &middot; 60 min + Q&amp;A</span></span>
-          <span class="sess-tag">Midday</span>
+          <span class="sess-cal"><span class="m">Oct</span><span class="d">22</span><span class="w">Thu</span></span>
+          <span class="sess-d">
+            <span class="sess-top"><b>1:00 PM EDT</b></span>
+            <span>60 minutes, then open Q&amp;A</span>
+            <span class="sess-meta">
+              <span class="sess-pill">Live</span>
+              <span class="sess-pill">Replay included</span>
+              <span class="sess-pill">Midday</span>
+            </span>
+          </span>
         </div>
         <div class="sess" data-v="Tuesday, October 27, 2026 at 7:00 PM EDT" tabindex="0" role="radio" aria-checked="false">
           <span class="sess-r"></span>
-          <span class="sess-d"><b>Tuesday, 27 October</b><span>7:00 PM EDT &middot; 60 min + Q&amp;A</span></span>
-          <span class="sess-tag">Evening</span>
+          <span class="sess-cal"><span class="m">Oct</span><span class="d">27</span><span class="w">Tue</span></span>
+          <span class="sess-d">
+            <span class="sess-top"><b>7:00 PM EDT</b></span>
+            <span>60 minutes, then open Q&amp;A</span>
+            <span class="sess-meta">
+              <span class="sess-pill">Live</span>
+              <span class="sess-pill">Replay included</span>
+              <span class="sess-pill">Evening</span>
+            </span>
+          </span>
         </div>
       </div>
       <p class="fineprint" style="text-align:left;margin-top:18px">Sample session data for demonstration. The build supports a live schedule, an evergreen on-demand schedule, or both running together. The format shown here is a proposal, not a decision.</p>
