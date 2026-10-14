@@ -242,9 +242,12 @@ h2.sec{font-family:var(--f-disp);font-size:clamp(30px,4vw,46px);line-height:1.08
 
 .host{display:grid;grid-template-columns:184px minmax(0,1.5fr) minmax(0,.85fr);gap:36px;align-items:start}
 @media(max-width:1060px){.host{grid-template-columns:168px minmax(0,1fr)}
-  .host .figs{grid-column:1 / -1;flex-direction:row;border-left:0;border-top:1px solid var(--hair);padding-left:0;margin-top:4px}}
+  .host .figs{grid-column:1 / -1;flex-direction:row;flex-wrap:wrap;border-left:0;
+    border-top:1px solid var(--hair);padding-left:0;margin-top:4px;padding-top:16px}
+  .host .fig{flex:1 1 130px;min-width:0;padding:0 16px 14px 0}
+  .host .fig-src{flex:1 1 100%;min-width:0;border-top:0;padding-top:2px}}
 @media(max-width:620px){.host{grid-template-columns:1fr;gap:20px}
-  .host .figs{flex-wrap:wrap}}
+  .host .fig{flex:1 1 100px}}
 @media(max-width:780px){.host{grid-template-columns:1fr;gap:28px}}
 .portrait{aspect-ratio:4/5;max-width:100%;border:1px solid var(--line);border-radius:3px;background:linear-gradient(150deg,rgba(201,163,104,.1),transparent 58%),linear-gradient(180deg,var(--panel),var(--graphite));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:20px;text-align:center}
 .portrait .mono{font-family:var(--f-disp);font-size:42px;color:var(--gold);line-height:1}
@@ -675,7 +678,7 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
 
 .fig-src{flex:0 0 auto;font-family:var(--f-body);font-size:10.5px;letter-spacing:0;
   text-transform:none;color:var(--steel);padding-top:12px;line-height:1.55;border-top:1px solid var(--hair)}
-.fig-src a{color:var(--steel);text-decoration:none;border-bottom:1px solid var(--hair)}
+.fig-src a{color:var(--steel);text-decoration:none;border-bottom:1px solid var(--hair);word-break:break-word}
 .fig-src a:hover{color:var(--gold-lt)}
 .fmt-note{display:inline-flex;align-items:center;gap:8px;margin-top:14px;
   font-family:var(--f-mono);font-size:9px;letter-spacing:.11em;text-transform:uppercase;
