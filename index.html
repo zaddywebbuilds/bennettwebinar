@@ -569,6 +569,86 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
 .auto-link{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
   color:var(--gold-lt);text-decoration:none;border:1px solid var(--line);border-radius:2px;padding:8px 13px;white-space:nowrap}
 .auto-link:hover{background:rgba(201,163,104,.1)}
+
+/* tax mechanism diagram: three cost categories, then the conditions that gate them */
+.taxd{margin-top:28px}
+.tx-cap{border:1px solid var(--line);border-radius:4px;background:rgba(201,163,104,.07);
+  padding:14px 18px;text-align:center}
+.tx-cap b{display:block;font-family:var(--f-disp);font-size:19px;font-weight:400;color:var(--ivory);line-height:1.25}
+.tx-cap span{display:block;font-family:var(--f-mono);font-size:8.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.tx-rail{height:26px;position:relative}
+.tx-rail::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--line)}
+.tx-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:12px;position:relative}
+.tx-cards::before{content:'';position:absolute;left:12%;right:12%;top:-13px;height:1px;background:var(--line)}
+@media(max-width:700px){.tx-cards::before{display:none}.tx-rail{height:16px}}
+.txc{border:1px solid var(--hair);border-radius:4px;background:var(--navy-2);padding:0;
+  text-align:left;cursor:pointer;font:inherit;color:inherit;position:relative;
+  transition:border-color .16s,background .16s;display:flex;flex-direction:column}
+.txc::before{content:'';position:absolute;left:50%;top:-13px;width:1px;height:13px;background:var(--line)}
+@media(max-width:700px){.txc::before{display:none}}
+.txc:hover{border-color:var(--line)}
+.txc[aria-expanded="true"]{border-color:var(--gold);background:rgba(201,163,104,.07)}
+.txc:focus-visible{outline:2px solid var(--gold-lt);outline-offset:2px}
+.txc-top{padding:15px 16px 13px;display:flex;flex-direction:column;gap:7px}
+.txc-k{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.txc-n{font-family:var(--f-disp);font-size:20px;line-height:1.18;color:var(--ivory)}
+.txc-d{font-size:12.5px;color:var(--steel);line-height:1.55}
+.txc-more{border-top:1px solid var(--hair);padding:12px 16px;font-size:12.5px;color:var(--ivory-2);line-height:1.6}
+.txc-more[hidden]{display:none}
+.txc-hint{font-family:var(--f-mono);font-size:8px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--steel-d);padding:0 16px 12px;margin-top:auto}
+.txc[aria-expanded="true"] .txc-hint{display:none}
+
+.tx-gate{border:1px solid var(--line);border-radius:4px;background:var(--panel);padding:15px 18px}
+.tx-gate > span{display:block;font-family:var(--f-mono);font-size:8.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:11px}
+.tx-chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:8px}
+.tx-chip{border:1px solid var(--hair);border-radius:3px;padding:9px 11px;background:var(--graphite)}
+.tx-chip b{display:block;font-size:12.5px;font-weight:500;color:var(--ivory);line-height:1.3}
+.tx-chip i{font-style:normal;display:block;font-size:11.5px;color:var(--steel);line-height:1.45;margin-top:3px}
+.tx-out{text-align:center;font-size:13px;color:var(--steel);line-height:1.6;padding-top:4px}
+.tx-out b{color:var(--gold-lt);font-weight:500}
+
+/* investment structure: where capital goes, and what attaches at each stage */
+.stx{margin-top:34px;border-top:1px solid var(--hair);padding-top:26px}
+.stx-h{display:flex;flex-wrap:wrap;gap:12px;align-items:baseline;justify-content:space-between;margin-bottom:18px}
+.stx-h p{font-family:var(--f-mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.stx-h span{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--steel-d)}
+.stx-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;position:relative}
+@media(max-width:860px){.stx-flow{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.stx-flow{grid-template-columns:1fr}}
+.stn{border:1px solid var(--hair);border-radius:4px;background:var(--navy-2);text-align:left;
+  cursor:pointer;font:inherit;color:inherit;padding:0;display:flex;flex-direction:column;
+  position:relative;transition:border-color .16s,background .16s;min-width:0}
+.stn:hover{border-color:var(--line)}
+.stn[aria-expanded="true"]{border-color:var(--gold);background:rgba(201,163,104,.08)}
+.stn:focus-visible{outline:2px solid var(--gold-lt);outline-offset:2px}
+.stn-in{padding:14px 15px;display:flex;flex-direction:column;gap:6px}
+.stn-k{font-family:var(--f-mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.stn-t{font-family:var(--f-disp);font-size:18px;line-height:1.2;color:var(--ivory)}
+.stn-s{font-size:12px;color:var(--steel);line-height:1.5}
+.stn-more{border-top:1px solid var(--hair);padding:11px 15px;font-size:12px;color:var(--ivory-2);line-height:1.58}
+.stn-more[hidden]{display:none}
+/* connector arrows between nodes on wide screens */
+.stn:not(:last-child)::after{content:'';position:absolute;right:-10px;top:30px;width:10px;height:1px;
+  background:var(--line);z-index:1}
+.stn:not(:last-child)::before{content:'';position:absolute;right:-10px;top:27px;
+  border:3px solid transparent;border-left-color:var(--gold);z-index:1}
+@media(max-width:860px){.stn::after,.stn::before{display:none}}
+
+.stx-layers{display:grid;gap:8px;margin-top:12px}
+.stl{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(max-width:860px){.stl{grid-template-columns:1fr}}
+.stl-bar{border:1px solid var(--hair);border-radius:3px;padding:10px 13px;min-width:0;
+  display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+.stl-bar.tax{grid-column:1 / 4;background:rgba(201,163,104,.07);border-color:var(--line)}
+.stl-bar.risk{grid-column:1 / 5;background:rgba(201,110,90,.07);border-color:rgba(201,138,106,.3)}
+@media(max-width:860px){.stl-bar.tax,.stl-bar.risk{grid-column:1 / -1}}
+.stl-bar b{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--gold-lt)}
+.stl-bar.risk b{color:#D9A08C}
+.stl-bar i{font-style:normal;font-size:12px;color:var(--ivory-2);line-height:1.5;flex:1 1 220px;min-width:0}
+.stx-note{font-size:12px;color:var(--steel);line-height:1.65;margin-top:14px;max-width:86ch}
 </style>
 </head>
 <body>
@@ -675,6 +755,68 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
       </div>
     </div>
   </div>
+
+  <div class="stx reveal">
+    <div class="stx-h">
+      <p>Where the capital actually goes</p>
+      <span>Select a stage</span>
+    </div>
+
+    <div class="stx-flow">
+      <button class="stn" type="button" aria-expanded="false" aria-controls="stm1">
+        <span class="stn-in">
+          <span class="stn-k">Stage 01</span>
+          <span class="stn-t">Investor capital</span>
+          <span class="stn-s">Capital is committed to a specific well or drilling program, not to a fund that decides later.</span>
+        </span>
+        <span class="stn-more" id="stm1" hidden>Because the commitment is to identified wells, you can ask who is drilling them and what that operator has drilled before. That question is unavailable in most pooled structures.</span>
+      </button>
+
+      <button class="stn" type="button" aria-expanded="false" aria-controls="stm2">
+        <span class="stn-in">
+          <span class="stn-k">Stage 02</span>
+          <span class="stn-t">Working interest</span>
+          <span class="stn-s">You hold a direct, non-operated interest in the well itself as a capital partner.</span>
+        </span>
+        <span class="stn-more" id="stm2" hidden>Direct ownership is the reason the tax attributes of the drilling activity can reach you at all instead of stopping at a corporate entity. It is also why the risk reaches you directly.</span>
+      </button>
+
+      <button class="stn" type="button" aria-expanded="false" aria-controls="stm3">
+        <span class="stn-in">
+          <span class="stn-k">Stage 03</span>
+          <span class="stn-t">Drilling and operations</span>
+          <span class="stn-s">The operator permits, drills, completes and runs the well. You manage nothing.</span>
+        </span>
+        <span class="stn-more" id="stm3" hidden>This stage consumes most of the capital and sets most of the outcome. Operator quality is the single largest variable, which is why diligence starts with track record rather than with projections.</span>
+      </button>
+
+      <button class="stn" type="button" aria-expanded="false" aria-controls="stm4">
+        <span class="stn-in">
+          <span class="stn-k">Stage 04</span>
+          <span class="stn-t">Production outcomes</span>
+          <span class="stn-s">The well may produce, may underperform, or may fail to produce commercially.</span>
+        </span>
+        <span class="stn-more" id="stm4" hidden>Output is typically highest early and declines over time. Revenue depends on how the reservoir behaves and on prices nobody controls. No distribution is assured at any point.</span>
+      </button>
+    </div>
+
+    <div class="stx-layers">
+      <div class="stl">
+        <div class="stl-bar tax">
+          <b>Tax treatment attaches here</b>
+          <i>Costs arise across the first three stages. Whether any of that treatment reaches a given investor depends on structure, participation, timing and their own position.</i>
+        </div>
+      </div>
+      <div class="stl">
+        <div class="stl-bar risk">
+          <b>Risk spans all four</b>
+          <i>Capital is at risk from commitment through production, including the risk of total loss. Illiquidity applies throughout, as there is no exit once committed.</i>
+        </div>
+      </div>
+    </div>
+
+    <p class="stx-note">Simplified illustration of a non-operated working interest. It is not a representation of any specific project or program, and no production, distribution or tax outcome is promised or implied.</p>
+  </div>
 </div></section>
 
 <!-- ═══ CURRICULUM + SCALE ═══ -->
@@ -720,28 +862,66 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
 
 <!-- ═══ TAX CONSIDERATIONS ═══ -->
 <section><div class="wrap">
-  <div class="split a">
-    <div class="reveal">
-      <p class="eyebrow" style="margin-bottom:14px">Tax considerations</p>
-      <h2>Why this belongs in a conversation with <i>your CPA</i>.</h2>
-      <p class="body">Direct working interests are treated differently from most investments because the costs of drilling a well behave differently from buying an asset. Where that treatment applies, what it attaches to, and whether it reaches a given investor at all depends on the structure, the timing, and that investor&rsquo;s own position.</p>
-      <div class="mini">
-        <div><i>01</i><span><b>Cost categories differ.</b> Intangible costs, tangible equipment and depletion are three separate mechanisms with three separate sets of conditions.</span></div>
-        <div><i>02</i><span><b>Timing is substantive.</b> When capital is deployed relative to the drilling calendar and the tax year is frequently the whole question, not a detail.</span></div>
-        <div><i>03</i><span><b>Circumstances govern.</b> Two investors in the same well can face different outcomes depending on income type and what their return already contains.</span></div>
-        <div><i>04</i><span><b>It sits beside your CPA.</b> The session is designed to give you better questions to bring them, not to replace their advice.</span></div>
-      </div>
-      <p class="fineprint" style="text-align:left;margin-top:18px;max-width:58ch">No deduction, tax treatment, or outcome is promised or implied. Nothing here is tax advice. Consult your own CPA, tax adviser and legal counsel before making any decision.</p>
-    </div>
-    <figure class="shot reveal ord" style="margin-left:auto">
-      <picture>
-        <source srcset="media/tax-review.webp" type="image/webp">
-        <img src="media/tax-review.jpg" width="1536" height="628" loading="lazy" decoding="async"
-             alt="A desk with printed financial charts and statements, a calculator, a laptop and a reference book, with a person annotating the documents by hand.">
-      </picture>
-      <figcaption>Illustrative: tax planning review</figcaption>
-    </figure>
+  <div class="sec-head row">
+    <div><p class="eyebrow">Tax considerations</p>
+    <h2 class="sec" style="margin-top:12px">Why this belongs in a conversation with <i>your CPA</i>.</h2></div>
+    <p>Direct working interests are treated differently from most investments because the costs of drilling a well behave differently from buying an asset. Three separate mechanisms are involved, and each one carries its own conditions.</p>
   </div>
+
+  <div class="taxd reveal">
+    <div class="tx-cap">
+      <span>Starting point</span>
+      <b>Capital deployed into a direct working interest</b>
+    </div>
+    <div class="tx-rail"></div>
+
+    <div class="tx-cards">
+      <button class="txc" type="button" aria-expanded="false" aria-controls="txm1">
+        <span class="txc-top">
+          <span class="txc-k">Mechanism 01</span>
+          <span class="txc-n">Intangible costs</span>
+          <span class="txc-d">The spend that leaves nothing behind to sell: labor, fuel, drilling fluid, site preparation.</span>
+        </span>
+        <span class="txc-hint">Tap for detail</span>
+        <span class="txc-more" id="txm1" hidden>Attaches to the drilling work itself. Policy has long treated this category differently from equipment, because encouraging domestic drilling was a deliberate choice rather than an accident.</span>
+      </button>
+
+      <button class="txc" type="button" aria-expanded="false" aria-controls="txm2">
+        <span class="txc-top">
+          <span class="txc-k">Mechanism 02</span>
+          <span class="txc-n">Tangible costs</span>
+          <span class="txc-d">Equipment with salvage value: casing, wellhead, pumping units and surface hardware.</span>
+        </span>
+        <span class="txc-hint">Tap for detail</span>
+        <span class="txc-more" id="txm2" hidden>Attaches to physical assets that still exist after the work is done, so it is recovered over time rather than in one period. This is the category most often confused with the first.</span>
+      </button>
+
+      <button class="txc" type="button" aria-expanded="false" aria-controls="txm3">
+        <span class="txc-top">
+          <span class="txc-k">Mechanism 03</span>
+          <span class="txc-n">Depletion</span>
+          <span class="txc-d">An allowance recognizing that a reservoir is a finite resource being consumed as it produces.</span>
+        </span>
+        <span class="txc-hint">Tap for detail</span>
+        <span class="txc-more" id="txm3" hidden>Attaches to actual production rather than to spend, so it follows what the well does after it is drilled, not what was committed before.</span>
+      </button>
+    </div>
+
+    <div class="tx-rail"></div>
+    <div class="tx-gate">
+      <span>Four conditions govern whether any of it reaches a given investor</span>
+      <div class="tx-chips">
+        <div class="tx-chip"><b>Structure</b><i>Direct working interest, or a pooled or corporate wrapper</i></div>
+        <div class="tx-chip"><b>Participation</b><i>The nature of the investor's involvement</i></div>
+        <div class="tx-chip"><b>Timing</b><i>When capital is deployed against the drilling and tax calendar</i></div>
+        <div class="tx-chip"><b>Own position</b><i>Income type and what the return already contains</i></div>
+      </div>
+    </div>
+    <div class="tx-rail"></div>
+    <p class="tx-out">Two investors in the same well can face <b>different outcomes</b>. That is why no figure appears anywhere on this page.</p>
+  </div>
+
+  <p class="fineprint" style="text-align:left;margin-top:22px;max-width:84ch">Simplified illustration of how the categories relate. It is not tax advice and not a representation of any specific investment. No deduction, tax treatment, or outcome is promised or implied. Consult your own CPA, tax adviser and legal counsel before making any decision.</p>
 </div></section>
 
 <!-- ═══ INVESTMENT STRUCTURES & DRILLING OPERATIONS ═══ -->
@@ -1429,6 +1609,48 @@ details p{padding-bottom:17px;color:var(--ivory-2);font-size:15px;max-width:72ch
     });
   });
   render('att');
+})();
+</script>
+
+<script>
+(function(){
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.txc'));
+  cards.forEach(function(c){
+    c.addEventListener('click', function(){
+      var open = c.getAttribute('aria-expanded') === 'true';
+      cards.forEach(function(o){
+        o.setAttribute('aria-expanded','false');
+        var m = document.getElementById(o.getAttribute('aria-controls'));
+        if (m) m.hidden = true;
+      });
+      if (!open){
+        c.setAttribute('aria-expanded','true');
+        var m = document.getElementById(c.getAttribute('aria-controls'));
+        if (m) m.hidden = false;
+      }
+    });
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var nodes = Array.prototype.slice.call(document.querySelectorAll('.stn'));
+  nodes.forEach(function(n){
+    n.addEventListener('click', function(){
+      var open = n.getAttribute('aria-expanded') === 'true';
+      nodes.forEach(function(o){
+        o.setAttribute('aria-expanded','false');
+        var m = document.getElementById(o.getAttribute('aria-controls'));
+        if (m) m.hidden = true;
+      });
+      if (!open){
+        n.setAttribute('aria-expanded','true');
+        var m = document.getElementById(n.getAttribute('aria-controls'));
+        if (m) m.hidden = false;
+      }
+    });
+  });
 })();
 </script>
 </body>
